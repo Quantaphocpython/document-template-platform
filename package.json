@@ -1,0 +1,17 @@
+{
+  "name": "document-template-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:doc": "turbo dev --filter=project-1-doc-template",
+    "dev:slide": "turbo dev --filter=project-2-slide-template",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.11.10"
+  },
+  "packageManager": "pnpm@11.5.0"
+}

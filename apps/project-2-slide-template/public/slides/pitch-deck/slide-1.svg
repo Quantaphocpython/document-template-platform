@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <circle cx="800" cy="120" r="240" fill="#6366f1" opacity="0.15"/>
+  <circle cx="120" cy="450" r="180" fill="#a855f7" opacity="0.12"/>
+  
+  <rect x="80" y="80" width="130" height="30" rx="15" fill="url(#glow)"/>
+  <text x="145" y="100" font-size="12" font-family="sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">INVESTOR DECK</text>
+  
+  <text x="80" y="210" font-size="48" font-family="sans-serif" font-weight="900" fill="#ffffff">NEXUS AI CLOUD</text>
+  <text x="80" y="260" font-size="22" font-family="sans-serif" font-weight="500" fill="#818cf8">Nền Tảng Tự Động Hóa Quản Trị Văn Phòng Thông Minh</text>
+  
+  <line x1="80" y1="300" x2="400" y2="300" stroke="#475569" stroke-width="2"/>
+  
+  <text x="80" y="340" font-size="16" font-family="sans-serif" fill="#cbd5e1">Trình bày bởi: <strong>Trần Hoàng Quân</strong> - Founder &amp; CEO</text>
+  <text x="80" y="370" font-size="14" font-family="sans-serif" fill="#94a3b8">Vòng gọi vốn: Series Seed ($1.5M) • Tháng 10/2026</text>
+  
+  <rect x="80" y="440" width="800" height="2" fill="#334155"/>
+  <text x="80" y="470" font-size="12" font-family="sans-serif" fill="#64748b">CONFIDENTIAL • FOR ACCREDITED INVESTORS ONLY</text>
+  <text x="880" y="470" font-size="12" font-family="sans-serif" fill="#64748b" text-anchor="end">Slide 1 / 5</text>
+</svg>
+

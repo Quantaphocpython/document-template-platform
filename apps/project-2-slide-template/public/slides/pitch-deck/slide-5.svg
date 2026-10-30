@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  
+  <text x="80" y="80" font-size="14" font-family="sans-serif" font-weight="bold" fill="#6366f1">04 / ĐỘI NGŨ &amp; KÊU GỌI VỐN</text>
+  <text x="80" y="125" font-size="34" font-family="sans-serif" font-weight="800" fill="#ffffff">Đội Ngũ Thực Thi &amp; Mục Tiêu Vòng Seed</text>
+  
+  <!-- Founder Profile Card -->
+  <rect x="80" y="170" width="380" height="260" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="150" cy="240" r="45" fill="#6366f1"/>
+  <text x="150" y="248" font-size="20" font-family="sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">HQ</text>
+  <text x="220" y="235" font-size="20" font-family="sans-serif" font-weight="bold" fill="#ffffff">Trần Hoàng Quân</text>
+  <text x="220" y="258" font-size="14" font-family="sans-serif" fill="#818cf8">Founder &amp; Chief Architect</text>
+  
+  <text x="110" y="320" font-size="13" font-family="sans-serif" fill="#94a3b8">• 6+ năm kinh nghiệm phát triển Fullstack &amp; Hệ thống lớn.</text>
+  <text x="110" y="348" font-size="13" font-family="sans-serif" fill="#94a3b8">• Chuyên gia kiến trúc Cloud, Next.js và xử lý OpenXML.</text>
+  <text x="110" y="376" font-size="13" font-family="sans-serif" fill="#94a3b8">• Đã dẫn dắt nhiều dự án SaaS B2B chuyển đổi số.</text>
+  
+  <!-- The Ask Box -->
+  <rect x="500" y="170" width="380" height="260" rx="16" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="535" y="215" font-size="14" font-family="sans-serif" font-weight="bold" fill="#a5b4fc">KÊU GỌI ĐẦU TƯ (THE ASK)</text>
+  <text x="535" y="260" font-size="36" font-family="sans-serif" font-weight="900" fill="#ffffff">$1,500,000 USD</text>
+  <text x="535" y="295" font-size="14" font-family="sans-serif" fill="#c7d2fe">Vòng gọi vốn: Series Seed • Đổi lấy 15% Cổ phần</text>
+  
+  <!-- Fund Allocation -->
+  <rect x="535" y="325" width="310" height="8" rx="4" fill="#334155"/>
+  <rect x="535" y="325" width="170" height="8" rx="4" fill="#6366f1"/>
+  <rect x="705" y="325" width="90" height="8" rx="4" fill="#a855f7"/>
+  <rect x="795" y="325" width="50" height="8" rx="4" fill="#ec4899"/>
+  
+  <text x="535" y="360" font-size="12" font-family="sans-serif" fill="#cbd5e1">■ 55% Phát triển R&amp;D sản phẩm</text>
+  <text x="535" y="385" font-size="12" font-family="sans-serif" fill="#cbd5e1">■ 30% Tiếp thị &amp; Bán hàng (GTM)</text>
+  <text x="535" y="410" font-size="12" font-family="sans-serif" fill="#cbd5e1">■ 15% Dự phòng vận hành &amp; Pháp lý</text>
+  
+  <text x="880" y="490" font-size="12" font-family="sans-serif" fill="#64748b" text-anchor="end">Slide 5 / 5</text>
+</svg>
+

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  
+  <text x="80" y="80" font-size="14" font-family="sans-serif" font-weight="bold" fill="#6366f1">02 / QUY MÔ THỊ TRƯỜNG</text>
+  <text x="80" y="125" font-size="34" font-family="sans-serif" font-weight="800" fill="#ffffff">Cơ Hội Thị Trường &amp; Tốc Độ Tăng Trưởng</text>
+  
+  <circle cx="280" cy="300" r="140" fill="#1e1b4b" stroke="#4338ca" stroke-width="2"/>
+  <circle cx="280" cy="320" r="100" fill="#312e81" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="280" cy="340" r="60" fill="#4f46e5" stroke="#a5b4fc" stroke-width="2"/>
+  
+  <text x="280" y="210" font-size="14" font-family="sans-serif" font-weight="bold" fill="#a5b4fc" text-anchor="middle">TAM: $28B</text>
+  <text x="280" y="260" font-size="13" font-family="sans-serif" font-weight="bold" fill="#c7d2fe" text-anchor="middle">SAM: $4.2B</text>
+  <text x="280" y="345" font-size="14" font-family="sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">SOM: $350M</text>
+  
+  <!-- Right Breakdown Cards -->
+  <rect x="500" y="170" width="380" height="75" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="525" y="200" font-size="12" font-family="sans-serif" fill="#94a3b8">TAM (Total Addressable Market)</text>
+  <text x="525" y="228" font-size="18" font-family="sans-serif" font-weight="bold" fill="#ffffff">Thị trường Phần mềm Văn phòng Toàn cầu</text>
+  
+  <rect x="500" y="260" width="380" height="75" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="525" y="290" font-size="12" font-family="sans-serif" fill="#94a3b8">SAM (Serviceable Addressable Market)</text>
+  <text x="525" y="318" font-size="18" font-family="sans-serif" font-weight="bold" fill="#ffffff">Doanh nghiệp vừa và nhỏ (SMBs) Đông Nam Á</text>
+  
+  <rect x="500" y="350" width="380" height="75" rx="12" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="525" y="380" font-size="12" font-family="sans-serif" fill="#a5b4fc">SOM (Serviceable Obtainable Market)</text>
+  <text x="525" y="408" font-size="18" font-family="sans-serif" font-weight="bold" fill="#67e8f9">Mục tiêu 100.000 Doanh nghiệp trả phí (Year 3)</text>
+  
+  <text x="880" y="490" font-size="12" font-family="sans-serif" fill="#64748b" text-anchor="end">Slide 3 / 5</text>
+</svg>
+

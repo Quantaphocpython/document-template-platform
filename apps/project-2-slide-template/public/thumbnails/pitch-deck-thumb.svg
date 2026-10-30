@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bgGrad1)"/>
+  <circle cx="400" cy="50" r="140" fill="#6366f1" opacity="0.12" filter="blur(30px)"/>
+  <circle cx="80" cy="220" r="100" fill="#a855f7" opacity="0.1" filter="blur(20px)"/>
+  
+  <!-- Presentation elements -->
+  <rect x="40" y="40" width="80" height="20" rx="10" fill="url(#accent1)"/>
+  <text x="80" y="54" font-size="9" font-family="sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">SERIES SEED</text>
+  
+  <text x="40" y="105" font-size="24" font-family="sans-serif" font-weight="900" fill="#ffffff">PITCH DECK</text>
+  <text x="40" y="135" font-size="14" font-family="sans-serif" font-weight="500" fill="#94a3b8">Bản Thuyết Trình Gọi Vốn Khởi Nghiệp</text>
+  
+  <!-- Mini Slide Deck filmstrip badge -->
+  <rect x="40" y="180" width="400" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="52" y="190" width="48" height="30" rx="4" fill="#3b82f6"/>
+  <rect x="110" y="190" width="48" height="30" rx="4" fill="#6366f1"/>
+  <rect x="168" y="190" width="48" height="30" rx="4" fill="#8b5cf6"/>
+  <rect x="226" y="190" width="48" height="30" rx="4" fill="#a855f7"/>
+  <rect x="284" y="190" width="48" height="30" rx="4" fill="#ec4899"/>
+  <text x="390" y="210" font-size="11" font-family="sans-serif" font-weight="bold" fill="#38bdf8" text-anchor="middle">5 SLIDES</text>
+</svg>
+

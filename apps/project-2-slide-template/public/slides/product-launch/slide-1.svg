@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="plBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451a03"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#plBg)"/>
+  <circle cx="800" cy="120" r="230" fill="#f59e0b" opacity="0.15"/>
+  
+  <rect x="80" y="80" width="150" height="30" rx="15" fill="#f59e0b"/>
+  <text x="155" y="100" font-size="12" font-family="sans-serif" font-weight="bold" fill="#451a03" text-anchor="middle">GO-TO-MARKET</text>
+  
+  <text x="80" y="210" font-size="44" font-family="sans-serif" font-weight="900" fill="#ffffff">PRODUCT LAUNCH 2026</text>
+  <text x="80" y="260" font-size="22" font-family="sans-serif" font-weight="500" fill="#fde68a">Chiến Lược Ra Mắt Sản Phẩm Đột Phá &amp; Tiếp Cận Khách Hàng</text>
+  
+  <line x1="80" y1="300" x2="400" y2="300" stroke="#d97706" stroke-width="2"/>
+  
+  <text x="80" y="340" font-size="16" font-family="sans-serif" fill="#fef3c7">Chủ trì: <strong>Giám đốc Tiếp thị (CMO) &amp; Product Lead</strong></text>
+  <text x="80" y="370" font-size="14" font-family="sans-serif" fill="#fbbf24">Chiến dịch toàn quốc • Q4/2026</text>
+  
+  <rect x="80" y="440" width="800" height="2" fill="#b45309"/>
+  <text x="80" y="470" font-size="12" font-family="sans-serif" fill="#fde68a">CHIẾN DỊCH TĂNG TRƯỞNG • BẢO MẬT NỘI BỘ</text>
+  <text x="880" y="470" font-size="12" font-family="sans-serif" fill="#fde68a" text-anchor="end">Slide 1 / 5</text>
+</svg>
+

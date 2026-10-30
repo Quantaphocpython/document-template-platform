@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#022c22"/>
+  
+  <text x="80" y="80" font-size="14" font-family="sans-serif" font-weight="bold" fill="#34d399">01 / TỔNG QUAN CHIẾN LƯỢC</text>
+  <text x="80" y="125" font-size="34" font-family="sans-serif" font-weight="800" fill="#ffffff">Tóm Tắt Các Điểm Sáng Trọng Điểm (Highlights)</text>
+  
+  <rect x="80" y="170" width="250" height="250" rx="16" fill="#064e3b" stroke="#047857" stroke-width="1.5"/>
+  <text x="110" y="215" font-size="13" font-family="sans-serif" font-weight="bold" fill="#a7f3d0">TĂNG TRƯỞNG KHÁCH HÀNG</text>
+  <text x="110" y="260" font-size="38" font-family="sans-serif" font-weight="900" fill="#ffffff">+145%</text>
+  <text x="110" y="300" font-size="13" font-family="sans-serif" fill="#6ee7b7">Tăng từ 1.200 lên 2.940 doanh nghiệp trả phí trong quý.</text>
+  
+  <rect x="355" y="170" width="250" height="250" rx="16" fill="#064e3b" stroke="#047857" stroke-width="1.5"/>
+  <text x="385" y="215" font-size="13" font-family="sans-serif" font-weight="bold" fill="#a7f3d0">DOANH THU ARR</text>
+  <text x="385" y="260" font-size="38" font-family="sans-serif" font-weight="900" fill="#ffffff">$2.4M</text>
+  <text x="385" y="300" font-size="13" font-family="sans-serif" fill="#6ee7b7">Đạt 108% kế hoạch ngân sách quý do HĐQT giao phó.</text>
+  
+  <rect x="630" y="170" width="250" height="250" rx="16" fill="#064e3b" stroke="#047857" stroke-width="1.5"/>
+  <text x="660" y="215" font-size="13" font-family="sans-serif" font-weight="bold" fill="#a7f3d0">TỶ LỆ GIỮ CHÂN NET (NRR)</text>
+  <text x="660" y="260" font-size="38" font-family="sans-serif" font-weight="900" fill="#ffffff">124%</text>
+  <text x="660" y="300" font-size="13" font-family="sans-serif" fill="#6ee7b7">Mở rộng hợp đồng gói Enterprise thành công vượt bậc.</text>
+  
+  <text x="880" y="490" font-size="12" font-family="sans-serif" fill="#059669" text-anchor="end">Slide 2 / 5</text>
+</svg>
+

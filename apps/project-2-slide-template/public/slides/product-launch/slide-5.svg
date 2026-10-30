@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#451a03"/>
+  
+  <text x="80" y="80" font-size="14" font-family="sans-serif" font-weight="bold" fill="#f59e0b">04 / CHỈ SỐ THÀNH CÔNG (KPIS)</text>
+  <text x="80" y="125" font-size="34" font-family="sans-serif" font-weight="800" fill="#ffffff">Mục Tiêu Tăng Trưởng &amp; Hiệu Quả Đầu Tư (ROI)</text>
+  
+  <rect x="80" y="170" width="250" height="260" rx="16" fill="#78350f" stroke="#b45309" stroke-width="1.5"/>
+  <text x="110" y="215" font-size="13" font-family="sans-serif" font-weight="bold" fill="#fde68a">NGƯỜI DÙNG ĐĂNG KÝ MỚI</text>
+  <text x="110" y="260" font-size="38" font-family="sans-serif" font-weight="900" fill="#ffffff">50,000+</text>
+  <text x="110" y="300" font-size="13" font-family="sans-serif" fill="#fef3c7">Đạt được trong vòng 90 ngày đầu kể từ thời điểm mở cổng đăng ký.</text>
+  
+  <rect x="355" y="170" width="250" height="260" rx="16" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+  <text x="385" y="215" font-size="13" font-family="sans-serif" font-weight="bold" fill="#f59e0b">TỶ LỆ CHUYỂN ĐỔI (CVR)</text>
+  <text x="385" y="260" font-size="38" font-family="sans-serif" font-weight="900" fill="#ffffff">6.8%</text>
+  <text x="385" y="300" font-size="13" font-family="sans-serif" fill="#fef3c7">Tỷ lệ từ người dùng bản mẫu miễn phí nâng cấp lên bản Pro.</text>
+  
+  <rect x="630" y="170" width="250" height="260" rx="16" fill="#78350f" stroke="#b45309" stroke-width="1.5"/>
+  <text x="660" y="215" font-size="13" font-family="sans-serif" font-weight="bold" fill="#fde68a">HIỆU QUẢ QUẢNG CÁO (ROAS)</text>
+  <text x="660" y="260" font-size="38" font-family="sans-serif" font-weight="900" fill="#ffffff">3.5x</text>
+  <text x="660" y="300" font-size="13" font-family="sans-serif" fill="#fef3c7">Mỗi 1 USD ngân sách tiếp thị tạo ra 3.5 USD doanh thu kỳ hạn năm.</text>
+  
+  <text x="880" y="490" font-size="12" font-family="sans-serif" fill="#d97706" text-anchor="end">Slide 5 / 5</text>
+</svg>
+

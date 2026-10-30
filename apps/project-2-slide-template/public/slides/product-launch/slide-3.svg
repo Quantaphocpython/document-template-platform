@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#451a03"/>
+  
+  <text x="80" y="80" font-size="14" font-family="sans-serif" font-weight="bold" fill="#f59e0b">02 / KÊNH TIẾP THỊ &amp; TRUYỀN THÔNG</text>
+  <text x="80" y="125" font-size="34" font-family="sans-serif" font-weight="800" fill="#ffffff">Phân Bổ Kênh Đa Điểm Chạm (Omnichannel)</text>
+  
+  <!-- 3 channel blocks -->
+  <rect x="80" y="170" width="250" height="260" rx="16" fill="#78350f" stroke="#b45309" stroke-width="1.5"/>
+  <rect x="110" y="200" width="60" height="24" rx="12" fill="#f59e0b"/>
+  <text x="140" y="217" font-size="12" font-family="sans-serif" font-weight="bold" fill="#451a03" text-anchor="middle">45%</text>
+  <text x="110" y="255" font-size="18" font-family="sans-serif" font-weight="bold" fill="#ffffff">Content &amp; SEO</text>
+  <text x="110" y="290" font-size="13" font-family="sans-serif" fill="#fde68a">• Thư viện 500 bài viết hướng dẫn thể thức biểu mẫu.</text>
+  <text x="110" y="325" font-size="13" font-family="sans-serif" fill="#fde68a">• Lượng truy cập Organic Search dự kiến 250K/tháng.</text>
+  
+  <rect x="355" y="170" width="250" height="260" rx="16" fill="#78350f" stroke="#b45309" stroke-width="1.5"/>
+  <rect x="385" y="200" width="60" height="24" rx="12" fill="#f59e0b"/>
+  <text x="415" y="217" font-size="12" font-family="sans-serif" font-weight="bold" fill="#451a03" text-anchor="middle">35%</text>
+  <text x="385" y="255" font-size="18" font-family="sans-serif" font-weight="bold" fill="#ffffff">Performance Ads</text>
+  <text x="385" y="290" font-size="13" font-family="sans-serif" fill="#fde68a">• Chiến dịch Google Search, LinkedIn Ads B2B.</text>
+  <text x="385" y="325" font-size="13" font-family="sans-serif" fill="#fde68a">• Chi phí CAC mục tiêu dưới $18 / doanh nghiệp đăng ký.</text>
+  
+  <rect x="630" y="170" width="250" height="260" rx="16" fill="#78350f" stroke="#b45309" stroke-width="1.5"/>
+  <rect x="660" y="200" width="60" height="24" rx="12" fill="#f59e0b"/>
+  <text x="690" y="217" font-size="12" font-family="sans-serif" font-weight="bold" fill="#451a03" text-anchor="middle">20%</text>
+  <text x="660" y="255" font-size="18" font-family="sans-serif" font-weight="bold" fill="#ffffff">Partnerships &amp; PR</text>
+  <text x="660" y="290" font-size="13" font-family="sans-serif" fill="#fde68a">• Hợp tác cùng các vườn ươm khởi nghiệp và hiệp hội SME.</text>
+  <text x="660" y="325" font-size="13" font-family="sans-serif" fill="#fde68a">• Bài viết trên Tech in Asia, Cafebiz, VnEconomy.</text>
+  
+  <text x="880" y="490" font-size="12" font-family="sans-serif" fill="#d97706" text-anchor="end">Slide 3 / 5</text>
+</svg>
+
