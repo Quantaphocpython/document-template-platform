@@ -18,7 +18,7 @@ flowchart LR
 
 ## 2. CHI TIẾT CÁC CỘT MỐC PHÁT HÀNH (RELEASE MILESTONES)
 
-### 🟢 Giai đoạn 1: Phiên bản Hiện tại (v1.0.0 - Production-Ready MVP)
+### Giai đoạn 1: Phiên bản Hiện tại (v1.0.0 - Production-Ready MVP)
 *Mục tiêu*: Phát hành phiên bản MVP v1.0.0 hoàn chỉnh, độc lập và sẵn sàng vận hành thực tế.
 - [x] Thư viện 3 bộ template PowerPoint chuẩn mực (Pitch Deck gọi vốn, Báo cáo quý, Kế hoạch ra mắt sản phẩm) gồm 15 trang slide 16:9 sắc nét.
 - [x] Tìm kiếm thời gian thực và phân loại bộ slide theo chuyên ngành.
@@ -32,7 +32,7 @@ flowchart LR
 
 ---
 
-### 🟡 Giai đoạn 2: Tích hợp Trình Biên Tập Slide Canvas Trực Tuyến (v1.1.0 - In-browser Slide Editor)
+### Giai đoạn 2: Tích hợp Trình Biên Tập Slide Canvas Trực Tuyến (v1.1.0 - In-browser Slide Editor)
 *Thời gian dự kiến*: Quý 1 / 2027  
 *Mục tiêu*: Cho phép người dùng chỉnh sửa chữ, màu sắc và hình ảnh trực tiếp trên trình duyệt mà không cần cài đặt phần mềm ngoài.
 
@@ -60,7 +60,7 @@ flowchart LR
 
 ---
 
-### 🔵 Giai đoạn 3: Tích hợp Microsoft Office Online Doanh Nghiệp (v2.0.0 - WOPI Integration)
+### Giai đoạn 3: Tích hợp Microsoft Office Online Doanh Nghiệp (v2.0.0 - WOPI Integration)
 *Thời gian dự kiến*: Quý 2 / 2027  
 *Mục tiêu*: Đạt độ tương thích 100% với định dạng của Microsoft bằng kiến trúc Enterprise Standard.
 
@@ -85,7 +85,7 @@ sequenceDiagram
 
 ---
 
-### 🟣 Giai đoạn 4: Trợ lý AI Sinh Slide Thông Minh (v2.5.0 - AI Text-to-Slide)
+### Giai đoạn 4: Trợ lý AI Sinh Slide Thông Minh (v2.5.0 - AI Text-to-Slide)
 *Thời gian dự kiến*: Quý 3 / 2027  
 *Mục tiêu*: Tạo bài thuyết trình hoàn chỉnh từ văn bản thô bằng AI.
 - [ ] Nhập văn bản đề cương hoặc tài liệu Word $\rightarrow$ AI tự động bóc tách thành dàn ý bài thuyết trình (5-10 slide).
@@ -101,4 +101,10 @@ sequenceDiagram
 | **Xung đột sửa đổi file mẫu PPTX gốc** | **Nghiêm trọng** | Thấp | Đã áp dụng cơ chế **File Stream Copy** sang `storage/presentations/`. File gốc mang thuộc tính Read-only, được kiểm chứng qua `tests/verify-all.ts`. |
 | **Lệch font chữ khi mở PPTX trên máy tính khác** | Trung bình | Trung bình | Cấu hình sử dụng các font chữ chuẩn hệ thống quốc tế (Calibri, Arial, Helvetica) được hỗ trợ đồng bộ trên Windows, macOS và Linux. |
 | **Độ trễ khi chuyển đổi slide nhiều ảnh** | Thấp | Thấp | Đã tối ưu hóa sử dụng ảnh vector SVG nhẹ (~15KB/slide), load tức thì không tiêu tốn băng thông. |
+
+---
+
+## 4. CHIẾN LƯỢC KIẾN TRÚC BACKEND & KẾ HOẠCH BÓC TÁCH (BACKEND DECOUPLING ROADMAP)
+- **Thiết kế hiện tại (All-in-one Monorepo)**: Backend hiện được tích hợp trực tiếp qua Next.js Route Handlers (`src/app/api/`) và Domain Services (`src/server/services/`). Thiết kế này tối ưu hóa khả năng tự cấp tự túc của Monorepo, giúp khởi chạy tức thì và kiểm thử tự động đạt độ tin cậy 100% mà không đòi hỏi bất kỳ Database hay service phụ trợ nào.
+- **Kế hoạch bóc tách khi mở rộng (Phase 3-4)**: Toàn bộ domain services (`presentation.service.ts`, `pptx-generator.service.ts`, `storage.service.ts`) được thiết kế tách rời hoàn toàn, sẵn sàng trích xuất thành một Dedicated Backend Microservice độc lập (NestJS / Go) và kết nối Cloud Storage (S3) / Cloud Database (PostgreSQL). Tầng Client sử dụng `PresentationApiService` kế thừa `BaseApiService` từ package `core`, do đó chỉ cần cấu hình lại `NEXT_PUBLIC_BASE_API` là hoàn tất kết nối mà hoàn toàn không cần refactor giao diện người dùng.
 

@@ -19,6 +19,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "test": "node tests/core.test.ts",
     "dev": "tsc -w"
   },
   "dependencies": {

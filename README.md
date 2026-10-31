@@ -7,7 +7,7 @@ Hệ thống thư viện mẫu tài liệu văn phòng (Văn bản DOCX & Bài t
 
 ---
 
-## 📁 CẤU TRÚC TỔNG THỂ WORKSPACE
+## CẤU TRÚC TỔNG THỂ WORKSPACE
 
 Hệ thống được tổ chức thành 2 sản phẩm hoàn chỉnh, độc lập và có khả năng chạy thực tế theo mô hình kiến trúc chuẩn hóa cấp doanh nghiệp:
 
@@ -18,6 +18,8 @@ preview-product/
 ├── package.json                    # Workspace scripts (pnpm dev:doc, dev:slide, test, build, lint)
 │
 ├── docs/                           # TÀI LIỆU TOÀN CỤC WORKSPACE
+│   ├── REQUIREMENTS.md             # Bảng tổng hợp toàn bộ yêu cầu nền tảng (Consolidated Specs)
+│   ├── ROADMAP.md                  # Lộ trình phát triển nền tảng tổng thể (Master Roadmap)
 │   └── PRODUCT_SPEC.md             # Đặc tả sản phẩm & tiêu chuẩn kỹ thuật nền tảng
 │
 ├── packages/                       # THƯ VIỆN CHIA SẺ DÙNG CHUNG (SHARED WORKSPACE PACKAGES)
@@ -76,7 +78,7 @@ preview-product/
 
 ---
 
-## ⚡ HƯỚNG DẪN KHỞI CHẠY & KIỂM THỬ BẰNG PNPM
+## HƯỚNG DẪN KHỞI CHẠY & KIỂM THỬ BẰNG PNPM
 
 Dự án được quản lý bằng **pnpm workspace**. Bạn có thể cài đặt và kiểm thử toàn bộ dự án từ thư mục gốc chỉ bằng một lệnh duy nhất:
 
@@ -100,29 +102,37 @@ pnpm install
   # -> Mở trình duyệt: http://localhost:3001 (hoặc cổng do Next.js tự gán)
   ```
 
-### 3. Chạy kiểm thử tự động toàn bộ Workspace (Automated Tests):
+### 3. Xem & Thử nghiệm Swagger API Documentation (OpenAPI 3.0):
+Cả hai ứng dụng đều tích hợp sẵn giao diện **Swagger UI tương tác trực tiếp**:
+* **Sản phẩm 1 (Mẫu văn bản)**: `http://localhost:3000/api-docs` (OpenAPI Spec JSON: `/api/openapi.json`)
+* **Sản phẩm 2 (Mẫu slide)**: `http://localhost:3001/api-docs` (OpenAPI Spec JSON: `/api/openapi.json`)
+*(Hỗ trợ tính năng **"Try it out"** cho phép gọi thử API, kiểm tra request/response schema trực tiếp trên trình duyệt).*
+
+### 4. Chạy kiểm thử tự động toàn bộ Workspace (Automated Tests):
 ```bash
 pnpm test
 ```
 *Tất cả kiểm thử tự động kiểm tra nạp dữ liệu, tìm kiếm/lọc, tính bất biến (Immutability) và cấu trúc nhị phân file Word/PowerPoint đều vượt qua 100%.*
 
-### 4. Kiểm tra Typecheck & ESLint:
+### 5. Kiểm tra Typecheck & ESLint:
 ```bash
 pnpm lint
 ```
 
-### 5. Build kiểm tra sản phẩm xuất xưởng (Production Build):
+### 6. Build kiểm tra sản phẩm xuất xưởng (Production Build):
 ```bash
 pnpm build
 ```
 
 ---
 
-## 📑 MỤC LỤC TÀI LIỆU KỸ THUẬT (DOCUMENTATION INDEX)
+## MỤC LỤC TÀI LIỆU KỸ THUẬT (DOCUMENTATION INDEX)
 
 Tất cả tài liệu được chuẩn bị đầy đủ, chuẩn mực trước và sau khi triển khai mã nguồn:
 
-### Tài liệu chung toàn nền tảng:
+### Tài liệu chung toàn nền tảng (Platform Master Docs):
+- **[REQUIREMENTS.md](docs/REQUIREMENTS.md)**: Bảng tổng hợp toàn bộ yêu cầu nền tảng (Consolidated Requirements Specification).
+- **[ROADMAP.md](docs/ROADMAP.md)**: Lộ trình phát triển nền tảng tổng thể (Master Platform Roadmap).
 - **[PRODUCT_SPEC.md](docs/PRODUCT_SPEC.md)**: Đặc tả sản phẩm & tiêu chuẩn kỹ thuật nền tảng (Product Specification).
 
 ### Bộ tài liệu Phân hệ 1 (Thư viện mẫu văn bản):
@@ -145,22 +155,22 @@ Tất cả tài liệu được chuẩn bị đầy đủ, chuẩn mực trướ
 
 ---
 
-## 🌟 ĐỐI CHIẾU TIÊU CHUẨN TÍNH NĂNG ĐÃ HOÀN THÀNH
+## ĐỐI CHIẾU TIÊU CHUẨN TÍNH NĂNG ĐÃ HOÀN THÀNH
 
 | Tiêu chuẩn tính năng | Phân hệ 1 (Văn bản) | Phân hệ 2 (Trình chiếu) | Trạng thái |
 | :--- | :--- | :--- | :---: |
-| **Giao diện thư viện** | Dạng lưới thẻ (Grid card), Thumbnail SVG, tên, mô tả, danh mục, tags. | Lưới thẻ 16:9, Thumbnail bìa, tổng số slide, danh mục. | ✅ Đã hoàn thành 100% |
-| **Tìm kiếm & Phân loại** | Tìm kiếm thời gian thực theo từ khóa; Lọc danh mục với badge số lượng. | Tìm kiếm thời gian thực; Lọc phân loại bộ slide. | ✅ Đã hoàn thành 100% |
-| **Xem trước (Preview)** | Modal xem trước mô phỏng khổ giấy in A4, hiển thị định dạng thực tế. | Trình duyệt Slide Deck Cinema 16:9 kèm Filmstrip thumbnail cuộn chọn slide. | ✅ Đã hoàn thành 100% |
-| **Bảo vệ mẫu gốc (Immutability)** | Cơ chế Copy-on-Create: Nhân bản nội dung sang UUID mới, mẫu gốc Read-only. | Cơ chế Copy-on-Create: Nhân bản vật lý file PPTX, mẫu gốc Read-only. | ✅ Đã hoàn thành 100% (Có Unit Test) |
-| **Chỉnh sửa / Sử dụng** | Trình soạn thảo văn bản tích hợp (Toolbar H1/H2/H3, Bold, Italic, Table...). | Luồng tạo bản sao độc lập, hiển thị thông số và sẵn sàng tải về. | ✅ Đã hoàn thành 100% |
-| **Tải xuống / Xuất file** | Xuất và tải xuống file Microsoft Word **.docx** nguyên bản. | Tải xuống file PowerPoint **.pptx** mở được trên Office/Keynote/Google Slides. | ✅ Đã hoàn thành 100% |
-| **Bộ dữ liệu mẫu** | **5 bộ mẫu chuẩn**: Hợp đồng lao động, Đơn nghỉ phép, Biên bản họp, Báo cáo tiến độ, Đề xuất dự án. | **3 bộ slide chuẩn (15 slides)**: Pitch Deck gọi vốn, Báo cáo quý doanh nghiệp, Kế hoạch ra mắt sản phẩm. | ✅ Đã hoàn thành 100% |
-| **Xử lý trạng thái UX** | Skeleton loading, Empty state (khi không tìm thấy), Toast thông báo, 404 page. | Skeleton loading, Empty state, Filmstrip navigation, Modal xác nhận. | ✅ Đã hoàn thành 100% |
+| **Giao diện thư viện** | Dạng lưới thẻ (Grid card), Thumbnail SVG, tên, mô tả, danh mục, tags. | Lưới thẻ 16:9, Thumbnail bìa, tổng số slide, danh mục. | Đã hoàn thành 100% |
+| **Tìm kiếm & Phân loại** | Tìm kiếm thời gian thực theo từ khóa; Lọc danh mục với badge số lượng. | Tìm kiếm thời gian thực; Lọc phân loại bộ slide. | Đã hoàn thành 100% |
+| **Xem trước (Preview)** | Modal xem trước mô phỏng khổ giấy in A4, hiển thị định dạng thực tế. | Trình duyệt Slide Deck Cinema 16:9 kèm Filmstrip thumbnail cuộn chọn slide. | Đã hoàn thành 100% |
+| **Bảo vệ mẫu gốc (Immutability)** | Cơ chế Copy-on-Create: Nhân bản nội dung sang UUID mới, mẫu gốc Read-only. | Cơ chế Copy-on-Create: Nhân bản vật lý file PPTX, mẫu gốc Read-only. | Đã hoàn thành 100% (Có Unit Test) |
+| **Chỉnh sửa / Sử dụng** | Trình soạn thảo văn bản tích hợp (Toolbar H1/H2/H3, Bold, Italic, Table...). | Luồng tạo bản sao độc lập, hiển thị thông số và sẵn sàng tải về. | Đã hoàn thành 100% |
+| **Tải xuống / Xuất file** | Xuất và tải xuống file Microsoft Word **.docx** nguyên bản. | Tải xuống file PowerPoint **.pptx** mở được trên Office/Keynote/Google Slides. | Đã hoàn thành 100% |
+| **Bộ dữ liệu mẫu** | **5 bộ mẫu chuẩn**: Hợp đồng lao động, Đơn nghỉ phép, Biên bản họp, Báo cáo tiến độ, Đề xuất dự án. | **3 bộ slide chuẩn (15 slides)**: Pitch Deck gọi vốn, Báo cáo quý doanh nghiệp, Kế hoạch ra mắt sản phẩm. | Đã hoàn thành 100% |
+| **Xử lý trạng thái UX** | Skeleton loading, Empty state (khi không tìm thấy), Toast thông báo, 404 page. | Skeleton loading, Empty state, Filmstrip navigation, Modal xác nhận. | Đã hoàn thành 100% |
 
 ---
 
-## 🔒 NGUYÊN TẮC BẢO TOÀN MẪU GỐC (TEMPLATE IMMUTABILITY)
+## NGUYÊN TẮC BẢO TOÀN MẪU GỐC (TEMPLATE IMMUTABILITY)
 
 Để đáp ứng tuyệt đối yêu cầu cốt lõi: *"Việc tạo tài liệu mới không được làm thay đổi file template gốc"*:
 1. **Phân vùng lưu trữ vật lý**:
@@ -173,7 +183,7 @@ Tất cả tài liệu được chuẩn bị đầy đủ, chuẩn mực trướ
 
 ---
 
-## 🛠️ THƯ VIỆN BÊN THỨ 3 & GIẤY PHÉP (THIRD-PARTY LICENSES)
+## THƯ VIỆN BÊN THỨ 3 & GIẤY PHÉP (THIRD-PARTY LICENSES)
 
 Toàn bộ thư viện sử dụng đều thuộc mã nguồn mở tiêu chuẩn:
 - **Next.js & React**: Giấy phép MIT.
@@ -187,8 +197,9 @@ Toàn bộ thư viện sử dụng đều thuộc mã nguồn mở tiêu chuẩn
 
 ---
 
-## 🏢 TRIẾT LÝ PHÁT TRIỂN & CHUẨN MỰC KỸ THUẬT
+## TRIẾT LÝ PHÁT TRIỂN & CHUẨN MỰC KỸ THUẬT
 
 - **Kiến trúc bền vững**: Định hướng Domain-Driven & Feature-Driven giúp hệ thống dễ dàng mở rộng, cô lập nghiệp vụ và phân tách rõ ràng trách nhiệm giữa Frontend, Backend và Shared Packages.
 - **Tính toàn vẹn dữ liệu**: Đặt tính bất biến (Immutability) và bảo mật quyền ghi làm ưu tiên cao nhất trong quá trình sao chép và xuất bản tài liệu văn phòng.
 - **Zero-Configuration**: Triển khai thiết kế không phụ thuộc cơ sở dữ liệu bên ngoài, sẵn sàng khởi chạy và kiểm thử ngay lập tức trên mọi môi trường chuẩn.
+- **Chiến lược Backend & Khả năng Bóc tách (Decoupling Ready)**: Giai đoạn hiện tại sử dụng Next.js Route Handlers (BFF) kết hợp Domain Services để toàn bộ Monorepo tự cấp tự túc, giúp việc chạy thử, kiểm thử tự động và review đạt tốc độ tối đa. Hệ thống tuân thủ chặt chẽ Data Access Layer, sẵn sàng bóc tách thành Dedicated Standalone Backend (NestJS / Go) và Cloud DB khi mở rộng quy mô mà không cần refactor giao diện.

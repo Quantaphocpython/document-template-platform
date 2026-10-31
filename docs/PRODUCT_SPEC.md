@@ -59,3 +59,7 @@ Cung cấp thư viện các bộ slide thuyết trình chuyên nghiệp định 
 ### 4.2. Độ tin cậy & Kiểm thử
 - 100% các chức năng cốt lõi (Nạp danh mục, Tìm kiếm/Lọc, Sao chép độc lập, Tính bất biến của Mẫu gốc, Xuất file Word/PowerPoint chuẩn OpenXML) đều được kiểm thử tự động qua bộ test script `pnpm test`.
 
+### 4.3. Chiến lược Kiến trúc Backend & Lộ trình Bóc tách (Backend Decoupling Strategy)
+- **Tối ưu hóa giai đoạn MVP**: Backend hiện tại được triển khai trực tiếp bằng Next.js Route Handlers kết hợp Domain Services (`src/server/services/`). Thiết kế này nhằm mục đích đóng gói toàn bộ hệ thống trong một Monorepo tự vận hành (Zero-Configuration), giúp việc cài đặt, khởi chạy, kiểm thử tự động (Unit / E2E test) và đánh giá diễn ra nhanh chóng, mượt mà mà không phụ thuộc vào hạ tầng hay database bên ngoài.
+- **Khả năng bóc tách linh hoạt (Future Microservices Migration)**: Khi sản phẩm đi vào giai đoạn sản xuất quy mô lớn, toàn bộ tầng `src/server/services/` đã được thiết kế tuân thủ nguyên tắc Dependency Inversion, sẵn sàng bóc tách thành Dedicated Standalone Backend (NestJS / Go / Fastify). Phía Frontend sử dụng `BaseApiService` tập trung trong package `core`, do đó chỉ cần đổi `NEXT_PUBLIC_BASE_API` là hoàn tất kết nối mà không cần refactor bất kỳ component giao diện nào.
+

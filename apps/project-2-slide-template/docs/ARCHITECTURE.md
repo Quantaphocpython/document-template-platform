@@ -108,3 +108,9 @@ Trong quá trình thiết kế hệ thống xử lý tệp tin trình chiếu Po
    - Kiến trúc chuẩn doanh nghiệp (Enterprise Standard).
    - Nhúng trực tiếp iframe PowerPoint Online của Microsoft thông qua WOPI host do Backend cung cấp. Đảm bảo tính tương thích 100% không làm suy giảm chất lượng slide.
 
+---
+
+## 5. Chiến lược Kiến trúc Backend & Lộ trình Bóc tách (Backend Migration Roadmap)
+- **Thiết kế hiện tại (All-in-one Monorepo)**: Backend hiện được tích hợp trực tiếp qua Next.js Route Handlers (`src/app/api/`) và Domain Services (`src/server/services/`). Thiết kế này tối ưu hóa khả năng tự cấp tự túc của Monorepo, giúp khởi chạy tức thì và kiểm thử tự động đạt độ tin cậy 100% mà không đòi hỏi bất kỳ Database hay service phụ trợ nào.
+- **Lộ trình bóc tách (Decoupling Ready)**: Khi mở rộng quy mô, toàn bộ domain services (`presentation.service.ts`, `pptx-generator.service.ts`, `storage.service.ts`) được thiết kế tách rời hoàn toàn, sẵn sàng trích xuất thành một Dedicated Backend Microservice độc lập (NestJS / Go) và kết nối Cloud Storage (S3) / Cloud Database (PostgreSQL). Tầng Client sử dụng `PresentationApiService` kế thừa `BaseApiService` từ package `core`, do đó chỉ cần cấu hình lại `NEXT_PUBLIC_BASE_API` là hoàn tất kết nối mà hoàn toàn không cần refactor giao diện người dùng.
+

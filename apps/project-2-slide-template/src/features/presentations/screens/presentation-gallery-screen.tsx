@@ -1,7 +1,8 @@
 'use client';
 
+import { BookOpen, FolderX, Presentation, Search, Sparkles, X } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
-import { Search, X, FolderX, Sparkles, Presentation } from 'lucide-react';
 import { Button, ButtonSize, ButtonVariant, Input, Skeleton } from 'ui';
 import { CategoryFilter } from '../components/category-filter';
 import { PresentationCard } from '../components/presentation-card';
@@ -45,15 +46,22 @@ export const PresentationGalleryScreen: React.FC = () => {
           </p>
         </div>
 
-        {/* Global Stats Counter */}
-        <div className="flex items-center gap-4 bg-slate-50 px-4 py-3 rounded-2xl border border-slate-200 text-xs">
-          <div className="flex items-center gap-2 text-slate-700">
+        {/* Global Stats & API Docs Action */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2 bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200 text-xs text-slate-700">
             <Presentation className="w-4 h-4 text-indigo-600" />
-            <span>Tổng số bộ slide khả dụng:</span>
+            <span>Tổng số bộ slide:</span>
             <strong className="text-sm font-bold text-slate-900 font-mono">
               {templates.length}
             </strong>
           </div>
+
+          <Link href="/api-docs">
+            <Button variant={ButtonVariant.OUTLINE} size={ButtonSize.SM}>
+              <BookOpen className="w-4 h-4 mr-1.5 text-indigo-600" />
+              Swagger API Docs
+            </Button>
+          </Link>
         </div>
       </div>
 

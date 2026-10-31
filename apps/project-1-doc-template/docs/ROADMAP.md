@@ -18,7 +18,7 @@ flowchart LR
 
 ## 2. CHI TIẾT CÁC CỘT MỐC PHÁT HÀNH (RELEASE MILESTONES)
 
-### 🟢 Giai đoạn 1: Phiên bản Hiện tại (v1.0.0 - Production-Ready MVP)
+### Giai đoạn 1: Phiên bản Hiện tại (v1.0.0 - Production-Ready MVP)
 *Mục tiêu*: Phát hành phiên bản MVP v1.0.0 hoàn chỉnh, độc lập và sẵn sàng vận hành thực tế.
 - [x] Thư viện 5 biểu mẫu văn phòng chuẩn hóa (Hợp đồng, Đơn từ, Biên bản, Báo cáo, Đề xuất).
 - [x] Bộ lọc theo 5 danh mục nghiệp vụ và tìm kiếm thời gian thực theo từ khóa/tags.
@@ -31,7 +31,7 @@ flowchart LR
 
 ---
 
-### 🟡 Giai đoạn 2: Nâng cấp Trải nghiệm & Phiên bản hóa (v1.1.0 - Collaboration & Versioning)
+### Giai đoạn 2: Nâng cấp Trải nghiệm & Phiên bản hóa (v1.1.0 - Collaboration & Versioning)
 *Thời gian dự kiến*: Quý 1 / 2027  
 *Mục tiêu*: Hỗ trợ nhóm làm việc cộng tác và quản lý lịch sử chỉnh sửa.
 - [ ] **Lịch sử Phiên bản (Document Version History)**:
@@ -47,7 +47,7 @@ flowchart LR
 
 ---
 
-### 🔵 Giai đoạn 3: Trợ lý AI & Quy trình Phê duyệt (v2.0.0 - AI Smart Office & Workflows)
+### Giai đoạn 3: Trợ lý AI & Quy trình Phê duyệt (v2.0.0 - AI Smart Office & Workflows)
 *Thời gian dự kiến*: Quý 2 / 2027  
 *Mục tiêu*: Tối ưu hóa năng suất doanh nghiệp bằng trí tuệ nhân tạo.
 - [ ] **Trợ lý AI Điền Mẫu Tự Động (AI Autofill Assistant)**:
@@ -59,7 +59,7 @@ flowchart LR
 
 ---
 
-### 🟣 Giai đoạn 4: Mở rộng Đám mây & Chuẩn Doanh Nghiệp (v2.5.0 - Enterprise Cloud)
+### Giai đoạn 4: Mở rộng Đám mây & Chuẩn Doanh Nghiệp (v2.5.0 - Enterprise Cloud)
 *Thời gian dự kiến*: Quý 3 / 2027  
 *Mục tiêu*: Tích hợp hệ sinh thái lưu trữ đám mây của doanh nghiệp.
 - [ ] Tích hợp đồng bộ Google Drive, OneDrive và Nextcloud.
@@ -75,4 +75,10 @@ flowchart LR
 | **Xung đột ghi đè mẫu gốc (Template Mutation)** | **Nghiêm trọng** | Thấp | Đã áp dụng cơ chế **Physical Isolation** và **Deep Copy** tại `DocumentService`. Kiểm tra tự động bằng unit test trong CI/CD. |
 | **Lệch style khi xuất file DOCX trên Word cũ** | Trung bình | Trung bình | Sử dụng thư viện `docx` tạo tệp OpenXML chuẩn quốc tế theo tiêu chuẩn ISO/IEC 29500, đảm bảo tính tương thích từ Word 2013 đến Microsoft 365. |
 | **Mất dữ liệu khi người dùng thoát đột ngột** | Trung bình | Trung bình | Đã thiết kế state `hasUnsavedChanges` cảnh báo trước khi rời trang và lộ trình bổ sung Auto-save ngầm. |
+
+---
+
+## 4. CHIẾN LƯỢC KIẾN TRÚC BACKEND & KẾ HOẠCH BÓC TÁCH (BACKEND DECOUPLING ROADMAP)
+- **Thiết kế hiện tại (All-in-one Monorepo)**: Tận dụng trực tiếp Next.js Route Handlers (`src/app/api/`) và Domain Services (`src/server/services/`) để hệ thống tự vận hành (Zero-Configuration), giúp việc khởi chạy và kiểm thử tự động đạt tốc độ tức thì mà không cần cài đặt Database hay service phụ trợ.
+- **Kế hoạch bóc tách khi mở rộng (Phase 3-4)**: Tầng nghiệp vụ `src/server/services/` sẵn sàng chuyển đổi thành Dedicated Standalone Backend Microservice (NestJS / Go). Tầng Client đã trừu tượng hóa qua `DocumentApiService` kế thừa `BaseApiService` từ package `core`, do đó chỉ cần cấu hình lại `NEXT_PUBLIC_BASE_API` là kết nối ngay mà hoàn toàn không cần refactor giao diện người dùng.
 

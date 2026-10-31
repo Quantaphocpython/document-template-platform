@@ -59,5 +59,5 @@ Xây dựng một ứng dụng thư viện mẫu văn bản hoàn chỉnh, cho p
 ### Giai đoạn 4: Kiểm thử, Tối ưu & Hoàn thiện Tài liệu
 - [ ] Kiểm tra tính toàn vẹn: Đảm bảo sau khi chỉnh sửa tài liệu, template gốc hoàn toàn không bị ảnh hưởng.
 - [ ] Kiểm tra các trạng thái biên: Không có kết quả tìm kiếm, template ID không tồn tại, lỗi lưu.
-- [ ] Viết tài liệu README, Architecture, API spec chuẩn bị cho người chấm bài.
+- [ ] Viết tài liệu README, Architecture, API spec chuẩn bị cho việc chuyển giao, tích hợp và triển khai hệ thống.
 

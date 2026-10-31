@@ -1,7 +1,8 @@
 'use client';
 
+import { BookOpen, CheckCircle2, FileText, FolderX, Search, Sparkles, X } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
-import { Search, X, FolderX, Sparkles, FileText, CheckCircle2 } from 'lucide-react';
 import { Button, ButtonSize, ButtonVariant, Input, Skeleton } from 'ui';
 import { CategoryFilter } from '../components/category-filter';
 import { TemplateCard } from '../components/template-card';
@@ -51,15 +52,22 @@ export const TemplateGalleryScreen: React.FC = () => {
           </p>
         </div>
 
-        {/* Global Stats Counter */}
-        <div className="flex items-center gap-4 bg-slate-50 px-4 py-3 rounded-2xl border border-slate-200 text-xs">
-          <div className="flex items-center gap-2 text-slate-700">
+        {/* Global Stats & API Docs Action */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2 bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200 text-xs text-slate-700">
             <FileText className="w-4 h-4 text-blue-600" />
-            <span>Tổng số mẫu khả dụng:</span>
+            <span>Tổng số mẫu:</span>
             <strong className="text-sm font-bold text-slate-900 font-mono">
               {templates.length}
             </strong>
           </div>
+
+          <Link href="/api-docs">
+            <Button variant={ButtonVariant.OUTLINE} size={ButtonSize.SM}>
+              <BookOpen className="w-4 h-4 mr-1.5 text-blue-600" />
+              Swagger API Docs
+            </Button>
+          </Link>
         </div>
       </div>
 

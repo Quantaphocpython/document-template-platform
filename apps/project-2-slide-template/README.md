@@ -4,7 +4,7 @@ Module thư viện mẫu trình chiếu PowerPoint (PPTX) hiện đại, tích h
 
 ---
 
-## 🌟 Tính Năng Chính
+## Tính Năng Chính
 
 1. **Thư viện mẫu trình chiếu PowerPoint**:
    - Hiển thị danh sách các bộ mẫu bài thuyết trình chuẩn 16:9 dưới dạng lưới (Grid).
@@ -35,7 +35,7 @@ Module thư viện mẫu trình chiếu PowerPoint (PPTX) hiện đại, tích h
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng (Tech Stack)
+## Công Nghệ Sử Dụng (Tech Stack)
 
 - **Frontend & Backend**: Next.js 15 (App Router), React 19, TypeScript
 - **Styling**: Tailwind CSS (tối ưu hóa layout cinema 16:9)
@@ -44,7 +44,7 @@ Module thư viện mẫu trình chiếu PowerPoint (PPTX) hiện đại, tích h
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt & Chạy Thử
+## Hướng Dẫn Cài Đặt & Chạy Thử
 
 ### Yêu cầu môi trường:
 - Node.js version 18+ (khuyên dùng Node 20+)
@@ -69,7 +69,7 @@ Mở trình duyệt và truy cập: `http://localhost:3001` (hoặc cổng do Ne
 
 ---
 
-## 📂 Danh Mục Tài Liệu Kỹ Thuật
+## Danh Mục Tài Liệu Kỹ Thuật
 
 Toàn bộ tài liệu kỹ thuật chi tiết đã được chuẩn bị sẵn sàng trong thư mục `docs/`:
 - **[SRS.md](docs/SRS.md)**: Đặc tả yêu cầu phần mềm chi tiết cho phân hệ slide thuyết trình.

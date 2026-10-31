@@ -4,7 +4,7 @@
 
 ---
 
-## 🌟 Tính Năng Chính
+## Tính Năng Chính
 
 1. **Thư viện mẫu phong phú & Trực quan**:
    - Hiển thị danh sách mẫu tài liệu chuẩn văn phòng dưới dạng lưới thẻ (Grid card).
@@ -39,7 +39,7 @@
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng (Tech Stack)
+## Công Nghệ Sử Dụng (Tech Stack)
 
 - **Frontend & Backend**: Next.js 15 (App Router), React 19, TypeScript
 - **Styling**: Tailwind CSS
@@ -49,7 +49,7 @@
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt & Chạy Thử
+## Hướng Dẫn Cài Đặt & Chạy Thử
 
 ### Yêu cầu môi trường:
 - Node.js version 18+ (khuyên dùng Node 20+)
@@ -74,7 +74,7 @@ Mở trình duyệt và truy cập: `http://localhost:3000`
 
 ---
 
-## 📂 Danh Mục Tài Liệu Kỹ Thuật
+## Danh Mục Tài Liệu Kỹ Thuật
 
 Toàn bộ tài liệu kỹ thuật chi tiết đã được chuẩn bị sẵn sàng trong thư mục `docs/`:
 - **[SRS.md](docs/SRS.md)**: Đặc tả yêu cầu phần mềm chi tiết (Functional & Non-Functional Requirements, Ma trận kiểm chứng).
@@ -87,7 +87,7 @@ Toàn bộ tài liệu kỹ thuật chi tiết đã được chuẩn bị sẵn 
 
 ---
 
-## 🔒 Cơ Chế Bảo Vệ Mẫu Gốc (Template Immutability)
+## Cơ Chế Bảo Vệ Mẫu Gốc (Template Immutability)
 
 Xem chi tiết tại [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 - Toàn bộ mẫu gốc tại `src/data/` và `storage/templates/` là **Read-Only**.

@@ -98,3 +98,9 @@ export interface UserDocument {
 - **Save Feedback**: Toast thông báo "Đã lưu tài liệu thành công" hoặc cảnh báo khi có sự cố mạng.
 - **Export DOCX**: Chuyển đổi cấu trúc tài liệu sang file binary Word (.docx) kèm header/footer/style chuẩn và trả về dạng stream download.
 
+---
+
+## 5. Chiến lược Kiến trúc Backend & Lộ trình Bóc tách (Backend Migration Roadmap)
+- **Thiết kế hiện tại (All-in-one Monorepo)**: Sử dụng Next.js Route Handlers (`src/app/api/`) kết hợp Domain Services (`src/server/services/`) và File-based Storage. Mô hình này giúp toàn bộ hệ thống đóng gói khép kín, khởi chạy tức thì và kiểm thử tự động đạt độ tin cậy 100% mà không đòi hỏi bất kỳ Database hay service phụ trợ nào.
+- **Lộ trình bóc tách (Decoupling Ready)**: Khi mở rộng quy mô, toàn bộ domain services (`document.service.ts`, `docx-export.service.ts`, `storage.service.ts`) được thiết kế theo nguyên tắc phân lớp rõ ràng, sẵn sàng trích xuất thành một Dedicated Backend Microservice độc lập (NestJS / Go) và kết nối Cloud Storage (S3) / Cloud Database (PostgreSQL). Tầng Client sử dụng `DocumentApiService` kế thừa `BaseApiService` từ package `core`, do đó chỉ cần cấu hình lại `NEXT_PUBLIC_BASE_API` là hoàn tất kết nối mà hoàn toàn không cần refactor giao diện người dùng.
+

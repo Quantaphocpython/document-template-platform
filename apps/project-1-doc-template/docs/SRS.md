@@ -66,9 +66,9 @@ Hệ thống là một phân hệ web application hoàn chỉnh cho phép ngư�
 ### 2.3. Ràng buộc thiết kế & Công nghệ (Constraints)
 - **Môi trường thực thi**: Node.js v20+ với trình quản lý gói `pnpm`.
 - **Ngôn ngữ**: TypeScript 100% type-safe từ client đến server.
-- **Frontend / Backend**: Next.js 15 App Router (Single-port deployment), tối ưu cài đặt chỉ bằng 1 câu lệnh cho bên chấm bài.
+- **Frontend / Backend**: Next.js 15 App Router (Single-port deployment), tối ưu cài đặt chỉ bằng 1 câu lệnh cho việc khởi chạy và kiểm thử.
 - **Styling**: Tailwind CSS với Design System Component thống nhất (tuân thủ nghiêm ngặt quy tắc Variant của Button).
-- **Tính khả chuyển (Portability)**: Hệ thống sử dụng file-based repository trong thư mục `storage/`, độc lập hoàn toàn, không bắt buộc người chấm phải cài đặt thêm hệ quản trị CSDL ngoài.
+- **Tính khả chuyển (Portability)**: Hệ thống sử dụng file-based repository trong thư mục `storage/`, độc lập hoàn toàn, không bắt buộc người dùng hoặc đội ngũ triển khai phải cài đặt thêm hệ quản trị CSDL ngoài.
 
 ---
 
