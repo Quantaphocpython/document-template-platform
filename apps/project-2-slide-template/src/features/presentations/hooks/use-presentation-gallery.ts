@@ -3,7 +3,7 @@ import { useDebounceValue } from 'usehooks-ts';
 import { CategoryInfo, SlideCategory, SlideTemplate, UserPresentation } from '@/types';
 import { templateApiService } from '@/services/templates/template-api.service';
 import { presentationApiService } from '@/services/presentations/presentation-api.service';
-import { confirmModal } from '@/shared/utils/confirm-modal-helper';
+import { confirmModal } from 'ui';
 
 export function usePresentationGallery() {
   const [templates, setTemplates] = useState<SlideTemplate[]>([]);

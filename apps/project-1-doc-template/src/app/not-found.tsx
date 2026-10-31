@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FileQuestion, ArrowLeft } from 'lucide-react';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
+import { Button, ButtonSize, ButtonVariant } from 'ui';
 
 export default function NotFound() {
   return (

@@ -1,5 +1,5 @@
 import { BaseApiService } from '@/services/core/base-api.service';
-import { sanitizeFileName } from '@preview/core';
+import { sanitizeFileName } from 'core';
 import { UserDocument } from '@/types';
 
 export interface CreateDocumentPayload {

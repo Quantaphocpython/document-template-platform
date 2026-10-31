@@ -1,4 +1,4 @@
-import { BaseCatalogService } from '@preview/core';
+import { BaseCatalogService } from 'core';
 import { CATEGORIES, INITIAL_TEMPLATES } from '@/data/templates';
 import { Template, TemplateCategory } from '@/types';
 

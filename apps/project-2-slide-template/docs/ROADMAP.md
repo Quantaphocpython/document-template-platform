@@ -1,7 +1,7 @@
 # LỘ TRÌNH PHÁT TRIỂN SẢN PHẨM (PRODUCT & TECHNICAL ROADMAP)
 ## SẢN PHẨM 2: THƯ VIỆN MẪU TRÌNH CHIẾU (PRESENTATION TEMPLATE LIBRARY)
 
-Tài liệu này vạch ra tầm nhìn kỹ thuật, các mốc phát hành (Milestones) và kế hoạch nâng cấp phân hệ Thư viện mẫu trình chiếu PowerPoint, đặc biệt là **kế hoạch tích hợp trình chỉnh sửa slide trực tuyến (In-browser Slide Editor)** theo yêu cầu đề bài mục III.2.D.
+Tài liệu này vạch ra tầm nhìn kỹ thuật, các mốc phát hành (Milestones) và kế hoạch nâng cấp phân hệ Thư viện mẫu trình chiếu PowerPoint, đặc biệt là **kế hoạch tích hợp trình chỉnh sửa slide trực tuyến (In-browser Slide Editor)**.
 
 ---
 
@@ -19,7 +19,7 @@ flowchart LR
 ## 2. CHI TIẾT CÁC CỘT MỐC PHÁT HÀNH (RELEASE MILESTONES)
 
 ### 🟢 Giai đoạn 1: Phiên bản Hiện tại (v1.0.0 - Production-Ready MVP)
-*Mục tiêu*: Hoàn thành trọn vẹn 100% các tiêu chí kiểm tra của đề bài tuyển dụng.
+*Mục tiêu*: Phát hành phiên bản MVP v1.0.0 hoàn chỉnh, độc lập và sẵn sàng vận hành thực tế.
 - [x] Thư viện 3 bộ template PowerPoint chuẩn mực (Pitch Deck gọi vốn, Báo cáo quý, Kế hoạch ra mắt sản phẩm) gồm 15 trang slide 16:9 sắc nét.
 - [x] Tìm kiếm thời gian thực và phân loại bộ slide theo chuyên ngành.
 - [x] **Trình duyệt Slide Deck Cinema 16:9**:

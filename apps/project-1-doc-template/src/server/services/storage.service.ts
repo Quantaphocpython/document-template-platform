@@ -1,4 +1,4 @@
-import { BaseStorageRepository } from '@preview/core/server';
+import { BaseStorageRepository } from 'core/server';
 import { UserDocument } from '@/types';
 
 class StorageService extends BaseStorageRepository<UserDocument> {

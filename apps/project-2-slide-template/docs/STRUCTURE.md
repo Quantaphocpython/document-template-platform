@@ -73,48 +73,18 @@ project-2-slide-template/
 │   │
 │   ├── services/                          # [Pure Data Access Layer] Tầng giao tiếp API thuần
 │   │   ├── core/
-│   │   │   ├── base-api.service.ts        # BaseApiService: Axios Interceptor, Bearer Token, Offline Guard, Path Params
-│   │   │   ├── types.ts                   # RequestConfig, BaseResponse<T>, ApiError, HttpMethod
-│   │   │   └── http-client.ts             # Re-export BaseApiService & types
+│   │   │   ├── base-api.service.ts        # BaseApiService kết nối HTTP Client dùng chung từ core package
+│   │   │   └── types.ts                   # Types mở rộng cho API Layer
 │   │   ├── presentations/
-│   │   │   └── presentation-api.service.ts # PresentationApiService extends BaseApiService (_get, _post, downloadBlob)
+│   │   │   └── presentation-api.service.ts # PresentationApiService extends BaseApiService
 │   │   └── templates/
-│   │       └── template-api.service.ts    # TemplateApiService extends BaseApiService (_get with pathParams)
-│   │
-│   ├── shared/                            # [Shared Foundation & Design System]
-│   │   ├── components/
-│   │   │   ├── portal-renderer.tsx        # Renderer ở Root Render đè lên toàn ứng dụng
-│   │   │   ├── providers/
-│   │   │   │   └── ui-provider.tsx        # UIProvider bọc PortalRenderer & Toaster
-│   │   │   └── ui/                        # Bộ Shadcn/UI chuẩn hóa (kebab-case)
-│   │   │       ├── backdrop.tsx           # Backdrop mờ với hiệu ứng fade mượt mà
-│   │   │       ├── badge.tsx              # Huy hiệu phân loại & trạng thái
-│   │   │       ├── button.tsx             # Button chuẩn design system (variant & size)
-│   │   │       ├── card.tsx               # Khung Card bao bọc nội dung
-│   │   │       ├── confirm-modal.tsx      # Modal xác nhận/cảnh báo đa dụng (Portal-ready)
-│   │   │       ├── dialog.tsx             # Dialog mở rộng chuẩn Radix UI
-│   │   │       ├── input.tsx              # Input field hỗ trợ search icon
-│   │   │       ├── modal.tsx              # Modal popup đa kích thước
-│   │   │       ├── separator.tsx          # Đường ngăn cách phân vùng
-│   │   │       ├── skeleton.tsx           # Khung xương loading shimmer
-│   │   │       ├── tabs.tsx               # Bộ tab chuyển đổi
-│   │   │       └── tooltip.tsx            # Tooltip giải thích thao tác
-│   │   ├── hooks/
-│   │   │   └── use-portal.ts              # Hook usePortal, useCloseAllPortals, useClosePortalById
-│   │   ├── types/
-│   │   │   └── portal.types.ts            # Định nghĩa PortalProps<T>, PortalInstance<T>
-│   │   └── utils/
-│   │       ├── confirm-modal-helper.ts    # Imperative call confirmModal.show / alert / error
-│   │       └── utils.ts                   # Hàm tiện ích cn(), formatFileSize, format ngày tháng
-│   │
-│   ├── store/                             # [Zustand Stores] Quản lý state toàn cục phân tử
-│   │   └── layout.store.ts                # Quản lý mảng Stacking Portals, onPresent, onDismiss
+│   │       └── template-api.service.ts    # TemplateApiService extends BaseApiService
 │   │
 │   ├── server/                            # TẦNG DỊCH VỤ BACKEND (DOMAIN SERVICES)
 │   │   └── services/
 │   │       ├── pptx-generator.service.ts  # Khởi tạo và bảo vệ 3 file PPTX gốc
 │   │       ├── presentation.service.ts    # Nhân bản độc lập file PPTX (Copy-on-Create)
-│   │       ├── storage.service.ts         # Quản lý đọc/ghi storage vật lý
+│   │       ├── storage.service.ts         # Quản lý đọc/ghi storage vật lý (kế thừa BaseStorageRepository)
 │   │       └── template.service.ts        # Truy vấn, tìm kiếm, lọc bộ mẫu
 │   │
 │   ├── data/                              # DỮ LIỆU BAN ĐẦU (SEED DATA)
@@ -143,12 +113,12 @@ project-2-slide-template/
 
 | Phân tầng | Vị trí thư mục | Trách nhiệm chính |
 | :--- | :--- | :--- |
-| **Shared Core Package** | `packages/core` (`@preview/core`, `@preview/core/server`) | • Gói thư viện dùng chung trong Monorepo pnpm workspace.<br>• `HttpClient`: Centralized HTTP Client xử lý query params, interceptor, Blob download.<br>• `BaseCatalogService`: Quản lý catalog, filter search đa tiêu chí, tính counts.<br>• `BaseStorageRepository`: Lớp cơ sở trừu tượng quản lý I/O tệp tin độc lập.<br>• `APP_ROUTES`, `API_ROUTES`: Hằng số URL routes tập trung chống hardcode.<br>• Tiện ích tái sử dụng: `buildUrlWithParams`, `createAttachmentHeaders`, `sanitizeFileName`, `formatFileSize`. |
+| **Shared Core Package** | `packages/core` (`core`, `core/server`) | • Gói thư viện dùng chung trong Monorepo pnpm workspace.<br>• `HttpClient`: Centralized HTTP Client xử lý query params, interceptor, Blob download.<br>• `BaseCatalogService`: Quản lý catalog, filter search đa tiêu chí, tính counts.<br>• `BaseStorageRepository`: Lớp cơ sở trừu tượng quản lý I/O tệp tin độc lập.<br>• `APP_ROUTES`, `API_ROUTES`: Hằng số URL routes tập trung chống hardcode.<br>• Tiện ích tái sử dụng: `buildUrlWithParams`, `createAttachmentHeaders`, `sanitizeFileName`, `formatFileSize`. |
 | **Thin Routing Shell** | `src/app/` | • Chứa routing shells mỏng nhẹ theo Next.js App Router.<br>• Chuyển tiếp trách nhiệm trực tiếp cho `src/features/presentations/screens/`. |
 | **Feature-Driven Modules** | `src/features/` | • Đóng gói độc lập theo nghiệp vụ (`presentations/`).<br>• `screens/`: Ghép nối giao diện hoàn chỉnh (`presentation-gallery-screen.tsx`).<br>• `components/`: Component con dùng riêng cho phân hệ (kebab-case).<br>• `hooks/`: Custom hook `use-presentation-gallery.ts` đóng gói state, modal, debounced search và kết nối service layer. |
-| **Pure Data Access Layer (BaseApiService)** | `src/services/core/base-api.service.ts`, `src/services/*/` | • Lớp trừu tượng `BaseApiService` bọc `AxiosInstance` chuẩn hóa.<br>• Tự động gắn Bearer Token từ Zustand `useAuthStore`.<br>• Offline Guard ngăn request rác qua `useAppStore`.<br>• Format URL động `:id` và `{id}` qua `pathParams`.<br>• Tự động bóc tách mảng lỗi backend (`flattenApiErrors`) & kích hoạt Toast (`toast.error`).<br>• Các domain services kế thừa `BaseApiService` và gọi `this._get`, `this._post`, `this._put`, `this._delete`. |
-| **Custom Portal System** | `src/store/layout.store.ts`, `src/shared/components/portal-renderer.tsx`, `src/shared/hooks/use-portal.ts` | • Quản lý Stacking Portals toàn cục bằng Zustand.<br>• Cho phép gọi modal qua Hook (`usePortal`) và Imperative Call từ tầng Services (`confirmModal.show`).<br>• Giải quyết triệt để vấn đề Z-Index & Stacking Context. |
-| **Shared Design System** | `src/shared/components/ui/` | • Bộ thành phần UI Shadcn/UI chuẩn hóa (kebab-case).<br>• Tuân thủ nghiêm ngặt quy chuẩn Button Design System (chỉ dùng variant & size, không custom class ghi đè). |
+| **Pure Data Access Layer (BaseApiService)** | `src/services/core/base-api.service.ts`, `src/services/*/` | • Lớp trừu tượng `BaseApiService` kết nối HTTP Client dùng chung từ package `core`.<br>• Tự động gắn Bearer Token, Offline Guard, URL Params (`pathParams`).<br>• Tự động bóc tách mảng lỗi backend & kích hoạt Toast (`toast.error`).<br>• Các domain services kế thừa `BaseApiService` và gọi `this._get`, `this._post`, `this._put`, `this._delete`. |
+| **Custom Portal System** | `packages/ui` (`usePortal`, `PortalRenderer`, `confirmModal`) | • Quản lý Stacking Portals toàn cục bằng Zustand trong package `ui`.<br>• Cho phép gọi modal qua Hook (`usePortal`) và Imperative Call từ tầng Services (`confirmModal.show`).<br>• Giải quyết triệt để vấn đề Z-Index & Stacking Context. |
+| **Shared Design System** | `packages/ui` (`Button`, `Card`, `Modal`, `Tabs`, `cn`...) | • Bộ thành phần UI UIKit chuẩn hóa (kebab-case) chia sẻ trực tiếp qua package `ui`.<br>• Tuân thủ nghiêm ngặt quy chuẩn Button Design System (chỉ dùng variant & size, không custom class ghi đè). |
 | **API Controller Layer** | `src/app/api/` | • Xử lý request `POST /api/presentations` (tạo bản sao PPTX).<br>• Xử lý request `GET /api/presentations/:id/download` (stream file `.pptx` nhị phân kèm Content-Type chuẩn). |
 | **Domain Service Layer** | `src/server/services/` | • `PptxGeneratorService`: Đảm bảo các file master PPTX chuẩn OpenXML luôn sẵn sàng trên đĩa.<br>• `PresentationService`: Thực thi sao chép tệp vật lý độc lập (`fs.copyFileSync`), ghi metadata `{presentationId}.json`.<br>• `SlideTemplateService`: Tìm kiếm và lọc bộ slide theo danh mục. |
 | **Storage Repository Layer** | `src/server/services/storage.service.ts`, `storage/` | • `storage/templates/`: Vùng lưu trữ mẫu gốc, chỉ được cấp quyền Read-Only.<br>• `storage/presentations/`: Vùng lưu trữ bản sao của người dùng. |

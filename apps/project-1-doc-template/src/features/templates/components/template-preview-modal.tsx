@@ -3,11 +3,8 @@
 import React from 'react';
 import { Calendar, FileText, CheckCircle2, ShieldCheck, Tag } from 'lucide-react';
 import { Template } from '@/types';
-import { Modal } from '@/shared/components/ui/modal';
-import { Badge, BadgeVariant } from '@/shared/components/ui/badge';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
-import { PortalProps } from '@/shared/types/portal.types';
-import { formatDate } from '@/shared/utils/utils';
+import { formatDate } from 'core';
+import { Badge, BadgeVariant, Button, ButtonSize, ButtonVariant, Modal, PortalProps } from 'ui';
 
 export interface TemplatePreviewModalData {
   template: Template;

@@ -1,9 +1,14 @@
-import React from 'react';
-import Image from 'next/image';
-import { Eye, Plus, Layers, Tag } from 'lucide-react';
 import { SlideCategory, SlideTemplate } from '@/types';
-import { Badge, BadgeVariant } from '@/shared/components/ui/badge';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
+import {
+  Badge,
+  BadgeVariant,
+  Button,
+  ButtonSize,
+  ButtonVariant,
+} from 'ui';
+import { Eye, Layers, Plus, Tag } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
 
 export interface PresentationCardProps {
   template: SlideTemplate;
@@ -99,9 +104,7 @@ export const PresentationCard: React.FC<PresentationCardProps> = ({
 
         {/* Footer Actions */}
         <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-100">
-          <span className="text-[11px] text-slate-400 font-mono">
-            .pptx
-          </span>
+          <span className="text-[11px] text-slate-400 font-mono">.pptx</span>
           <div className="flex items-center gap-2">
             <Button
               variant={ButtonVariant.OUTLINE}
@@ -126,4 +129,3 @@ export const PresentationCard: React.FC<PresentationCardProps> = ({
     </div>
   );
 };
-

@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { Search, X, FolderX, Sparkles, Presentation } from 'lucide-react';
-import { Input } from '@/shared/components/ui/input';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
-import { Skeleton } from '@/shared/components/ui/skeleton';
+import { Button, ButtonSize, ButtonVariant, Input, Skeleton } from 'ui';
 import { CategoryFilter } from '../components/category-filter';
 import { PresentationCard } from '../components/presentation-card';
 import { SlideDeckModal } from '../components/slide-deck-modal';

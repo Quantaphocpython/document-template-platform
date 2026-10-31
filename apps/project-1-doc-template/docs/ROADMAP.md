@@ -19,7 +19,7 @@ flowchart LR
 ## 2. CHI TIẾT CÁC CỘT MỐC PHÁT HÀNH (RELEASE MILESTONES)
 
 ### 🟢 Giai đoạn 1: Phiên bản Hiện tại (v1.0.0 - Production-Ready MVP)
-*Mục tiêu*: Hoàn thành trọn vẹn 100% các tiêu chí kiểm tra của đề bài tuyển dụng.
+*Mục tiêu*: Phát hành phiên bản MVP v1.0.0 hoàn chỉnh, độc lập và sẵn sàng vận hành thực tế.
 - [x] Thư viện 5 biểu mẫu văn phòng chuẩn hóa (Hợp đồng, Đơn từ, Biên bản, Báo cáo, Đề xuất).
 - [x] Bộ lọc theo 5 danh mục nghiệp vụ và tìm kiếm thời gian thực theo từ khóa/tags.
 - [x] Modal xem trước trực quan mô phỏng chuẩn giấy in A4.

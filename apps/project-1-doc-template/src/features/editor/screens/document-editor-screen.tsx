@@ -1,30 +1,36 @@
 'use client';
 
-import React from 'react';
-import { useRouter } from 'next/navigation';
-import {
-  ArrowLeft,
-  Save,
-  Download,
-  ShieldCheck,
-  CheckCircle2,
-  AlertCircle,
-  FileText,
-} from 'lucide-react';
-import { APP_ROUTES } from '@preview/core';
 import { UserDocument } from '@/types';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
-import { Badge, BadgeVariant } from '@/shared/components/ui/badge';
+import { APP_ROUTES, formatDateTime } from 'core';
+import {
+  AlertCircle,
+  ArrowLeft,
+  CheckCircle2,
+  Download,
+  FileText,
+  Save,
+  ShieldCheck,
+} from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import {
+  Badge,
+  BadgeVariant,
+  Button,
+  ButtonSize,
+  ButtonVariant,
+  confirmModal,
+} from 'ui';
 import { EditorToolbar } from '../components/editor-toolbar';
 import { useDocumentEditor } from '../hooks/use-document-editor';
-import { formatDateTime } from '@/shared/utils/utils';
-import { confirmModal } from '@/shared/utils/confirm-modal-helper';
 
 export interface DocumentEditorScreenProps {
   initialDocument: UserDocument;
 }
 
-export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({ initialDocument }) => {
+export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({
+  initialDocument,
+}) => {
   const router = useRouter();
   const {
     documentData,
@@ -46,7 +52,8 @@ export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({ init
     if (hasUnsavedChanges) {
       confirmModal.show({
         title: 'Thay đổi chưa lưu',
-        message: 'Bạn có những thay đổi chưa lưu. Bạn có chắc chắn muốn thoát về thư viện không?',
+        message:
+          'Bạn có những thay đổi chưa lưu. Bạn có chắc chắn muốn thoát về thư viện không?',
         variant: 'warning',
         confirmText: 'Rời đi',
         cancelText: 'Ở lại chỉnh sửa',
@@ -63,7 +70,9 @@ export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({ init
       {toastMessage && (
         <div
           className={`fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-white animate-in fade-in slide-in-from-bottom-5 ${
-            toastMessage.type === 'success' ? 'bg-slate-900 border border-slate-800' : 'bg-red-600'
+            toastMessage.type === 'success'
+              ? 'bg-slate-900 border border-slate-800'
+              : 'bg-red-600'
           }`}
         >
           {toastMessage.type === 'success' ? (
@@ -142,7 +151,10 @@ export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({ init
       </header>
 
       {/* Editor Formatting Toolbar */}
-      <EditorToolbar onFormat={handleFormat} onInsertTable={handleInsertTable} />
+      <EditorToolbar
+        onFormat={handleFormat}
+        onInsertTable={handleInsertTable}
+      />
 
       {/* Workspace Sheet Area */}
       <main className="flex-1 overflow-y-auto py-8 px-4 flex flex-col items-center justify-start">
@@ -151,7 +163,9 @@ export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({ init
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
             <span>
-              <strong>Bản sao tài liệu độc lập:</strong> Mọi chỉnh sửa tại đây hoàn toàn không ảnh hưởng đến mẫu gốc &ldquo;{documentData.clonedFromTemplateTitle}&rdquo;.
+              <strong>Bản sao tài liệu độc lập:</strong> Mọi chỉnh sửa tại đây
+              hoàn toàn không ảnh hưởng đến mẫu gốc &ldquo;
+              {documentData.clonedFromTemplateTitle}&rdquo;.
             </span>
           </div>
           <span className="text-[11px] font-mono text-blue-600 shrink-0">
@@ -177,4 +191,3 @@ export const DocumentEditorScreen: React.FC<DocumentEditorScreenProps> = ({ init
     </div>
   );
 };
-

@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDebounceValue } from 'usehooks-ts';
-import { APP_ROUTES } from '@preview/core';
+import { APP_ROUTES } from 'core';
 import { CategoryInfo, Template, TemplateCategory } from '@/types';
 import { templateApiService } from '@/services/templates/template-api.service';
 import { documentApiService } from '@/services/documents/document-api.service';

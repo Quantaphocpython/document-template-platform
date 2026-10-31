@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { Search, X, FolderX, Sparkles, FileText, CheckCircle2 } from 'lucide-react';
-import { Input } from '@/shared/components/ui/input';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
-import { Skeleton } from '@/shared/components/ui/skeleton';
+import { Button, ButtonSize, ButtonVariant, Input, Skeleton } from 'ui';
 import { CategoryFilter } from '../components/category-filter';
 import { TemplateCard } from '../components/template-card';
 import { TemplatePreviewModal } from '../components/template-preview-modal';

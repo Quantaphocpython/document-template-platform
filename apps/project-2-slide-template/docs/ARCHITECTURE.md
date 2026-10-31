@@ -87,10 +87,10 @@ export interface UserPresentation {
 
 ---
 
-## 4. Phân tích Giới hạn & Định hướng Tích hợp Slide Editor (In-browser Slide Editor Roadmap)
+## 4. Phân tích Giới hạn Kỹ thuật & Lộ trình Tích hợp Slide Editor Trực tuyến (In-browser Slide Editor Roadmap)
 
-Theo yêu cầu của đề bài tại Mục III.2.D:
-> *"Nếu giải pháp chưa có trình chỉnh sửa slide tích hợp, bạn có thể xây dựng luồng chọn mẫu, tạo bản sao và tải xuống PPTX. Hãy nêu rõ giới hạn của giải pháp và hướng mở rộng để tích hợp trình soạn thảo sau này."*
+Trong quá trình thiết kế hệ thống xử lý tệp tin trình chiếu PowerPoint đa nền tảng:
+> *"Do tính chất đặc thù của định dạng OpenXML (.pptx), việc phân tách rõ ràng giữa luồng xem trước trực quan, tạo bản sao độc lập và tải tệp tin nhị phân chuẩn ECMA-376 mang lại độ tin cậy và hiệu năng cao nhất, đồng thời thiết lập sẵn nền tảng để tích hợp trình soạn thảo chuyên sâu."*
 
 ### A. Giới hạn kỹ thuật hiện tại của việc dựng Slide Editor trên Web:
 1. **Độ phức tạp của định dạng OpenXML (.pptx)**: Định dạng PPTX bao gồm hàng trăm thành phần (Vector shapes, smart art, gradient, animations, typography, master layouts). Việc render và parse hai chiều (round-trip parsing) PPTX trên trình duyệt đòi hỏi thư viện chuyên dụng rất lớn.

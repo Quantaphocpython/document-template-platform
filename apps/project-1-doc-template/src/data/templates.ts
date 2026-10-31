@@ -67,7 +67,7 @@ export const INITIAL_TEMPLATES: Template[] = [
 
 <p style="font-weight: bold;">BÊN LAO ĐỘNG (BÊN B):</p>
 <ul>
-  <li><strong>Ông/Bà:</strong> Trần Hoàng Quân</li>
+  <li><strong>Ông/Bà:</strong> Nguyễn Văn A</li>
   <li><strong>Sinh ngày:</strong> ...../...../199x &nbsp;&nbsp;&nbsp;&nbsp; <strong>Quốc tịch:</strong> Việt Nam</li>
   <li><strong>Số CCCD:</strong> 00109xxxxxxxx &nbsp;&nbsp;&nbsp;&nbsp; <strong>Cấp ngày:</strong> ...../...../202x tại Cục CS QLHC về TTXH</li>
   <li><strong>Địa chỉ thường trú:</strong> ............................................................................................</li>
@@ -95,7 +95,7 @@ export const INITIAL_TEMPLATES: Template[] = [
       <p style="font-weight: bold; margin: 0;">ĐẠI DIỆN BÊN LAO ĐỘNG</p>
       <p style="font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
       <br/><br/><br/><br/>
-      <p style="font-weight: bold;">Trần Hoàng Quân</p>
+      <p style="font-weight: bold;">Nguyễn Văn A</p>
     </td>
     <td style="width: 50%; text-align: center; vertical-align: top;">
       <p style="font-weight: bold; margin: 0;">ĐẠI DIỆN BÊN SỬ DỤNG LAO ĐỘNG</p>
@@ -128,9 +128,9 @@ export const INITIAL_TEMPLATES: Template[] = [
 
 <p style="font-style: italic; text-align: center;"><strong>Kính gửi:</strong> - Ban Giám Đốc Công ty<br/>- Trưởng Bộ phận Kỹ thuật & Công nghệ (Tech Lead)<br/>- Phòng Nhân sự & Hành chính</p>
 
-<p>Tôi tên là: <strong>Trần Hoàng Quân</strong> &nbsp;&nbsp;&nbsp;&nbsp; Mã nhân viên: <strong>EMP-2026-088</strong></p>
+<p>Tôi tên là: <strong>Nguyễn Văn A</strong> &nbsp;&nbsp;&nbsp;&nbsp; Mã nhân viên: <strong>EMP-2026-088</strong></p>
 <p>Chức danh hiện tại: <strong>Fullstack Developer</strong> &nbsp;&nbsp;&nbsp;&nbsp; Bộ phận: <strong>Phát triển Sản phẩm (Product Engineering)</strong></p>
-<p>Số điện thoại liên hệ khẩn cấp: <strong>0772713206</strong></p>
+<p>Số điện thoại liên hệ khẩn cấp: <strong>0901234567</strong></p>
 
 <p>Nay tôi làm đơn này kính xin phép được nghỉ phép trong khoảng thời gian:</p>
 <ul>
@@ -172,7 +172,7 @@ export const INITIAL_TEMPLATES: Template[] = [
       <p style="font-weight: bold; margin: 0;">NGƯỜI LÀM ĐƠN</p>
       <p style="font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
       <br/><br/><br/>
-      <p style="font-weight: bold;">Trần Hoàng Quân</p>
+      <p style="font-weight: bold;">Nguyễn Văn A</p>
     </td>
     <td style="width: 33%; text-align: center; vertical-align: top;">
       <p style="font-weight: bold; margin: 0;">TRƯỞNG BỘ PHẬN</p>
@@ -239,7 +239,7 @@ export const INITIAL_TEMPLATES: Template[] = [
     <tr>
       <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">1</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Xây dựng API clone và export DOCX không đè file gốc</td>
-      <td style="border: 1px solid #cbd5e1; padding: 8px;">Trần Hoàng Quân (Fullstack)</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px;">Nguyễn Văn A (Fullstack)</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">31/10/2026</td>
     </tr>
     <tr>
@@ -249,7 +249,7 @@ export const INITIAL_TEMPLATES: Template[] = [
     </tr>
     <tr>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Viết tài liệu kiến trúc hệ thống và quay video demo</td>
-      <td style="border: 1px solid #cbd5e1; padding: 8px;">Trần Hoàng Quân & PMO</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px;">Nguyễn Văn A & PMO</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">01/11/2026</td>
     </tr>
   </tbody>
@@ -293,7 +293,7 @@ export const INITIAL_TEMPLATES: Template[] = [
 <h3>1. TỔNG QUAN TÌNH TRẠNG DỰ ÁN (PROJECT HEALTH)</h3>
 <ul>
   <li><strong>Tên dự án:</strong> Office Template Library Suite (NextGen Office)</li>
-  <li><strong>Giám đốc dự án:</strong> Trần Hoàng Quân</li>
+  <li><strong>Giám đốc dự án:</strong> Nguyễn Văn A</li>
   <li><strong>Trạng thái chung:</strong> <span style="background-color: #dcfce7; color: #166534; font-weight: bold; padding: 2px 8px; border-radius: 4px;">ĐÚNG TIẾN ĐỘ (ON-TRACK)</span></li>
   <li><strong>Mức độ hoàn thành tổng thể:</strong> 92% kế hoạch đề ra.</li>
 </ul>
@@ -345,7 +345,7 @@ export const INITIAL_TEMPLATES: Template[] = [
   <p style="font-weight: bold; margin: 0;">NGƯỜI LẬP BÁO CÁO</p>
   <p style="font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
   <br/><br/><br/>
-  <p style="font-weight: bold;">Trần Hoàng Quân</p>
+  <p style="font-weight: bold;">Nguyễn Văn A</p>
 </div>
 `,
   },
@@ -423,7 +423,7 @@ export const INITIAL_TEMPLATES: Template[] = [
     <td style="width: 50%; text-align: center;">
       <p style="font-weight: bold; margin: 0;">NGƯỜI ĐỀ XUẤT DỰ ÁN</p>
       <br/><br/><br/>
-      <p style="font-weight: bold;">Trần Hoàng Quân</p>
+      <p style="font-weight: bold;">Nguyễn Văn A</p>
     </td>
     <td style="width: 50%; text-align: center;">
       <p style="font-weight: bold; margin: 0;">PHÊ DUYỆT CỦA BAN GIÁM ĐỐC</p>

@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { createAttachmentHeaders, MimeType, sanitizeFileName } from '@preview/core';
 import { documentService } from '@/server/services/document.service';
 import { docxExportService } from '@/server/services/docx-export.service';
+import { createAttachmentHeaders, MimeType, sanitizeFileName } from 'core';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 

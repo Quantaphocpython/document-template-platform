@@ -7,7 +7,7 @@ import { storageService } from '../src/server/services/storage.service';
 
 async function runTests() {
   console.log('====================================================');
-  console.log('🧪 BẮT ĐẦU CHẠY KIỂM THỬ TỰ ĐỘNG - SẢN PHẨM 2');
+  console.log('🧪 BẮT ĐẦU CHẠY KIỂM THỬ TỰ ĐỘNG - PRESENTATION TEMPLATE ENGINE');
   console.log('====================================================\n');
 
   // 1. Kiểm thử nạp danh mục và 3 bộ template ban đầu
@@ -17,8 +17,8 @@ async function runTests() {
   console.log(`  ✓ Số danh mục tìm thấy: ${categories.length}`);
 
   const allTemplates = templateService.getTemplates();
-  assert(allTemplates.length >= 3, 'Phải có tối thiểu 3 bộ template PowerPoint (yêu cầu đề bài)');
-  console.log(`  ✓ Số bộ template ban đầu: ${allTemplates.length} (Đạt yêu cầu đề bài >= 3)`);
+  assert(allTemplates.length >= 3, 'Phải có tối thiểu 3 bộ template PowerPoint');
+  console.log(`  ✓ Số bộ template ban đầu: ${allTemplates.length} (Đầy đủ catalog tiêu chuẩn)`);
 
   // Kiểm tra cấu trúc slide deck
   for (const tpl of allTemplates) {
@@ -89,7 +89,7 @@ async function runTests() {
   console.log(`  ✓ File PPTX có cấu trúc OpenXML hợp lệ: ${clonedBuffer.length} bytes`);
 
   console.log('\n====================================================');
-  console.log('🎉 TẤT CẢ CÁC BÀI TEST SẢN PHẨM 2 ĐỀU ĐẠT CHUẨN 100% (PASSED)');
+  console.log('🎉 TOÀN BỘ KIỂM THỬ TỰ ĐỘNG ĐỀU ĐẠT CHUẨN 100% (PASSED)');
   console.log('====================================================\n');
 }
 

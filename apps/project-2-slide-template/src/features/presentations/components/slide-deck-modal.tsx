@@ -10,11 +10,7 @@ import {
   Layers,
 } from 'lucide-react';
 import { SlideTemplate } from '@/types';
-import { Modal } from '@/shared/components/ui/modal';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
-import { Badge, BadgeVariant } from '@/shared/components/ui/badge';
-import { PortalProps } from '@/shared/types/portal.types';
-import { cn } from '@/shared/utils/utils';
+import { Badge, BadgeVariant, Button, ButtonSize, ButtonVariant, cn, Modal, PortalProps } from 'ui';
 
 export enum SlideNavigationKey {
   ARROW_RIGHT = 'ArrowRight',

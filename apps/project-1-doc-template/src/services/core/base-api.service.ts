@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useAppStore } from '@/store/app.store';
+import { useAuthStore } from '@/store/auth.store';
 import axios, {
   AxiosInstance,
   AxiosRequestConfig,
   AxiosResponseTransformer,
   isCancel,
 } from 'axios';
-import { BASE_API, DEFAULT_TIMEOUT } from '@/shared/constants/server';
-import { toast } from '@/shared/utils/toast-helper';
-import { useAuthStore } from '@/store/auth.store';
-import { useAppStore } from '@/store/app.store';
+import { BASE_API, DEFAULT_TIMEOUT } from 'core';
+import { toast } from 'ui';
 import { ApiError, BaseResponse, HttpMethod, RequestConfig } from './types';
 
 // Regex loại bỏ tiền tố tên field lỗi từ backend (ví dụ: "id_code: ")

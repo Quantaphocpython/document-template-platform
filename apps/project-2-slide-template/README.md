@@ -74,7 +74,8 @@ Mở trình duyệt và truy cập: `http://localhost:3001` (hoặc cổng do Ne
 Toàn bộ tài liệu kỹ thuật chi tiết đã được chuẩn bị sẵn sàng trong thư mục `docs/`:
 - **[SRS.md](docs/SRS.md)**: Đặc tả yêu cầu phần mềm chi tiết cho phân hệ slide thuyết trình.
 - **[STRUCTURE.md](docs/STRUCTURE.md)**: Cấu trúc mã nguồn, Slide Deck data model và luồng stream download.
-- **[ROADMAP.md](docs/ROADMAP.md)**: Lộ trình phát triển sản phẩm & kế hoạch tích hợp In-browser Slide Editor (Canvas Fabric.js & Microsoft WOPI Enterprise theo yêu cầu mục III.2.D đề bài).
+- **[ROADMAP.md](docs/ROADMAP.md)**: Lộ trình phát triển sản phẩm & kế hoạch tích hợp In-browser Slide Editor (Canvas Fabric.js & Microsoft WOPI Enterprise).
+- **[REQUIREMENTS.md](docs/REQUIREMENTS.md)**: Tổng hợp yêu cầu nghiệp vụ và tiêu chuẩn kỹ thuật phân hệ trình chiếu.
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Kiến trúc Slide Deck Cinema 16:9, Filmstrip Carousel và giải pháp nhân bản tệp vật lý.
 - **[API_SPEC.md](docs/API_SPEC.md)**: Đặc tả toàn bộ API Routes & Contracts.
 - **[PLAN.md](docs/PLAN.md)**: Kế hoạch triển khai & Checklist tính năng.

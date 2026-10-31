@@ -1,6 +1,6 @@
 import React from 'react';
 import { CategoryInfo, SlideCategory } from '@/types';
-import { cn } from '@/shared/utils/utils';
+import { cn } from 'ui';
 import { Presentation, Rocket, TrendingUp, Sparkles } from 'lucide-react';
 
 export interface CategoryFilterProps {

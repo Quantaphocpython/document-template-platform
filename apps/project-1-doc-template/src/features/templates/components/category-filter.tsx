@@ -1,6 +1,6 @@
 import React from 'react';
 import { CategoryInfo, TemplateCategory } from '@/types';
-import { cn } from '@/shared/utils/utils';
+import { cn } from 'ui';
 import {
   FileText,
   Briefcase,

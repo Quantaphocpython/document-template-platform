@@ -1,15 +1,15 @@
-# BÀI KIỂM TRA THỰC HÀNH KỸ THUẬT - FULLSTACK DEVELOPER
-**Ứng viên**: Trần Hoàng Quân  
-**Vị trí ứng tuyển**: Fullstack Developer  
-**Đề bài**: Xây dựng thư viện mẫu tài liệu tích hợp trong ứng dụng văn phòng  
-**Công cụ quản lý gói (Package Manager)**: `pnpm` (Workspace Monorepo)  
-**Kiến trúc phần mềm**: Feature-Driven Architecture + Pure Data Access Layer + Shared Core Package  
+# DOCUMENT TEMPLATE PLATFORM (MONOREPO)
+Hệ thống thư viện mẫu tài liệu văn phòng (Văn bản DOCX & Bài thuyết trình PPTX).
+
+* **Công nghệ cốt lõi**: Next.js (App Router), React 19, TypeScript, Tailwind CSS, Turborepo
+* **Kiến trúc phần mềm**: Feature-Driven Architecture + Pure Data Access Layer + Shared Packages (`core`, `ui`)
+* **Package Manager**: `pnpm` (Workspace Monorepo)  
 
 ---
 
 ## 📁 CẤU TRÚC TỔNG THỂ WORKSPACE
 
-Hệ thống được tổ chức thành 2 sản phẩm hoàn chỉnh, độc lập và có khả năng chạy thực tế theo đúng yêu cầu bài test, áp dụng kiến trúc chuẩn hóa:
+Hệ thống được tổ chức thành 2 sản phẩm hoàn chỉnh, độc lập và có khả năng chạy thực tế theo mô hình kiến trúc chuẩn hóa cấp doanh nghiệp:
 
 ```
 preview-product/
@@ -18,19 +18,29 @@ preview-product/
 ├── package.json                    # Workspace scripts (pnpm dev:doc, dev:slide, test, build, lint)
 │
 ├── docs/                           # TÀI LIỆU TOÀN CỤC WORKSPACE
-│   └── RECRUITMENT_TEST.md         # Toàn văn đề bài kiểm tra tuyển dụng nguyên gốc
+│   └── PRODUCT_SPEC.md             # Đặc tả sản phẩm & tiêu chuẩn kỹ thuật nền tảng
 │
 ├── packages/                       # THƯ VIỆN CHIA SẺ DÙNG CHUNG (SHARED WORKSPACE PACKAGES)
-│   └── core/                       # @preview/core: HttpClient, Abstract Classes, Routes, Enums, Utils
+│   ├── core/                       # core: HttpClient, Abstract Classes, Routes, Enums, Utils
+│   │   ├── src/
+│   │   │   ├── abstracts/          # BaseStorageRepository (server), BaseCatalogService (universal)
+│   │   │   ├── constants/          # APP_ROUTES, API_ROUTES, MimeType, HTTP constants
+│   │   │   ├── http/               # HttpClient tập trung (GET/POST/PUT/DELETE, URL params, downloadBlob)
+│   │   │   ├── types/              # BaseEntity, BaseTemplateItem, CategoryMeta
+│   │   │   ├── utils/              # buildUrlWithParams, createAttachmentHeaders, file/date utils
+│   │   │   ├── index.ts            # Client-safe exports
+│   │   │   └── server.ts           # Server-only exports (fs, path)
+│   │   └── package.json            # Subpath exports: "." và "./server"
+│   │
+│   └── ui/                         # ui: Base UI Components & Design System
 │       ├── src/
-│       │   ├── abstracts/          # BaseStorageRepository (server), BaseCatalogService (universal)
-│       │   ├── constants/          # APP_ROUTES, API_ROUTES, MimeType, HTTP constants
-│       │   ├── http/               # HttpClient tập trung (GET/POST/PUT/DELETE, URL params, downloadBlob)
-│       │   ├── types/              # BaseEntity, BaseTemplateItem, CategoryMeta
-│       │   ├── utils/              # buildUrlWithParams, createAttachmentHeaders, file/date utils
-│       │   ├── index.ts            # Client-safe exports
-│       │   └── server.ts           # Server-only exports (fs, path)
-│       └── package.json            # Subpath exports: "." và "./server"
+│       │   ├── components/         # Button, Badge, Card, Dialog, Modal, Input, Tabs, Tooltip, Portal...
+│       │   ├── hooks/              # usePortal, useCloseAllPortals, useClosePortalById
+│       │   ├── store/              # layout.store (Portal Stack & Exit Animation)
+│       │   ├── types/              # PortalProps, PortalInstance, Component Props
+│       │   ├── utils/              # cn (clsx + tailwind-merge), toast, confirmModal
+│       │   └── index.ts            # Entry point xuất toàn bộ UIKit
+│       └── package.json            # Thư viện UI độc lập cho toàn bộ Monorepo
 │
 ├── apps/
 │   ├── project-1-doc-template/     # [SẢN PHẨM 1] THƯ VIỆN MẪU VĂN BẢN (DOCX & RICH TEXT)
@@ -40,7 +50,6 @@ preview-product/
 │   │   │   ├── app/                # Thin Routing Shells (Next.js App Router) & API Routes
 │   │   │   ├── features/           # Feature Modules: editor/, templates/ (screens, components, hooks)
 │   │   │   ├── services/           # Pure Data Access Layer (BaseApiService, Interceptors, Path Params)
-│   │   │   ├── shared/             # Shadcn/UI (kebab-case) & utilities
 │   │   │   ├── data/               # 5 bộ dữ liệu biểu mẫu văn phòng chuẩn hóa
 │   │   │   ├── server/services/    # Business Logic, Quản lý Storage, Export file DOCX
 │   │   │   └── types/              # Enums (TemplateCategory, DocumentStatus...) & types
@@ -55,7 +64,6 @@ preview-product/
 │       │   ├── app/                # Thin Routing Shells (Next.js App Router) & API Routes
 │       │   ├── features/           # Feature Modules: presentations/ (screens, components, hooks)
 │       │   ├── services/           # Pure Data Access Layer (BaseApiService, Interceptors, Path Params)
-│       │   ├── shared/             # Shadcn/UI (kebab-case) & utilities
 │       │   ├── data/               # 3 bộ template PowerPoint hoàn chỉnh
 │       │   ├── server/services/    # Quản lý file PPTX, Copy-on-Create, Stream download
 │       │   └── types/              # Enums (SlideCategory, SlideLayoutType...) & types
@@ -94,18 +102,18 @@ pnpm install
 
 ### 3. Chạy kiểm thử tự động toàn bộ Workspace (Automated Tests):
 ```bash
-pnpm -r test
+pnpm test
 ```
-*Tất cả bài test kiểm tra nạp dữ liệu, tìm kiếm/lọc, tính bất biến (Immutability) và cấu trúc nhị phân file Word/PowerPoint đều vượt qua 100%.*
+*Tất cả kiểm thử tự động kiểm tra nạp dữ liệu, tìm kiếm/lọc, tính bất biến (Immutability) và cấu trúc nhị phân file Word/PowerPoint đều vượt qua 100%.*
 
 ### 4. Kiểm tra Typecheck & ESLint:
 ```bash
-pnpm -r lint
+pnpm lint
 ```
 
 ### 5. Build kiểm tra sản phẩm xuất xưởng (Production Build):
 ```bash
-pnpm -r build
+pnpm build
 ```
 
 ---
@@ -114,27 +122,32 @@ pnpm -r build
 
 Tất cả tài liệu được chuẩn bị đầy đủ, chuẩn mực trước và sau khi triển khai mã nguồn:
 
-### Bộ tài liệu Sản phẩm 1 (Thư viện mẫu văn bản):
+### Tài liệu chung toàn nền tảng:
+- **[PRODUCT_SPEC.md](docs/PRODUCT_SPEC.md)**: Đặc tả sản phẩm & tiêu chuẩn kỹ thuật nền tảng (Product Specification).
+
+### Bộ tài liệu Phân hệ 1 (Thư viện mẫu văn bản):
 1. **[SRS.md](apps/project-1-doc-template/docs/SRS.md)**: Đặc tả yêu cầu phần mềm đầy đủ (Functional & Non-Functional Requirements, Ma trận kiểm chứng).
 2. **[STRUCTURE.md](apps/project-1-doc-template/docs/STRUCTURE.md)**: Sơ đồ cây thư mục chi tiết, cấu trúc Feature-Driven, trách nhiệm từng phân lớp và sơ đồ tuần tự (Sequence Diagram).
 3. **[ROADMAP.md](apps/project-1-doc-template/docs/ROADMAP.md)**: Lộ trình phát triển 4 giai đoạn từ MVP đến Enterprise, ma trận quản trị rủi ro.
 4. **[ARCHITECTURE.md](apps/project-1-doc-template/docs/ARCHITECTURE.md)**: Kiến trúc hệ thống và cơ chế bảo vệ tính bất biến của mẫu gốc (Immutability).
 5. **[API_SPEC.md](apps/project-1-doc-template/docs/API_SPEC.md)**: Đặc tả API Routes (`/api/templates`, `/api/documents`, `/api/documents/:id/export`).
-6. **[PLAN.md](apps/project-1-doc-template/docs/PLAN.md)**: Kế hoạch triển khai ban đầu và checklist kiểm thử.
+6. **[REQUIREMENTS.md](apps/project-1-doc-template/docs/REQUIREMENTS.md)**: Yêu cầu nghiệp vụ & đặc tả tính năng phân hệ văn bản.
+7. **[PLAN.md](apps/project-1-doc-template/docs/PLAN.md)**: Kế hoạch triển khai và checklist tính năng.
 
-### Bộ tài liệu Sản phẩm 2 (Thư viện mẫu trình chiếu):
+### Bộ tài liệu Phân hệ 2 (Thư viện mẫu trình chiếu):
 1. **[SRS.md](apps/project-2-slide-template/docs/SRS.md)**: Đặc tả yêu cầu phần mềm đầy đủ cho phân hệ slide thuyết trình.
 2. **[STRUCTURE.md](apps/project-2-slide-template/docs/STRUCTURE.md)**: Sơ đồ cấu trúc Feature-Driven, Slide Deck data model và luồng xử lý stream download.
-3. **[ROADMAP.md](apps/project-2-slide-template/docs/ROADMAP.md)**: Lộ trình phát triển sản phẩm & kế hoạch tích hợp In-browser Slide Editor (Canvas Fabric.js & Microsoft WOPI Enterprise theo yêu cầu mục III.2.D đề bài).
+3. **[ROADMAP.md](apps/project-2-slide-template/docs/ROADMAP.md)**: Lộ trình phát triển sản phẩm & kế hoạch tích hợp In-browser Slide Editor (Canvas Fabric.js & Microsoft WOPI Enterprise).
 4. **[ARCHITECTURE.md](apps/project-2-slide-template/docs/ARCHITECTURE.md)**: Kiến trúc Slide Deck Cinema 16:9, Filmstrip Carousel và giải pháp nhân bản tệp vật lý.
 5. **[API_SPEC.md](apps/project-2-slide-template/docs/API_SPEC.md)**: Đặc tả API Routes (`/api/templates`, `/api/presentations`, download PPTX).
-6. **[PLAN.md](apps/project-2-slide-template/docs/PLAN.md)**: Kế hoạch triển khai và tiêu chí nghiệm thu.
+6. **[REQUIREMENTS.md](apps/project-2-slide-template/docs/REQUIREMENTS.md)**: Yêu cầu nghiệp vụ & đặc tả tính năng phân hệ trình chiếu.
+7. **[PLAN.md](apps/project-2-slide-template/docs/PLAN.md)**: Kế hoạch triển khai và tiêu chí nghiệm thu.
 
 ---
 
-## 🌟 ĐỐI CHIẾU TIÊU CHÍ VÀ TÍNH NĂNG ĐÃ HOÀN THÀNH
+## 🌟 ĐỐI CHIẾU TIÊU CHUẨN TÍNH NĂNG ĐÃ HOÀN THÀNH
 
-| Yêu cầu đề bài | Sản phẩm 1 (Văn bản) | Sản phẩm 2 (Trình chiếu) | Trạng thái |
+| Tiêu chuẩn tính năng | Phân hệ 1 (Văn bản) | Phân hệ 2 (Trình chiếu) | Trạng thái |
 | :--- | :--- | :--- | :---: |
 | **Giao diện thư viện** | Dạng lưới thẻ (Grid card), Thumbnail SVG, tên, mô tả, danh mục, tags. | Lưới thẻ 16:9, Thumbnail bìa, tổng số slide, danh mục. | ✅ Đã hoàn thành 100% |
 | **Tìm kiếm & Phân loại** | Tìm kiếm thời gian thực theo từ khóa; Lọc danh mục với badge số lượng. | Tìm kiếm thời gian thực; Lọc phân loại bộ slide. | ✅ Đã hoàn thành 100% |
@@ -156,13 +169,13 @@ Tất cả tài liệu được chuẩn bị đầy đủ, chuẩn mực trướ
 2. **Cơ chế Deep Copy / File Stream Copy khi khởi tạo (Copy-on-Create)**:
    - Khi người dùng nhấn "Sử dụng mẫu", backend tạo một bản ghi hoặc bản sao file mới với UUID độc lập.
    - Mọi thao tác chỉnh sửa (Save, Edit, Export) chỉ được phép trỏ tới ID của người dùng.
-   - File template gốc giữ nguyên 100% nội dung, hash SHA-256 và thời gian chỉnh sửa (được kiểm chứng qua bài test `pnpm -r test`).
+   - File template gốc giữ nguyên 100% nội dung, hash SHA-256 và thời gian chỉnh sửa (được kiểm chứng qua kiểm thử tự động `pnpm test`).
 
 ---
 
 ## 🛠️ THƯ VIỆN BÊN THỨ 3 & GIẤY PHÉP (THIRD-PARTY LICENSES)
 
-Theo yêu cầu mục IV đề bài, toàn bộ thư viện sử dụng đều thuộc mã nguồn mở tiêu chuẩn:
+Toàn bộ thư viện sử dụng đều thuộc mã nguồn mở tiêu chuẩn:
 - **Next.js & React**: Giấy phép MIT.
 - **Tailwind CSS**: Giấy phép MIT.
 - **Shadcn/UI & Radix UI**: Giấy phép MIT (Dialog, Slot, Tabs, Tooltip, Separator...).
@@ -174,7 +187,8 @@ Theo yêu cầu mục IV đề bài, toàn bộ thư viện sử dụng đều t
 
 ---
 
-## 🤖 TUYÊN BỐ MINH BẠCH VỀ AI & MÃ NGUỒN MỞ
+## 🏢 TRIẾT LÝ PHÁT TRIỂN & CHUẨN MỰC KỸ THUẬT
 
-- **AI Support**: Dự án có sự hỗ trợ của trợ lý AI (Google DeepMind Antigravity) trong việc scaffold cấu trúc dự án, sinh mã SVG minh họa và tối ưu hóa các kịch bản kiểm thử tự động.
-- Toàn bộ tư duy kiến trúc, phân chia tầng dữ liệu, mô hình Copy-on-Create và đặc tả API được ứng viên định hướng và kiểm soát chất lượng chặt chẽ.
+- **Kiến trúc bền vững**: Định hướng Domain-Driven & Feature-Driven giúp hệ thống dễ dàng mở rộng, cô lập nghiệp vụ và phân tách rõ ràng trách nhiệm giữa Frontend, Backend và Shared Packages.
+- **Tính toàn vẹn dữ liệu**: Đặt tính bất biến (Immutability) và bảo mật quyền ghi làm ưu tiên cao nhất trong quá trình sao chép và xuất bản tài liệu văn phòng.
+- **Zero-Configuration**: Triển khai thiết kế không phụ thuộc cơ sở dữ liệu bên ngoài, sẵn sàng khởi chạy và kiểm thử ngay lập tức trên mọi môi trường chuẩn.

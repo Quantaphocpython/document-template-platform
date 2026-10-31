@@ -4,6 +4,7 @@ export * from './types/base-entity.type.js';
 // Constants
 export * from './constants/routes.constant.js';
 export * from './constants/mime-types.constant.js';
+export * from './constants/http.constant.js';
 
 // Utils
 export * from './utils/url.utils.js';

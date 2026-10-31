@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@preview/core'],
+  transpilePackages: ['core', 'ui'],
   turbopack: {
     rules: {
       "*.css": {

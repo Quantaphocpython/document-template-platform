@@ -6,7 +6,7 @@ import { docxExportService } from '../src/server/services/docx-export.service';
 
 async function runTests() {
   console.log('====================================================');
-  console.log('🧪 BẮT ĐẦU CHẠY KIỂM THỬ TỰ ĐỘNG - SẢN PHẨM 1');
+  console.log('🧪 BẮT ĐẦU CHẠY KIỂM THỬ TỰ ĐỘNG - DOCUMENT TEMPLATE ENGINE');
   console.log('====================================================\n');
 
   // 1. Kiểm thử nạp danh mục và biểu mẫu ban đầu
@@ -17,7 +17,7 @@ async function runTests() {
 
   const allTemplates = templateService.getTemplates();
   assert(allTemplates.length >= 5, 'Phải có tối thiểu 5 biểu mẫu ban đầu');
-  console.log(`  ✓ Số biểu mẫu ban đầu: ${allTemplates.length} (Đạt yêu cầu đề bài >= 5)`);
+  console.log(`  ✓ Số biểu mẫu ban đầu: ${allTemplates.length} (Đầy đủ catalog tiêu chuẩn)`);
 
   // 2. Kiểm thử tìm kiếm và lọc danh mục
   console.log('\nTest 2: Kiểm tra chức năng tìm kiếm & lọc danh mục...');
@@ -89,7 +89,7 @@ async function runTests() {
   console.log(`  ✓ Xuất file DOCX thành công: ${docxBuffer.length} bytes (Cấu trúc file OpenXML hợp lệ)`);
 
   console.log('\n====================================================');
-  console.log('🎉 TẤT CẢ CÁC BÀI TEST ĐỀU ĐẠT CHUẨN 100% (PASSED)');
+  console.log('🎉 TOÀN BỘ KIỂM THỬ TỰ ĐỘNG ĐỀU ĐẠT CHUẨN 100% (PASSED)');
   console.log('====================================================\n');
 }
 

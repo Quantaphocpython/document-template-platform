@@ -1,5 +1,5 @@
 {
-  "name": "@preview/core",
+  "name": "core",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
-    "typescript": "^5.9.3"
+    "typescript": "5.8.2"
   }
 }

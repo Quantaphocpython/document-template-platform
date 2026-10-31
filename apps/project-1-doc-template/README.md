@@ -82,6 +82,7 @@ Toàn bộ tài liệu kỹ thuật chi tiết đã được chuẩn bị sẵn 
 - **[ROADMAP.md](docs/ROADMAP.md)**: Lộ trình phát triển 4 giai đoạn từ MVP đến Enterprise, ma trận quản trị rủi ro.
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Kiến trúc hệ thống & cơ chế Immutability (Copy-on-Create).
 - **[API_SPEC.md](docs/API_SPEC.md)**: Đặc tả toàn bộ API Routes & Contracts.
+- **[REQUIREMENTS.md](docs/REQUIREMENTS.md)**: Tổng hợp yêu cầu nghiệp vụ và tiêu chuẩn kỹ thuật phân hệ văn bản.
 - **[PLAN.md](docs/PLAN.md)**: Kế hoạch triển khai & Checklist tính năng.
 
 ---

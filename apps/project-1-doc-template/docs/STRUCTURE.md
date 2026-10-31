@@ -66,35 +66,18 @@ project-1-doc-template/
 │   │
 │   ├── services/                          # [Pure Data Access Layer] Tầng giao tiếp API thuần
 │   │   ├── core/
-│   │   │   ├── base-api.service.ts        # BaseApiService: Axios Interceptor, Bearer Token, Offline Guard, Path Params
-│   │   │   ├── types.ts                   # RequestConfig, BaseResponse<T>, ApiError, HttpMethod
-│   │   │   └── http-client.ts             # Re-export BaseApiService & types
+│   │   │   ├── base-api.service.ts        # BaseApiService kết nối HTTP Client dùng chung từ core package
+│   │   │   └── types.ts                   # Types mở rộng cho API Layer
 │   │   ├── documents/
-│   │   │   └── document-api.service.ts    # DocumentApiService extends BaseApiService (_get, _post, _put, downloadBlob)
+│   │   │   └── document-api.service.ts    # DocumentApiService extends BaseApiService
 │   │   └── templates/
-│   │       └── template-api.service.ts    # TemplateApiService extends BaseApiService (_get with pathParams)
-│   │
-│   ├── shared/                            # [Shared Foundation & Design System]
-│   │   ├── components/
-│   │   │   └── ui/                        # Bộ Shadcn/UI chuẩn hóa (kebab-case)
-│   │   │       ├── badge.tsx              # Huy hiệu phân loại & trạng thái
-│   │   │       ├── button.tsx             # Button chuẩn design system (variant & size)
-│   │   │       ├── card.tsx               # Khung Card bao bọc nội dung
-│   │   │       ├── dialog.tsx             # Dialog mở rộng chuẩn Radix UI
-│   │   │       ├── input.tsx              # Input field hỗ trợ search icon
-│   │   │       ├── modal.tsx              # Modal popup đa kích thước
-│   │   │       ├── separator.tsx          # Đường ngăn cách phân vùng
-│   │   │       ├── skeleton.tsx           # Khung xương loading shimmer
-│   │   │       ├── tabs.tsx               # Bộ tab chuyển đổi
-│   │   │       └── tooltip.tsx            # Tooltip giải thích thao tác
-│   │   └── utils/
-│   │       └── utils.ts                   # Hàm tiện ích cn(), format ngày tháng
+│   │       └── template-api.service.ts    # TemplateApiService extends BaseApiService
 │   │
 │   ├── server/                            # TẦNG DỊCH VỤ BACKEND (DOMAIN SERVICES)
 │   │   └── services/
 │   │       ├── document.service.ts        # Quản lý nhân bản và lưu trữ UserDocument
 │   │       ├── docx-export.service.ts     # Phân tích cú pháp & sinh file Word OpenXML
-│   │       ├── storage.service.ts         # Giao tiếp I/O vật lý tới thư mục storage/
+│   │       ├── storage.service.ts         # Giao tiếp I/O vật lý (kế thừa BaseStorageRepository từ core/server)
 │   │       └── template.service.ts        # Truy vấn, tìm kiếm, lọc biểu mẫu gốc
 │   │
 │   ├── data/                              # DỮ LIỆU BAN ĐẦU (SEED DATA)
@@ -123,12 +106,12 @@ project-1-doc-template/
 
 | Phân tầng | Vị trí thư mục | Trách nhiệm chính |
 | :--- | :--- | :--- |
-| **Shared Core Package** | `packages/core` (`@preview/core`, `@preview/core/server`) | • Gói thư viện dùng chung trong Monorepo pnpm workspace.<br>• `HttpClient`: Centralized HTTP Client xử lý query params, interceptor, Blob download.<br>• `BaseCatalogService`: Quản lý tìm kiếm, lọc danh mục, tính count & mở rộng runtime.<br>• `BaseStorageRepository`: Lớp cơ sở trừu tượng quản lý I/O tệp tin độc lập.<br>• `APP_ROUTES`, `API_ROUTES`: Hằng số URL routes tập trung chống hardcode.<br>• Tiện ích tái sử dụng: `buildUrlWithParams`, `createAttachmentHeaders`, `sanitizeFileName`, `formatFileSize`. |
+| **Shared Core Package** | `packages/core` (`core`, `core/server`) | • Gói thư viện dùng chung trong Monorepo pnpm workspace.<br>• `HttpClient`: Centralized HTTP Client xử lý query params, interceptor, Blob download.<br>• `BaseCatalogService`: Quản lý tìm kiếm, lọc danh mục, tính count & mở rộng runtime.<br>• `BaseStorageRepository`: Lớp cơ sở trừu tượng quản lý I/O tệp tin độc lập.<br>• `APP_ROUTES`, `API_ROUTES`: Hằng số URL routes tập trung chống hardcode.<br>• Tiện ích tái sử dụng: `buildUrlWithParams`, `createAttachmentHeaders`, `sanitizeFileName`, `formatFileSize`. |
 | **Thin Routing Shell** | `src/app/` | • Chứa routing shells mỏng nhẹ theo Next.js App Router.<br>• Chuyển tiếp trách nhiệm trực tiếp cho `src/features/*/screens/`. |
 | **Feature-Driven Modules** | `src/features/` | • Đóng gói độc lập theo nghiệp vụ (`templates/`, `editor/`).<br>• `screens/`: Ghép nối giao diện hoàn chỉnh.<br>• `components/`: Component con dùng riêng cho phân hệ (kebab-case).<br>• `hooks/`: Custom hooks đóng gói state và kết nối service layer. |
-| **Pure Data Access Layer (BaseApiService)** | `src/services/core/base-api.service.ts`, `src/services/*/` | • Lớp trừu tượng `BaseApiService` bọc `AxiosInstance` chuẩn hóa.<br>• Tự động gắn Bearer Token từ Zustand `useAuthStore`.<br>• Offline Guard ngăn request rác qua `useAppStore`.<br>• Format URL động `:id` và `{id}` qua `pathParams`.<br>• Tự động bóc tách mảng lỗi backend (`flattenApiErrors`) & kích hoạt Toast (`toast.error`).<br>• Các domain services kế thừa `BaseApiService` và gọi `this._get`, `this._post`, `this._put`, `this._delete`. |
-| **Custom Portal System** | `src/store/layout.store.ts`, `src/shared/components/portal-renderer.tsx`, `src/shared/hooks/use-portal.ts` | • Quản lý Stacking Portals toàn cục bằng Zustand.<br>• Cho phép gọi modal qua Hook (`usePortal`) và Imperative Call từ tầng Services (`confirmModal.show`).<br>• Giải quyết triệt để vấn đề Z-Index & Stacking Context. |
-| **Shared Design System** | `src/shared/components/ui/` | • Bộ thành phần UI Shadcn/UI chuẩn hóa (kebab-case).<br>• Tuân thủ nghiêm ngặt quy chuẩn Button Design System (chỉ dùng variant & size, không custom class ghi đè). |
+| **Pure Data Access Layer (BaseApiService)** | `src/services/core/base-api.service.ts`, `src/services/*/` | • Lớp trừu tượng `BaseApiService` kết nối HTTP Client dùng chung từ package `core`.<br>• Tự động gắn Bearer Token, Offline Guard, URL Params (`pathParams`).<br>• Tự động bóc tách mảng lỗi backend & kích hoạt Toast (`toast.error`).<br>• Các domain services kế thừa `BaseApiService` và gọi `this._get`, `this._post`, `this._put`, `this._delete`. |
+| **Custom Portal System** | `packages/ui` (`usePortal`, `PortalRenderer`, `confirmModal`) | • Quản lý Stacking Portals toàn cục bằng Zustand trong package `ui`.<br>• Cho phép gọi modal qua Hook (`usePortal`) và Imperative Call từ tầng Services (`confirmModal.show`).<br>• Giải quyết triệt để vấn đề Z-Index & Stacking Context. |
+| **Shared Design System** | `packages/ui` (`Button`, `Card`, `Modal`, `Tabs`, `cn`...) | • Bộ thành phần UI UIKit chuẩn hóa (kebab-case) chia sẻ trực tiếp qua package `ui`.<br>• Tuân thủ nghiêm ngặt quy chuẩn Button Design System (chỉ dùng variant & size, không custom class ghi đè). |
 | **API Controller Layer** | `src/app/api/` | • Tiếp nhận HTTP Request (GET, POST, PUT).<br>• Trích xuất query params (`category`, `search`), parse JSON body.<br>• Trả về định dạng chuẩn `ApiResponse<T>` với HTTP Status Code tương ứng (200, 201, 400, 404, 500). |
 | **Domain Service Layer** | `src/server/services/` | • Thực thi logic nghiệp vụ cốt lõi phía server.<br>• `DocumentService`: Thực thi thuật toán Copy-on-Create, đảm bảo tách biệt bộ nhớ.<br>• `DocxExportService`: Phân tích HTML blocks $\rightarrow$ docx Paragraphs / Tables $\rightarrow$ OpenXML Buffer.<br>• `TemplateService`: Xử lý thuật toán tìm kiếm đa tiêu chí. |
 | **Storage Repository Layer** | `src/server/services/storage.service.ts`, `storage/` | • Đọc / ghi file vật lý trên máy chủ cục bộ.<br>• Đảm bảo `storage/templates/` mang tính bất biến (Read-only) và `storage/documents/` mang tính Read-Write. |

@@ -1,9 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import { Eye, Plus, Tag } from 'lucide-react';
 import { Template, TemplateCategory } from '@/types';
-import { Badge, BadgeVariant } from '@/shared/components/ui/badge';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
+import { Eye, Plus, Tag } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
+import { Badge, BadgeVariant, Button, ButtonSize, ButtonVariant } from 'ui';
 
 export interface TemplateCardProps {
   template: Template;

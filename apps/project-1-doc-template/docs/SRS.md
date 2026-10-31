@@ -3,7 +3,7 @@
 
 * **Phiên bản tài liệu**: 1.0.0  
 * **Trạng thái**: Approved & Implemented  
-* **Tác giả**: Trần Hoàng Quân (Fullstack Developer)  
+* **Tác giả**: Engineering Team  
 * **Hệ thống mục tiêu**: Bộ ứng dụng văn phòng tích hợp (Integrated Office Suite)  
 
 ---

@@ -3,7 +3,7 @@
 
 * **Phiên bản tài liệu**: 1.0.0  
 * **Trạng thái**: Approved & Implemented  
-* **Tác giả**: Trần Hoàng Quân (Fullstack Developer)  
+* **Tác giả**: Engineering Team  
 * **Hệ thống mục tiêu**: Bộ ứng dụng văn phòng tích hợp (Integrated Office Suite)  
 
 ---
@@ -63,9 +63,9 @@ Sản phẩm là phân hệ trình chiếu cho phép người dùng trong tổ c
 2. **Khối Kế hoạch & Tài chính (FP&A / PMO)**: Sử dụng các slide báo cáo hoạt động định kỳ để tổng kết số liệu kinh doanh trước Hội đồng Quản trị.
 3. **Giám đốc Tiếp thị & Sản phẩm (CMO / PM)**: Chuẩn bị slide chiến lược Go-To-Market cho chiến dịch ra mắt sản phẩm mới.
 
-### 2.3. Ràng buộc kỹ thuật & Giải pháp theo Đề bài Mục III.2.D
-- **Ràng buộc định dạng PPTX trên Web**: Định dạng `.pptx` là tập hợp hàng trăm thành phần XML phức tạp (vector shapes, animations, master layouts, gradient fills, embedded fonts). Việc phát triển một trình biên tập slide hai chiều (round-trip visual editor) đầy đủ trên web trong phạm vi 6-8 giờ làm việc là không khả thi và dễ gây lỗi vỡ layout.
-- **Giải pháp tối ưu được đề bài cho phép**: Xây dựng hoàn chỉnh luồng: **Chọn mẫu $\rightarrow$ Nhân bản bản sao độc lập $\rightarrow$ Tải file PPTX chuẩn**, kèm theo phần thuyết minh kiến trúc mở rộng trong tài liệu bàn giao.
+### 2.3. Ràng buộc kỹ thuật & Giải pháp Kiến trúc
+- **Ràng buộc định dạng PPTX trên Web**: Định dạng `.pptx` là tập hợp hàng trăm thành phần XML phức tạp (vector shapes, animations, master layouts, gradient fills, embedded fonts). Việc phát triển một trình biên tập slide hai chiều (round-trip visual editor) đầy đủ trên web đòi hỏi giải pháp engine chuyên biệt để tránh lỗi suy hao dữ liệu.
+- **Giải pháp kiến trúc chuẩn**: Xây dựng hoàn chỉnh luồng: **Chọn mẫu $\rightarrow$ Nhân bản bản sao độc lập $\rightarrow$ Tải file PPTX chuẩn**, kèm theo lộ trình tích hợp trình biên tập trực tuyến chi tiết trong tài liệu hệ thống.
 
 ---
 
@@ -105,7 +105,7 @@ Sản phẩm là phân hệ trình chiếu cho phép người dùng trong tổ c
 - **FR-6.4**: File PPTX tải về phải là tệp OpenXML hợp lệ (có magic bytes `PK\x03\x04`), mở thành công trên Microsoft PowerPoint, Google Slides, Keynote với đầy đủ các slide, text box và định dạng màu sắc.
 
 ### FR-7: Thuyết Minh Kiến Trúc Mở Rộng Slide Editor (In-browser Editor Roadmap)
-- **FR-7.1**: Modal thông báo và tài liệu kiến trúc phải nêu rõ giải pháp mở rộng trong tương lai để tích hợp trình chỉnh sửa slide trực tuyến (đáp ứng đúng mục III.2.D của đề bài).
+- **FR-7.1**: Modal thông báo và tài liệu kiến trúc phải nêu rõ giải pháp mở rộng trong tương lai để tích hợp trình chỉnh sửa slide trực tuyến (HTML5 Canvas & WOPI Protocol).
 
 ---
 

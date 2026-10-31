@@ -8,11 +8,9 @@ import {
   Info,
 } from 'lucide-react';
 import { UserPresentation } from '@/types';
-import { Modal } from '@/shared/components/ui/modal';
-import { Button, ButtonSize, ButtonVariant } from '@/shared/components/ui/button';
-import { formatFileSize } from '@/shared/utils/utils';
+import { formatFileSize } from 'core';
+import { Button, ButtonSize, ButtonVariant, Modal, PortalProps } from 'ui';
 import { presentationApiService } from '@/services/presentations/presentation-api.service';
-import { PortalProps } from '@/shared/types/portal.types';
 
 export interface PresentationCreatedModalProps extends PortalProps<UserPresentation> {
   presentation?: UserPresentation | null;
@@ -116,19 +114,19 @@ export const PresentationCreatedModal: React.FC<PresentationCreatedModalProps> =
           </div>
         </div>
 
-        {/* Technical Architecture & Future Editor Extension (Yêu cầu đề bài Mục III.2.D) */}
+        {/* Technical Architecture & Future In-Browser Editor Roadmap */}
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-2.5">
           <div className="flex items-center gap-2 text-indigo-400 font-semibold">
             <Info className="w-4 h-4" />
-            <span>Báo Cáo Kỹ Thuật &amp; Định Hướng Tích Hợp Slide Editor:</span>
+            <span>Kiến Trúc Kỹ Thuật &amp; Định Hướng Tích Hợp Trực Tuyến:</span>
           </div>
           <p className="text-slate-400 leading-relaxed">
-            Theo đề bài mục <strong>III.2.D</strong>: Do tính chất phức tạp của định dạng OpenXML (.pptx) với hàng trăm vector layers, giải pháp xây dựng luồng tạo bản sao độc lập và tải file PPTX là phương án tối ưu về hiệu năng và độ tin cậy.
+            Do tính chất phức tạp của định dạng OpenXML (.pptx) chuẩn ECMA-376 với hàng trăm vector layers, kiến trúc phân tách luồng tạo bản sao độc lập (Copy-on-Create) và tải file nhị phân trực tiếp đảm bảo tối đa hiệu năng, độ tin cậy và tính tương thích trên mọi phần mềm văn phòng.
           </p>
           <div className="pt-2 border-t border-slate-800/80 text-slate-300 space-y-1">
-            <p><strong>Hướng mở rộng tích hợp Editor trực tuyến:</strong></p>
-            <p>1. <em>Canvas Engine (Fabric.js/Konva):</em> Render từng đối tượng slide lên canvas cho phép kéo thả trực quan.</p>
-            <p>2. <em>Microsoft Office for the Web (WOPI Protocol):</em> Nhúng trực tiếp iframe PowerPoint Online của Microsoft thông qua server WOPI host chuẩn doanh nghiệp.</p>
+            <p><strong>Lộ trình tích hợp trình biên tập trực tuyến (Roadmap):</strong></p>
+            <p>1. <em>Canvas Engine (Fabric.js/Konva):</em> Render từng layer slide lên HTML5 Canvas cho phép kéo thả trực quan.</p>
+            <p>2. <em>Microsoft Office for the Web (WOPI Protocol):</em> Nhúng trực tiếp iframe PowerPoint Online thông qua WOPI Host chuẩn doanh nghiệp.</p>
           </div>
         </div>
       </div>

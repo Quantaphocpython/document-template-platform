@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { NextRequest, NextResponse } from 'next/server';
-import { createAttachmentHeaders, MimeType, sanitizeFileName } from '@preview/core';
+import { createAttachmentHeaders, MimeType, sanitizeFileName } from 'core';
 import { presentationService } from '@/server/services/presentation.service';
 
 export const dynamic = 'force-dynamic';

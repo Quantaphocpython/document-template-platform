@@ -8,7 +8,11 @@ export abstract class BaseStorageRepository<TInstance extends BaseEntity> {
   protected readonly userInstancesDir: string;
 
   constructor(subDirectoryName: string) {
-    this.baseStorageDir = path.join(process.cwd(), 'storage');
+    this.baseStorageDir =
+      process.env.STORAGE_PATH ||
+      (process.env.VERCEL
+        ? path.join('/tmp', 'storage')
+        : path.join(process.cwd(), 'storage'));
     this.templatesDir = path.join(this.baseStorageDir, 'templates');
     this.userInstancesDir = path.join(this.baseStorageDir, subDirectoryName);
 

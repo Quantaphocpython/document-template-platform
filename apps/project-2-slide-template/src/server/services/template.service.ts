@@ -1,4 +1,4 @@
-import { BaseCatalogService } from '@preview/core';
+import { BaseCatalogService } from 'core';
 import { INITIAL_SLIDE_TEMPLATES, SLIDE_CATEGORIES } from '@/data/templates';
 import { SlideCategory, SlideTemplate } from '@/types';
 import { pptxGeneratorService } from './pptx-generator.service';
