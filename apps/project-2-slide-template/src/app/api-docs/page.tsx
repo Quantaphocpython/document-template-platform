@@ -53,19 +53,23 @@ export default function ApiDocsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       {/* Top Header Bar */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 px-4 sm:px-8 py-3.5 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href="/">
-            <Button variant={ButtonVariant.OUTLINE} size={ButtonSize.SM}>
-              <ArrowLeft className="w-4 h-4 mr-1.5" />
-              Quay lại Thư viện
+            <Button
+              variant={ButtonVariant.OUTLINE}
+              size={ButtonSize.ICON}
+              title="Quay lại Thư viện"
+              aria-label="Quay lại Thư viện"
+            >
+              <ArrowLeft className="w-4 h-4" />
             </Button>
           </Link>
-          <div className="h-5 w-px bg-slate-200 hidden sm:block" />
-          <div className="flex items-center gap-2 text-slate-800 font-semibold text-sm">
-            <BookOpen className="w-4 h-4 text-indigo-600" />
+          <div className="h-5 w-px bg-border hidden sm:block" />
+          <div className="flex items-center gap-2 text-foreground font-semibold text-sm">
+            <BookOpen className="w-4 h-4 text-primary" />
             <span>Interactive OpenAPI 3.0 Documentation</span>
           </div>
         </div>
@@ -75,7 +79,7 @@ export default function ApiDocsPage() {
             href="/api/openapi.json"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-slate-500 hover:text-indigo-600 font-mono inline-flex items-center gap-1 transition-colors"
+            className="text-xs text-muted-foreground hover:text-foreground font-mono inline-flex items-center gap-1 transition-colors"
           >
             <span>/api/openapi.json</span>
             <ExternalLink className="w-3 h-3" />
@@ -85,7 +89,7 @@ export default function ApiDocsPage() {
 
       {/* Main Swagger UI Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
-        <div id="swagger-ui" className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden" />
+        <div id="swagger-ui" className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden" />
       </main>
     </div>
   );

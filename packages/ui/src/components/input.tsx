@@ -10,7 +10,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="relative flex items-center w-full">
         {icon && (
-          <div className="absolute left-3.5 text-slate-400 pointer-events-none flex items-center justify-center">
+          <div className="absolute left-3.5 text-muted-foreground pointer-events-none flex items-center justify-center">
             {icon}
           </div>
         )}
@@ -18,8 +18,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           type={type}
           ref={ref}
           className={cn(
-            'flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent disabled:cursor-not-allowed disabled:opacity-50',
-            icon && 'pl-10',
+            'flex h-9 w-full rounded-xl border border-input bg-card px-3.5 py-1.5 text-xs text-foreground placeholder:text-muted-foreground shadow-2xs transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-ring disabled:cursor-not-allowed disabled:opacity-50',
+            icon && 'pl-9',
             className
           )}
           {...props}
@@ -30,4 +30,3 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
-

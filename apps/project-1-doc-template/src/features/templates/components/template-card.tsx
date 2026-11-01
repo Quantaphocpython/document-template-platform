@@ -31,10 +31,10 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
   isCreating = false,
 }) => {
   return (
-    <div className="group flex flex-col bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden">
+    <div className="group flex flex-col bg-card rounded-2xl border border-border shadow-sm hover:border-primary/50 hover:shadow-lg transition-all duration-300 overflow-hidden">
       {/* Thumbnail Container */}
       <div
-        className="relative w-full aspect-16/10 bg-slate-100 overflow-hidden cursor-pointer"
+        className="relative w-full aspect-16/10 bg-muted/40 border-b border-border overflow-hidden cursor-pointer"
         onClick={() => onPreview(template)}
       >
         <Image
@@ -42,37 +42,37 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
           alt={template.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+          className="object-contain p-3 group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-200 flex items-center justify-center">
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/95 text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5 backdrop-blur-xs">
+        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center">
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-foreground/90 text-background text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 backdrop-blur-xs">
             <Eye className="w-3.5 h-3.5" />
             Nhấp để xem trước
           </span>
         </div>
-        <div className="absolute top-3 left-3">
+        <div className="absolute top-2.5 left-2.5">
           <Badge variant={getBadgeVariantForCategory(template.category)}>
             {template.categoryName}
           </Badge>
         </div>
-        <div className="absolute top-3 right-3">
-          <span className="text-[11px] font-mono bg-white/90 text-slate-600 px-2 py-0.5 rounded-md border border-slate-200 shadow-2xs">
+        <div className="absolute top-2.5 right-2.5">
+          <span className="text-[10px] font-mono bg-card/90 text-foreground/80 px-2 py-0.5 rounded-md border border-border shadow-2xs font-medium">
             v{template.version}
           </span>
         </div>
       </div>
 
       {/* Content Info */}
-      <div className="flex-1 flex flex-col p-5">
+      <div className="flex-1 flex flex-col p-4 sm:p-5">
         <h3
           onClick={() => onPreview(template)}
-          className="font-bold text-slate-900 text-base leading-snug line-clamp-1 hover:text-blue-600 transition-colors cursor-pointer"
+          className="font-bold text-foreground text-base leading-snug line-clamp-1 group-hover:text-primary transition-colors cursor-pointer"
           title={template.title}
         >
           {template.title}
         </h3>
 
-        <p className="text-xs text-slate-500 line-clamp-2 mt-2 leading-relaxed">
+        <p className="text-xs text-muted-foreground line-clamp-2 mt-2 leading-relaxed">
           {template.description}
         </p>
 
@@ -81,22 +81,22 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
           {template.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1 text-[11px] text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100"
+              className="inline-flex items-center gap-1 text-[11px] text-secondary-foreground bg-secondary/80 px-2.5 py-0.5 rounded-md border border-secondary font-medium"
             >
-              <Tag className="w-2.5 h-2.5 text-slate-400" />
+              <Tag className="w-2.5 h-2.5 text-secondary-foreground/70" />
               {tag}
             </span>
           ))}
           {template.tags.length > 3 && (
-            <span className="text-[10px] text-slate-400">
+            <span className="text-[10px] font-medium text-muted-foreground">
               +{template.tags.length - 3}
             </span>
           )}
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-100">
-          <span className="text-[11px] text-slate-400 font-mono">
+        <div className="flex items-center justify-between pt-4 mt-auto border-t border-border">
+          <span className="text-xs font-semibold text-muted-foreground font-mono bg-muted px-2 py-0.5 rounded-md">
             .docx
           </span>
           <div className="flex items-center gap-2">
@@ -123,4 +123,3 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
     </div>
   );
 };
-

@@ -27,35 +27,38 @@ Xây dựng module thư viện mẫu trình chiếu (PowerPoint Presentation Tem
 ## 3. Lộ trình triển khai (Implementation Phases)
 
 ### Giai đoạn 1: Chuẩn bị Cấu trúc & Dữ liệu Mẫu (Seed Data)
-- [ ] Thiết kế TypeScript Interfaces cho `SlideTemplate`, `SlideItem`, `Presentation`, `SlideCategory`.
-- [ ] Xây dựng tối thiểu 3 bộ template slide chuyên nghiệp:
+- [x] Thiết kế TypeScript Interfaces cho `SlideTemplate`, `SlideItem`, `Presentation`, `SlideCategory`.
+- [x] Xây dựng tối thiểu 3 bộ template slide chuyên nghiệp:
   1. **Pitch Deck Gọi Vốn Đầu Tư (Investor Pitch Deck)** - 5 slide mẫu (Cover, Problem & Solution, Market Size, Traction, Team).
   2. **Báo Cáo Hoạt Động & Đánh Giá Định Kỳ (Business Quarterly Review)** - 5 slide mẫu (Cover, KPI Highlights, Financials, Challenges, Next Steps).
   3. **Chiến Lược Ra Mắt Sản Phẩm Mới (Product Launch & Marketing Strategy)** - 5 slide mẫu (Cover, Target Audience, Go-To-Market Plan, Channels, Roadmap).
-- [ ] Thiết kế ảnh thumbnail tỉ lệ 16:9 sắc nét cho từng slide.
+- [x] Thiết kế ảnh thumbnail vector SVG tỉ lệ 16:9 sắc nét cho từng slide.
 
 ### Giai đoạn 2: Xây dựng Backend API Service
-- [ ] `GET /api/presentations/templates`: Lấy danh sách các bộ template (hỗ trợ search, filter danh mục).
-- [ ] `GET /api/presentations/templates/:id`: Lấy chi tiết bộ slide bao gồm toàn bộ danh sách slide preview.
-- [ ] `POST /api/presentations`: Tạo bản trình chiếu mới từ template (sao chép độc lập).
-- [ ] `GET /api/presentations/:id`: Lấy thông tin bản trình chiếu đã tạo.
-- [ ] `GET /api/presentations/:id/download`: Tải file PPTX của bản trình chiếu.
+- [x] `GET /api/templates`: Lấy danh sách các bộ template (hỗ trợ search, filter danh mục).
+- [x] `GET /api/templates/:id`: Lấy chi tiết bộ slide bao gồm toàn bộ danh sách slide preview.
+- [x] `POST /api/presentations`: Tạo bản trình chiếu mới từ template (sao chép vật lý độc lập).
+- [x] `GET /api/presentations/:id`: Lấy thông tin bản trình chiếu đã tạo.
+- [x] `GET /api/presentations/:id/download`: Tải file PPTX của bản trình chiếu với headers chuẩn MIME type.
 
 ### Giai đoạn 3: Xây dựng Giao diện Người dùng (UI/UX)
-- [ ] Layout thư viện template trình chiếu: Thiết kế hiện đại, chuyên nghiệp.
-- [ ] Bộ lọc danh mục & Ô tìm kiếm từ khóa.
-- [ ] Template Card: Hiển thị thumbnail slide đầu tiên, số lượng slide trong bộ, tag danh mục, nút xem chi tiết.
-- [ ] Slide Deck Preview Modal:
-  - Slide chính hiển thị to ở giữa theo tỉ lệ chuẩn 16:9.
+- [x] Layout thư viện template trình chiếu: Thiết kế hiện đại, chuyên nghiệp.
+- [x] Bộ lọc danh mục & Ô tìm kiếm từ khóa thời gian thực.
+- [x] Template Card: Hiển thị thumbnail slide đầu tiên, số lượng slide trong bộ, tag danh mục, nút xem chi tiết.
+- [x] Slide Deck Preview Modal:
+  - Slide chính hiển thị to ở giữa theo tỉ lệ chuẩn 16:9 Cinema HD.
   - Filmstrip thumbnail danh sách các slide bên dưới để nhấp chuyển qua lại.
-  - Thông tin mô tả bộ slide, số slide, tác giả, ngày cập nhật.
+  - Hệ thống điều hướng chuyển slide kép: Nút mũi tên nổi 2 bên + Bộ nút thanh công cụ + Phím mũi tên/Phím cách.
+  - Chế độ lưới tổng quan (Overview Grid) và Toàn màn hình (Fullscreen).
+  - Tích hợp chế độ **Fabric.js HTML5 Canvas Engine**: Render slide trực tiếp lên canvas, tương tác vector, thêm chữ, thêm khối, xuất PNG.
   - Nút "Tạo bản trình chiếu mới từ mẫu này".
-- [ ] Presentation Detail & Download View:
-  - Trang xác nhận bản trình chiếu đã được tạo thành công.
-  - Tải xuống file PPTX.
+- [x] Presentation Detail & Download View:
+  - Modal xác nhận bản trình chiếu đã được tạo thành công với thông số kỹ thuật chi tiết.
+  - Tải xuống file PPTX nhị phân chuẩn OpenXML.
   - Phần giải thích hướng mở rộng chỉnh sửa slide.
 
 ### Giai đoạn 4: Phân tích Kỹ thuật & Hoàn thiện Tài liệu
-- [ ] Phân tích so sánh các giải pháp In-browser Slide Editor (Fabric.js, Reveal.js, Microsoft WOPI, PPTXgenJS).
-- [ ] Hoàn thiện README, Architecture và API documentation.
+- [x] Phân tích so sánh các giải pháp In-browser Slide Editor (Fabric.js, Reveal.js, Microsoft WOPI, PPTXgenJS).
+- [x] Tích hợp trực tiếp Fabric.js HTML5 Canvas Engine vào trình xem slide.
+- [x] Hoàn thiện README, Architecture, SRS và API documentation.
 

@@ -19,25 +19,32 @@ Module thư viện mẫu trình chiếu PowerPoint (PPTX) hiện đại, tích h
    - Bộ lọc danh mục (Gọi vốn & Khởi nghiệp, Báo cáo doanh nghiệp, Chiến lược Marketing).
    - Xử lý trạng thái Loading Shimmer và Empty state khi không có kết quả.
 
-3. **Trình duyệt xem trước Slide Deck (Slide Deck Preview)**:
-   - Trải nghiệm xem trước trực quan với khung chiếu slide lớn (tỉ lệ 16:9).
-   - Thanh trượt Filmstrip bên dưới cho phép nhấp chọn và xem qua từng slide trong bộ mẫu.
-   - Hiển thị thông số kỹ thuật (Kích thước, Tỉ lệ 16:9, Số slide, Định dạng PPTX).
+3. **Trình duyệt xem trước Slide Deck Cinema 16:9**:
+   - Trải nghiệm xem trước trực quan với khung chiếu slide chuẩn 16:9 Cinema HD.
+   - Hệ thống điều hướng chuyển slide kép: Nút mũi tên nổi 2 bên mép màn chiếu (`ChevronLeft` / `ChevronRight`) + Bộ nút điều hướng thanh công cụ + Phím tắt mũi tên/phím cách.
+   - Chế độ lưới tổng quan (Overview Grid) và chế độ toàn màn hình (Fullscreen).
+   - Thanh trượt Filmstrip bên dưới cho phép nhấp chọn và xem qua từng slide trong bộ mẫu với hiệu ứng đồng bộ hai chiều.
 
-4. **Tạo bản trình chiếu mới & Tải file PPTX (Copy-on-Create)**:
+4. **Tích hợp HTML5 Canvas 2D Engine (Fabric.js v7)**:
+   - Nút chuyển đổi **"Canvas Mode"** trên thanh điều khiển cho phép tương tác trực tiếp trên Canvas.
+   - Các phần tử slide được render dưới dạng đối tượng vector tương tác (Selectable Bounding Box, Rotate, Scale).
+   - Tự động ngắt dòng chữ thông qua `Fabric.Textbox`, loại bỏ triệt để lỗi tràn dòng của DOM.
+   - Thêm Text Box mới, thêm Card/Shape vector bo góc, xóa phần tử và tải ảnh PNG 2x DPI trực tiếp từ Canvas (`canvas.toDataURL`).
+
+5. **Tạo bản trình chiếu mới & Tải file PPTX (Copy-on-Create)**:
    - Khi người dùng nhấn "Tạo bản trình chiếu mới", hệ thống tự động nhân bản file PPTX độc lập từ template gốc.
-   - Đảm bảo **bộ mẫu gốc hoàn toàn không bị thay đổi hoặc ghi đè**.
+   - Đảm bảo **bộ mẫu gốc hoàn toàn không bị thay đổi hoặc ghi đè (Template Immutability)**.
+   - Sinh file Microsoft PowerPoint (`.pptx`) nhị phân chuẩn OpenXML chất lượng cao bằng thư viện `pptxgenjs`.
    - Hỗ trợ tải file `.pptx` trực tiếp về máy tính để mở trên Microsoft PowerPoint, Google Slides hoặc Apple Keynote.
-
-5. **Báo cáo Kỹ thuật & Hướng mở rộng In-browser Editor**:
-   - Phân tích chi tiết lý do và giới hạn định dạng PPTX trên nền web.
-   - Đề xuất 3 kiến trúc mở rộng: Canvas Engine (Fabric.js), Web Deck (Reveal.js) và Microsoft Office Online qua giao thức WOPI.
 
 ---
 
 ## Công Nghệ Sử Dụng (Tech Stack)
 
 - **Frontend & Backend**: Next.js 15 (App Router), React 19, TypeScript
+- **Canvas 2D Engine**: Fabric.js (`fabric` v7)
+- **PowerPoint Generation**: PptxGenJS (`pptxgenjs`)
+- **Presentation Display**: Reveal.js (`reveal.js`)
 - **Styling**: Tailwind CSS (tối ưu hóa layout cinema 16:9)
 - **Iconography**: Lucide React
 - **File & Stream Handling**: Node.js File Stream & MIME types chuẩn OpenXML (`application/vnd.openxmlformats-officedocument.presentationml.presentation`)

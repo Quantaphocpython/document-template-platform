@@ -1,6 +1,7 @@
 import { documentApiService } from '@/services/documents/document-api.service';
 import { UserDocument } from '@/types';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { EditorInstance } from '../components/rich-text-editor';
 
 export function useDocumentEditor(initialDocument: UserDocument) {
   const [documentData, setDocumentData] =
@@ -13,57 +14,33 @@ export function useDocumentEditor(initialDocument: UserDocument) {
     text: string;
   } | null>(null);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [wordCount, setWordCount] = useState(0);
+  const [charCount, setCharCount] = useState(0);
 
-  const editorRef = useRef<HTMLDivElement>(null);
+  const editorInstanceRef = useRef<EditorInstance | null>(null);
 
-  // Set initial content on mount
-  useEffect(() => {
-    if (editorRef.current) {
-      editorRef.current.innerHTML = documentData.contentHtml;
+  // Compute text statistics
+  const updateStats = useCallback((editor: EditorInstance) => {
+    const text = editor.getText();
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const chars = text.length;
+    setWordCount(words);
+    setCharCount(chars);
+  }, []);
+
+  // Handle editor instance registration
+  const handleEditorReady = useCallback((editor: EditorInstance) => {
+    editorInstanceRef.current = editor;
+    updateStats(editor);
+  }, [updateStats]);
+
+  // Handle content changes from TipTap
+  const handleContentUpdate = useCallback(() => {
+    setHasUnsavedChanges(true);
+    if (editorInstanceRef.current) {
+      updateStats(editorInstanceRef.current);
     }
-  }, [documentData.contentHtml]);
-
-  // Handle format execution
-  const handleFormat = useCallback((command: string, value?: string) => {
-    if (!editorRef.current) return;
-    editorRef.current.focus();
-    document.execCommand(command, false, value);
-    setHasUnsavedChanges(true);
-  }, []);
-
-  // Handle inserting a structured 3x3 table
-  const handleInsertTable = useCallback(() => {
-    if (!editorRef.current) return;
-    editorRef.current.focus();
-
-    const tableHtml = `
-      <table style="width: 100%; border-collapse: collapse; margin: 16px 0; border: 1px solid #cbd5e1;">
-        <thead>
-          <tr style="background-color: #f8fafc;">
-            <th style="border: 1px solid #cbd5e1; padding: 8px 12px; text-align: left; font-weight: bold;">STT</th>
-            <th style="border: 1px solid #cbd5e1; padding: 8px 12px; text-align: left; font-weight: bold;">Nội Dung Công Việc</th>
-            <th style="border: 1px solid #cbd5e1; padding: 8px 12px; text-align: left; font-weight: bold;">Ghi Chú</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border: 1px solid #cbd5e1; padding: 8px 12px;">01</td>
-            <td style="border: 1px solid #cbd5e1; padding: 8px 12px;">Nhập nội dung 1...</td>
-            <td style="border: 1px solid #cbd5e1; padding: 8px 12px;">Hoàn thành</td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #cbd5e1; padding: 8px 12px;">02</td>
-            <td style="border: 1px solid #cbd5e1; padding: 8px 12px;">Nhập nội dung 2...</td>
-            <td style="border: 1px solid #cbd5e1; padding: 8px 12px;">Đang xử lý</td>
-          </tr>
-        </tbody>
-      </table>
-      <p><br></p>
-    `;
-
-    document.execCommand('insertHTML', false, tableHtml);
-    setHasUnsavedChanges(true);
-  }, []);
+  }, [updateStats]);
 
   // Auto-dismiss toast after 4s
   useEffect(() => {
@@ -73,11 +50,11 @@ export function useDocumentEditor(initialDocument: UserDocument) {
     }
   }, [toastMessage]);
 
-  // Handle Save
+  // Handle Save document
   const handleSave = useCallback(async () => {
-    if (!editorRef.current) return;
+    if (!editorInstanceRef.current) return;
     setIsSaving(true);
-    const updatedContent = editorRef.current.innerHTML;
+    const updatedContent = editorInstanceRef.current.getHTML();
 
     try {
       const updated = await documentApiService.updateDocument(documentData.id, {
@@ -90,7 +67,7 @@ export function useDocumentEditor(initialDocument: UserDocument) {
       setHasUnsavedChanges(false);
       setToastMessage({
         type: 'success',
-        text: 'Đã lưu tài liệu thành công vào bộ nhớ hệ thống!',
+        text: 'Đã lưu tài liệu thành công vào hệ thống!',
       });
     } catch (err: unknown) {
       const msg =
@@ -104,7 +81,7 @@ export function useDocumentEditor(initialDocument: UserDocument) {
   // Handle Export DOCX
   const handleExportDocx = useCallback(async () => {
     setIsExporting(true);
-    if (hasUnsavedChanges && editorRef.current) {
+    if (hasUnsavedChanges && editorInstanceRef.current) {
       await handleSave();
     }
 
@@ -112,7 +89,7 @@ export function useDocumentEditor(initialDocument: UserDocument) {
       await documentApiService.downloadDocx(documentData.id, title);
       setToastMessage({
         type: 'success',
-        text: 'Đã tải xuống file Microsoft Word (.docx) thành công!',
+        text: 'Đã xuất file Microsoft Word (.docx) thành công!',
       });
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Lỗi khi tải file DOCX.';
@@ -131,9 +108,11 @@ export function useDocumentEditor(initialDocument: UserDocument) {
     toastMessage,
     hasUnsavedChanges,
     setHasUnsavedChanges,
-    editorRef,
-    handleFormat,
-    handleInsertTable,
+    wordCount,
+    charCount,
+    editorInstanceRef,
+    handleEditorReady,
+    handleContentUpdate,
     handleSave,
     handleExportDocx,
   };

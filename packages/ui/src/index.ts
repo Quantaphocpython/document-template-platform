@@ -5,6 +5,7 @@ export * from './components/button.js';
 export * from './components/card.js';
 export * from './components/confirm-modal.js';
 export * from './components/dialog.js';
+export * from './components/dropdown-menu.js';
 export * from './components/input.js';
 export * from './components/modal.js';
 export * from './components/portal-renderer.js';

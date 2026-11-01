@@ -1,5 +1,5 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import React from 'react';
 import { cn } from '../utils/cn.js';
 
 export enum BadgeVariant {
@@ -11,27 +11,38 @@ export enum BadgeVariant {
   SLATE = 'slate',
   INDIGO = 'indigo',
   EMERALD = 'emerald',
+  OUTLINE = 'outline',
 }
 
 export const badgeVariants = cva(
-  'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border transition-colors',
+  'inline-flex items-center rounded-lg border px-2.5 py-0.5 text-xs font-medium transition-colors',
   {
     variants: {
       variant: {
-        [BadgeVariant.DEFAULT]: 'bg-slate-100 text-slate-700 border-slate-200',
-        [BadgeVariant.BLUE]: 'bg-blue-50 text-blue-700 border-blue-200',
-        [BadgeVariant.GREEN]: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-        [BadgeVariant.AMBER]: 'bg-amber-50 text-amber-700 border-amber-200',
-        [BadgeVariant.PURPLE]: 'bg-purple-50 text-purple-700 border-purple-200',
-        [BadgeVariant.SLATE]: 'bg-slate-100 text-slate-600 border-slate-200',
-        [BadgeVariant.INDIGO]: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-        [BadgeVariant.EMERALD]: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        [BadgeVariant.DEFAULT]:
+          'border-transparent bg-primary text-primary-foreground shadow-2xs',
+        [BadgeVariant.SLATE]:
+          'border-border bg-muted text-muted-foreground',
+        [BadgeVariant.OUTLINE]:
+          'text-foreground border-border bg-background',
+        [BadgeVariant.BLUE]:
+          'border-primary/20 bg-accent text-accent-foreground font-medium',
+        [BadgeVariant.PURPLE]:
+          'border-primary/20 bg-accent text-accent-foreground font-medium',
+        [BadgeVariant.INDIGO]:
+          'border-primary/25 bg-secondary text-secondary-foreground font-medium',
+        [BadgeVariant.GREEN]:
+          'border-emerald-200/80 bg-emerald-50 text-emerald-700',
+        [BadgeVariant.EMERALD]:
+          'border-emerald-200/80 bg-emerald-50 text-emerald-700',
+        [BadgeVariant.AMBER]:
+          'border-amber-200/80 bg-amber-50 text-amber-700',
       },
     },
     defaultVariants: {
       variant: BadgeVariant.DEFAULT,
     },
-  }
+  },
 );
 
 export interface BadgeProps

@@ -20,29 +20,29 @@ export enum ButtonSize {
 }
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center font-medium transition-colors cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center whitespace-nowrap font-medium transition-all duration-150 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         [ButtonVariant.DEFAULT]:
-          'bg-blue-600 text-white hover:bg-blue-700 shadow-sm border border-transparent',
+          'bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm shadow-primary/20 active:scale-[0.98]',
         [ButtonVariant.SECONDARY]:
-          'bg-slate-100 text-slate-800 hover:bg-slate-200 border border-transparent',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/80 active:scale-[0.98]',
         [ButtonVariant.OUTLINE]:
-          'border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 shadow-sm',
+          'border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground shadow-2xs active:scale-[0.98]',
         [ButtonVariant.GHOST]:
-          'text-slate-700 hover:bg-slate-100 border border-transparent',
+          'text-foreground hover:bg-accent hover:text-accent-foreground',
         [ButtonVariant.SUBTLE]:
-          'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-transparent',
+          'bg-accent text-accent-foreground hover:bg-accent/80',
         [ButtonVariant.DESTRUCTIVE]:
-          'bg-red-600 text-white hover:bg-red-700 shadow-sm border border-transparent',
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-xs active:scale-[0.98]',
       },
       size: {
-        [ButtonSize.SM]: 'text-xs px-2.5 py-1.5 h-8 gap-1.5 rounded-md',
-        [ButtonSize.MD]: 'text-sm px-4 py-2 h-10 gap-2 rounded-lg',
-        [ButtonSize.LG]: 'text-base px-5 py-2.5 h-11 gap-2.5 rounded-lg',
+        [ButtonSize.SM]: 'h-8 px-3 text-xs gap-1.5 rounded-lg',
+        [ButtonSize.MD]: 'h-9 px-4 py-2 text-sm gap-2 rounded-xl',
+        [ButtonSize.LG]: 'h-10 px-6 text-sm gap-2 rounded-xl',
         [ButtonSize.ICON]:
-          'h-9 w-9 p-0 flex items-center justify-center rounded-lg',
+          'h-9 w-9 p-0 flex items-center justify-center rounded-xl',
       },
     },
     defaultVariants: {

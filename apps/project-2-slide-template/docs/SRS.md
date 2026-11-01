@@ -81,16 +81,20 @@ Sản phẩm là phân hệ trình chiếu cho phép người dùng trong tổ c
 - **FR-2.2**: Lọc tức thời theo từng danh mục chuyên ngành.
 - **FR-2.3**: Có Empty State thông báo khi không có kết quả tìm kiếm kèm nút "Xóa bộ lọc tìm kiếm".
 
-### FR-3: Trình Duyệt Slide Deck Cinema 16:9 (Slide Deck Player)
-- **FR-3.1**: Cho phép người dùng nhấp vào ảnh hoặc nút "Xem slide" để mở Modal trình chiếu kích thước lớn (MaxWidth 6xl).
-- **FR-3.2**: Khung màn chiếu chính giữ đúng tỷ lệ chuẩn điện ảnh 16:9, hiển thị hình ảnh vector sắc nét của từng slide.
-- **FR-3.3**: Cung cấp hai nút điều hướng "Slide Trước" và "Slide Tiếp Theo" kèm bộ đếm trang hiện tại (Ví dụ: `Slide 2 / 5`).
-- **FR-3.4**: Hiển thị tiêu đề và mô tả mục đích chi tiết của từng trang slide đang được chọn.
+### FR-3: Trình Duyệt Slide Deck Cinema 16:9 (Cinema Player & Floating Controls)
+- **FR-3.1**: Cho phép người dùng nhấp vào ảnh hoặc nút "Xem slide" để mở Modal trình chiếu kích thước lớn (MaxWidth 5xl).
+- **FR-3.2**: Khung màn chiếu chính giữ đúng tỷ lệ chuẩn điện ảnh 16:9 Cinema HD với hiệu ứng chuyển đổi mượt mà (smooth crossfade).
+- **FR-3.3**: Cung cấp **2 hệ thống điều hướng chuyển slide trực quan & nổi bật**:
+  - **Nút mũi tên nổi (Floating Arrow Buttons)** trực tiếp hai bên mép màn chiếu: Nút mũi tên trái (`ChevronLeft`) và nút mũi tên phải (`ChevronRight`) kích thước lớn, hiệu ứng hover phóng to và nền mờ bán trong suốt.
+  - **Thanh điều hướng bên dưới (Bottom Navigation Bar)**: Cung cấp 2 nút bấm chuẩn Design System `< Slide trước` và `Slide tiếp theo >` kèm huy hiệu đếm trang hiện tại (`Slide X / 5`).
+- **FR-3.4**: Chế độ **Xem tổng quan lưới slide (Overview Grid Mode)**: Nhấp nút "Tổng quan" hoặc bấm phím `ESC` để mở lưới toàn bộ 5 slide 16:9, cho phép xem toàn cảnh và nhấp chuyển trang tức thì.
+- **FR-3.5**: Chế độ **Toàn màn hình (Fullscreen)**: Nhấp nút "Toàn màn hình" hoặc bấm phím `F`.
+- **FR-3.6**: Hỗ trợ đầy đủ phím tắt bàn phím: Phím mũi tên trái/phải (`←` / `→`), Phím cách (Space).
 
 ### FR-4: Thanh Cuộn Filmstrip Carousel (Multi-slide Thumbnail Bar)
 - **FR-4.1**: Nằm ngay bên dưới khung chiếu chính, hiển thị toàn bộ các slide con trong bộ mẫu dưới dạng dải thumbnail cuộn ngang.
-- **FR-4.2**: Slide đang được chọn phải có viền sáng màu tím indigo và hiệu ứng phóng to (scale highlight).
-- **FR-4.3**: Người dùng có thể nhấp vào bất kỳ thumbnail nào để chuyển nhanh tới slide đó.
+- **FR-4.2**: Đồng bộ hai chiều: khi chuyển slide bằng nút nổi, nút thanh công cụ hoặc bàn phím, Filmstrip tự động làm nổi bật thumbnail tương ứng với viền tím `border-primary` và hiệu ứng phóng to.
+- **FR-4.3**: Người dùng có thể nhấp vào bất kỳ thumbnail nào để lập tức chuyển tới trang slide đó.
 
 ### FR-5: Cơ chế Nhân bản Độc lập File PPTX (Copy-on-Create & Immutability)
 - **FR-5.1**: Khi người dùng nhấn "Tạo bài trình chiếu" hoặc "Tạo bản trình chiếu mới", hệ thống gửi request `POST /api/presentations`.
@@ -106,6 +110,13 @@ Sản phẩm là phân hệ trình chiếu cho phép người dùng trong tổ c
 
 ### FR-7: Thuyết Minh Kiến Trúc Mở Rộng Slide Editor (In-browser Editor Roadmap)
 - **FR-7.1**: Modal thông báo và tài liệu kiến trúc phải nêu rõ giải pháp mở rộng trong tương lai để tích hợp trình chỉnh sửa slide trực tuyến (HTML5 Canvas & WOPI Protocol).
+
+### FR-8: Chế Độ Biên Tập & Vẽ Vector HTML5 Canvas (Fabric.js Engine)
+- **FR-8.1**: Cung cấp nút chuyển đổi "Canvas Mode" ngay trên màn chiếu slide.
+- **FR-8.2**: Sử dụng thư viện tiêu chuẩn Fabric.js (`fabric` v7) để dựng slide lên thẻ HTML5 `<canvas>` với độ phân giải chuẩn 16:9 Cinema (1280x720).
+- **FR-8.3**: Hỗ trợ thêm Textbox vector với tính năng tự động ngắt dòng và co giãn chữ.
+- **FR-8.4**: Hỗ trợ thêm Shape/Card vector bo góc, chọn và di chuyển đối tượng bằng chuột (bounding box), xóa đối tượng đã chọn.
+- **FR-8.5**: Hỗ trợ xuất ảnh PNG độ nét cao (2x DPI) trực tiếp từ Canvas (`canvas.toDataURL`).
 
 ---
 

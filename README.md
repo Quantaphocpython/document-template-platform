@@ -188,12 +188,37 @@ Tất cả tài liệu được chuẩn bị đầy đủ, chuẩn mực trướ
 Toàn bộ thư viện sử dụng đều thuộc mã nguồn mở tiêu chuẩn:
 - **Next.js & React**: Giấy phép MIT.
 - **Tailwind CSS**: Giấy phép MIT.
-- **Shadcn/UI & Radix UI**: Giấy phép MIT (Dialog, Slot, Tabs, Tooltip, Separator...).
+- **TipTap Core & Extensions**: Giấy phép MIT (`@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-table`...).
+- **tiptap-a4-pagination**: Giấy phép MIT (Phân trang A4 tự động và tách bảng chuẩn Google Docs).
+- **Fabric.js**: Giấy phép MIT (`fabric` v7 - HTML5 Canvas 2D Engine cho Slide Editor).
+- **Shadcn/UI & Radix UI**: Giấy phép MIT (Dialog, Slot, Tabs, Tooltip, Separator, Dropdown-Menu...).
 - **Lucide React**: Giấy phép ISC.
 - **docx**: Giấy phép MIT (Tạo tài liệu OpenXML Word).
 - **pptxgenjs**: Giấy phép MIT (Tạo tài liệu OpenXML PowerPoint).
 - **tsx**: Giấy phép MIT (Thực thi kiểm thử TypeScript tốc độ cao).
 - **usehooks-ts**: Giấy phép MIT.
+
+---
+
+## MINH BẠCH CÔNG CỤ & SỬ DỤNG AI (AI DISCLOSURE)
+
+Theo quy định tại **Mục IV Đề bài Tuyển dụng** (*"Nếu sử dụng thư viện mã nguồn mở hoặc AI hỗ trợ lập trình, vui lòng nêu rõ trong tài liệu bàn giao"*):
+- Dự án sử dụng mô hình lập trình hiện đại kết hợp giữa kỹ sư phần mềm và trợ lý lập trình trí tuệ nhân tạo (AI Pair Programming Assistant) để tối ưu hóa tốc độ triển khai, rà soát cấu trúc kiến trúc Monorepo, tự động sinh bộ kiểm thử biên dạng nhị phân và chuẩn hóa tài liệu kỹ thuật SRS/Architecture.
+- Toàn bộ quyết định kiến trúc, lựa chọn thư viện chuẩn (`tiptap`, `fabric`, `docx`, `pptxgenjs`), thiết kế hệ thống bảo vệ mẫu gốc (Copy-on-Create) và tối ưu hóa trải nghiệm người dùng đều được định hướng, kiểm soát và xác thực tính đúng đắn chặt chẽ 100%.
+
+---
+
+## BẢNG ĐỐI CHIẾU HỒ SƠ BÀN GIAO (DELIVERY CHECKLIST - MỤC V ĐỀ BÀI)
+
+| Hạng mục bàn giao theo Đề bài | Vị trí trong Repository | Trạng thái nghiệm thu |
+| :--- | :--- | :---: |
+| **1. Source code hai sản phẩm** | `apps/project-1-doc-template`<br>`apps/project-2-slide-template`<br>`packages/core`, `packages/ui` | **Đầy đủ 100%** (Chạy thực tế) |
+| **2. Hướng dẫn cài đặt và chạy thử** | [`README.md`](README.md#hướng-dẫn-khởi-chạy--kiểm-thử-bằng-pnpm) | **Đầy đủ 100%** (Chỉ 1 lệnh `pnpm install`) |
+| **3. File README mô tả kiến trúc & công nghệ** | [`README.md`](README.md)<br>[`apps/project-1-doc-template/README.md`](apps/project-1-doc-template/README.md)<br>[`apps/project-2-slide-template/README.md`](apps/project-2-slide-template/README.md) | **Đầy đủ 100%** (Chi tiết từng phân lớp) |
+| **4. Tài liệu API & Cấu trúc dữ liệu** | [`apps/project-1-doc-template/docs/API_SPEC.md`](apps/project-1-doc-template/docs/API_SPEC.md)<br>[`apps/project-2-slide-template/docs/API_SPEC.md`](apps/project-2-slide-template/docs/API_SPEC.md)<br>Swagger UI trực tiếp: `/api-docs` | **Đầy đủ 100%** (OpenAPI 3.0 Specs) |
+| **5. Bộ dữ liệu & Template mẫu kiểm thử** | **5 mẫu văn bản**: `apps/project-1-doc-template/src/data/templates.ts`<br>**3 bộ slide (15 slides 16:9)**: `apps/project-2-slide-template/src/data/templates.ts` | **Đầy đủ 100%** (Chuẩn OpenXML) |
+| **6. Phần hoàn thành, chưa làm & Giới hạn** | [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md)<br>[`docs/ROADMAP.md`](docs/ROADMAP.md)<br>[`apps/project-2-slide-template/docs/ARCHITECTURE.md`](apps/project-2-slide-template/docs/ARCHITECTURE.md) | **Đầy đủ 100%** (Ma trận đối chiếu chi tiết) |
+| **7. Video quay màn hình demo chức năng** | File video đính kèm khi gửi email phản hồi (theo hướng dẫn nộp bài) | **Ứng viên đính kèm email** |
 
 ---
 

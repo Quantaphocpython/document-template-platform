@@ -46,4 +46,5 @@ Xây dựng luồng tạo bản sao độc lập và tải xuống file PPTX ngu
 | **Bảo vệ file gốc (Copy-on-Create)** | `src/server/services/presentation.service.ts`<br>`src/server/services/storage.service.ts` | [ARCHITECTURE.md](ARCHITECTURE.md#2) |
 | **Tải xuống file PowerPoint (.pptx)** | `src/server/services/pptx-generator.service.ts`<br>`src/app/api/presentations/[id]/download/route.ts` | [API_SPEC.md](API_SPEC.md#download) |
 | **Bộ slide tiêu chuẩn (15 slides 16:9)** | `src/data/templates.ts`<br>`public/slides/` | [PLAN.md](PLAN.md) |
+| **Biên tập trực tiếp trên HTML5 Canvas** | `src/features/presentations/components/fabric-slide-canvas.tsx`<br>Thư viện Fabric.js v7 (`fabric`) | [SRS.md](SRS.md#fr-8) |
 | **Kiến trúc mở rộng In-browser Editor** | `src/features/presentations/components/presentation-created-modal.tsx`<br>`docs/ROADMAP.md` | [ROADMAP.md](ROADMAP.md#giai-doan-2) |

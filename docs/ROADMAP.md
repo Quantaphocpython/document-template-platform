@@ -27,15 +27,23 @@ flowchart LR
 - [x] Bộ lọc 6 danh mục nghiệp vụ và công cụ tìm kiếm toàn văn thời gian thực (Debounced search).
 - [x] Cửa sổ xem trước mô phỏng kích thước và tỷ lệ khổ giấy in ấn A4.
 - [x] **Cơ chế Copy-on-Create**: Sao chép sâu nội dung sang UUID độc lập, bảo vệ tuyệt đối mẫu gốc (Template Immutability).
-- [x] Trình soạn thảo Rich Text Editor trực quan: Đổi tên tài liệu, Toolbar (H1/H2/H3, Bold, Italic, Table, Căn lề, Danh sách).
-- [x] Bộ chuyển đổi và xuất tệp tin Microsoft Word (`.docx`) giữ nguyên cấu trúc văn bản và bảng biểu.
+- [x] **Trình soạn thảo Google Docs A4 trực quan (TipTap Engine & tiptap-a4-pagination)**:
+  - Tự động phân chia trang in A4 trong thời gian thực khi văn bản tràn trang.
+  - Ngắt dòng bảng biểu thông minh giữa các trang, tự động lặp lại hàng tiêu đề (`repeat header row`).
+  - Thanh công cụ Google Docs Toolbar: Font family, Cỡ chữ, Căn lề, Màu chữ, Highlight, Bảng biểu, Undo/Redo.
+  - 3 chế độ xem khổ giấy (Standard 794px A4, Wide 1100px, Full 1500px).
+- [x] Bộ chuyển đổi và xuất tệp tin Microsoft Word (`.docx`) chuẩn thể thức hành chính (Nghị định 30/2020/NĐ-CP), tự động giải mã 100% HTML entities tiếng Việt.
 
 #### Phân hệ 2: Thư viện Mẫu Trình chiếu (`apps/project-2-slide-template`)
 - [x] Lưới thẻ bài trình chiếu tỷ lệ 16:9 với 3 bộ slide chất lượng cao (15 slide vector chi tiết).
 - [x] Phân loại theo 4 nhóm chuyên ngành (Gọi vốn, Báo cáo quý, Ra mắt sản phẩm).
-- [x] **Slide Deck Cinema Preview**: Màn chiếu slide lớn kèm thanh trượt **Filmstrip Carousel** xem lướt và chuyển đổi slide tức thì.
+- [x] **Slide Deck Cinema Preview**: Màn chiếu slide lớn chuẩn 16:9 Cinema HD kèm thanh trượt **Filmstrip Carousel** xem lướt và chuyển đổi slide tức thì.
+- [x] **Tích hợp HTML5 Canvas 2D Engine (Fabric.js v7)**:
+  - Chuyển đổi linh hoạt giữa chế độ trình chiếu và chế độ vẽ Canvas trực tiếp.
+  - Tự động ngắt dòng chữ và co giãn qua `Fabric.Textbox`, loại bỏ lỗi tràn dòng của DOM.
+  - Hỗ trợ thêm Textbox, Shape bo góc, chọn đối tượng với bounding box, xoay/scale và xuất ảnh 2x DPI PNG.
 - [x] **Cơ chế Physical File Clone**: Sao chép tệp nhị phân vật lý độc lập sang thư mục người dùng, bảo vệ nguyên vẹn 100% file master PPTX.
-- [x] Stream download trực tiếp tệp tin Microsoft PowerPoint (`.pptx`) nhị phân chuẩn ECMA-376.
+- [x] Stream download trực tiếp tệp tin Microsoft PowerPoint (`.pptx`) nhị phân chuẩn ECMA-376 được sinh bởi `pptxgenjs`.
 
 #### Nền tảng hạ tầng dùng chung (`packages/core`, `packages/ui`)
 - [x] Cấu trúc Turborepo Monorepo kết hợp `pnpm workspace` chuẩn hóa.

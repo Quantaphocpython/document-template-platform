@@ -33,30 +33,33 @@ flowchart LR
 ---
 
 ### Giai đoạn 2: Tích hợp Trình Biên Tập Slide Canvas Trực Tuyến (v1.1.0 - In-browser Slide Editor)
-*Thời gian dự kiến*: Quý 1 / 2027  
-*Mục tiêu*: Cho phép người dùng chỉnh sửa chữ, màu sắc và hình ảnh trực tiếp trên trình duyệt mà không cần cài đặt phần mềm ngoài.
+*Thời gian thực hiện*: Đã hoàn thành tích hợp Core Canvas Engine  
+*Mục tiêu*: Cho phép người dùng chỉnh sửa chữ, màu sắc và hình ảnh trực tiếp trên trình duyệt bằng HTML5 Canvas 2D Engine.
 
-#### Giải pháp Kỹ thuật: HTML5 Canvas Engine (Fabric.js / Konva.js)
+#### Giải pháp Kỹ thuật: HTML5 Canvas Engine (Fabric.js)
 ```
 ┌────────────────────────────────────────────────────────┐
 │             CANVAS SLIDE EDITOR ARCHITECTURE           │
 │                                                        │
 │  [Slide Selector]   [Canvas Viewport (16:9)] [Toolbar] │
-│   - Slide 1          - Editable Text Objects  - Font    │
-│   - Slide 2          - Vector Shapes/Icons    - Color   │
-│   - Slide 3          - Image Upload / Drag    - Align   │
+│   - Slide 1          - Editable Text Objects  - Text   │
+│   - Slide 2          - Vector Shapes/Cards    - Shape  │
+│   - Slide 3          - Selection Bounding Box - Delete │
 │                                                        │
-│  State: JSON Schema (Canvas State)                     │
-│  Export Engine: pptxgenjs (Canvas JSON -> Native PPTX) │
+│  Engine: Fabric.js v7 (Hardware-accelerated Canvas)    │
+│  Export: canvas.toDataURL (2x DPI PNG) & pptxgenjs     │
 └────────────────────────────────────────────────────────┘
 ```
-- [ ] Xây dựng khung soạn thảo Canvas tỷ lệ 16:9 bằng thư viện **Fabric.js**.
-- [ ] Chuyển đổi các slide trong bộ mẫu thành các đối tượng JSON (Text box, Rectangle, Image).
-- [ ] Cho phép người dùng:
-  - Nhấp đúp vào chữ trên slide để chỉnh sửa nội dung.
-  - Kéo thả (drag-and-drop) thay đổi vị trí, kích thước đối tượng.
-  - Thay đổi màu nền, font chữ và chèn thêm ảnh từ máy tính.
-- [ ] Khi bấm "Lưu & Tải về": Sử dụng engine `pptxgenjs` để ánh xạ các đối tượng Canvas thành các slide PowerPoint nguyên bản.
+- [x] Xây dựng khung soạn thảo Canvas tỷ lệ 16:9 Cinema (`1280x720`) bằng thư viện **Fabric.js (`fabric` v7)**.
+- [x] Nạp các phần tử vector của slide vào Canvas bằng `Fabric.loadSVGFromURL` và gom nhóm đối tượng.
+- [x] Cho phép người dùng:
+  - Bấm nút "Canvas Mode" để chuyển đổi linh hoạt giữa chế độ trình chiếu và chế độ vẽ Canvas.
+  - Thêm Text Box mới (`Fabric.Textbox`) với tính năng tự động ngắt dòng và co giãn chữ.
+  - Thêm Card/Shape vector (`Fabric.Rect`) với bo góc và viền nổi bật.
+  - Nhấp chuột chọn đối tượng để hiển thị bounding box, xoay góc, kéo dãn tỉ lệ và di chuyển tự do.
+  - Xóa đối tượng đang chọn trên Canvas.
+  - Xuất ảnh PNG độ nét cao (2x DPI) trực tiếp từ Canvas (`canvas.toDataURL`).
+- [x] Quản lý vòng đời chặt chẽ (`canvas.dispose()`) đảm bảo giải phóng bộ nhớ khi chuyển đổi giữa các slide.
 
 ---
 

@@ -96,15 +96,24 @@ Trong quá trình thiết kế hệ thống xử lý tệp tin trình chiếu Po
 1. **Độ phức tạp của định dạng OpenXML (.pptx)**: Định dạng PPTX bao gồm hàng trăm thành phần (Vector shapes, smart art, gradient, animations, typography, master layouts). Việc render và parse hai chiều (round-trip parsing) PPTX trên trình duyệt đòi hỏi thư viện chuyên dụng rất lớn.
 2. **Khác biệt về Font & Layout**: Trình duyệt và Microsoft PowerPoint có engine hiển thị text và kerning khác nhau, dẫn đến hiện tượng tràn chữ nếu không có engine render đồng nhất.
 
-### B. Hướng kiến trúc mở rộng trong tương lai:
-1. **Giải pháp 1: Tích hợp Canvas-based Editor (Fabric.js / Konva.js)**:
-   - Chuyển đổi các slide thành các đối tượng JSON (Text, Image, Shape).
-   - Cho phép người dùng kéo thả, thay đổi màu sắc, thêm chữ trực tiếp trên Canvas.
-   - Khi lưu, sử dụng `pptxgenjs` để render lại thành file PPTX chuẩn tải về.
-2. **Giải pháp 2: Tích hợp Web Presentation Engine (Reveal.js)**:
-   - Dùng Reveal.js / Marp để hiển thị slide dưới dạng HTML5/CSS3.
-   - Tối ưu cho người dùng thích viết slide bằng Markdown / Rich Text.
-3. **Giải pháp 3: Tích hợp Microsoft Office for the Web qua giao thức WOPI (Web Application Open Platform Interface)**:
+### B. Hướng kiến trúc & Hiện trạng Tích hợp:
+1. **Đã triển khai: Trình chiếu Slide Deck Cinema 16:9 với Hệ thống Điều Hướng Toàn Diện**:
+   - Module `SlideDeckModal` cung cấp trải nghiệm trình chiếu thuyết trình mượt mà, trực quan chuẩn Cinema HD:
+     - **Hai hệ thống chuyển slide nổi bật**: Nút mũi tên nổi kích thước lớn (`ChevronLeft` / `ChevronRight`) trực tiếp hai bên màn chiếu + Bộ nút điều hướng thanh công cụ `< Slide trước` và `Slide tiếp theo >`.
+     - **Chế độ Lưới Tổng Quan (Overview Grid Mode)**: Phím tắt `ESC` hoặc nút "Tổng quan" mở toàn cảnh tất cả các slide trong bộ để nhấp chuyển tức thì.
+     - **Chế độ Toàn Màn Hình (Fullscreen Mode)**: Phím tắt `F` hoặc nút phóng to.
+     - **Hỗ trợ phím tắt**: Phím mũi tên trái/phải (`←` / `→`), Phím cách (Space).
+     - Đồng bộ hai chiều (bi-directional synchronization) giữa slide đang phát với tiêu đề, mô tả và thanh trượt Filmstrip Carousel bên dưới.
+   - Ảnh thumbnail ngoài Gallery Card được đồng bộ chuẩn xác với trang slide bìa (`slide-1.svg`).
+   - Toàn bộ giao diện dùng chung Design System từ package `packages/ui` (`Button`, `Badge`, `Modal`, `Card`), loại bỏ hoàn toàn các class style ghi đè thủ công.
+2. **Đã tích hợp: Fabric.js HTML5 Canvas 2D Engine (Interactive Vector Slide Canvas)**:
+   - Sử dụng thư viện tiêu chuẩn công nghiệp **Fabric.js (`fabric` v7)**:
+     - Render slide trực tiếp lên thẻ HTML5 `<canvas>` với context đồ họa 2D tăng tốc phần cứng.
+     - Các thành phần trên slide được biểu diễn dưới dạng các đối tượng vector tương tác (`FabricObject`, `Textbox`, `Rect`, `Group`).
+     - Tự động ngắt dòng và co giãn chữ thông qua `Fabric.Textbox`, giải quyết triệt để lỗi tràn dòng của DOM/CSS thông thường.
+     - Thanh công cụ Canvas cho phép: Thêm Textbox mới, Thêm Shape/Card vector, Bounding box chỉnh sửa với tay nắm xoay/scale góc, Xóa đối tượng đã chọn, và Xuất ảnh chất lượng cao 2x DPI PNG trực tiếp từ Canvas (`canvas.toDataURL`).
+     - Quản lý vòng đời chặt chẽ (`canvas.dispose()`) đảm bảo không rò rỉ bộ nhớ khi chuyển đổi giữa các slide.
+3. **Giải pháp mở rộng dài hạn: Microsoft Office for the Web qua giao thức WOPI (Web Application Open Platform Interface)**:
    - Kiến trúc chuẩn doanh nghiệp (Enterprise Standard).
    - Nhúng trực tiếp iframe PowerPoint Online của Microsoft thông qua WOPI host do Backend cung cấp. Đảm bảo tính tương thích 100% không làm suy giảm chất lượng slide.
 

@@ -47,63 +47,61 @@ export const INITIAL_TEMPLATES: Template[] = [
     createdAt: '2026-09-15T08:00:00Z',
     updatedAt: '2026-10-20T10:30:00Z',
     contentHtml: `
-<div style="text-align: center; margin-bottom: 24px;">
-  <p style="font-weight: bold; margin: 0; font-size: 14pt;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
-  <p style="font-weight: bold; text-decoration: underline; margin: 0; font-size: 12pt;">Độc lập - Tự do - Hạnh phúc</p>
-  <p style="margin-top: 16px; font-style: italic;">Hà Nội, ngày ..... tháng ..... năm 2026</p>
-  <h1 style="font-size: 18pt; font-weight: bold; margin-top: 24px; text-transform: uppercase;">HỢP ĐỒNG LAO ĐỘNG</h1>
-  <p style="font-style: italic;">(Số: ....../2026/HĐLĐ-CTY)</p>
-</div>
+<p style="text-align: center; font-weight: bold; font-size: 13pt; margin: 0; line-height: 1.4;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+<p style="text-align: center; font-weight: bold; text-decoration: underline; font-size: 12pt; margin: 0 0 16px 0; line-height: 1.4;">Độc lập - Tự do - Hạnh phúc</p>
 
-<p>Hôm nay, ngày ..... tháng ..... năm 2026, tại Trụ sở Công ty Cổ phần Công Nghệ Mới, chúng tôi gồm có:</p>
+<p style="text-align: right; font-style: italic; margin-bottom: 24px;">Hà Nội, ngày ..... tháng ..... năm 2026</p>
 
-<p style="font-weight: bold;">BÊN SỬ DỤNG LAO ĐỘNG (BÊN A):</p>
-<ul>
-  <li><strong>Tên doanh nghiệp:</strong> CÔNG TY CỔ PHẦN CÔNG NGHỆ VĂN PHÒNG SỐ</li>
-  <li><strong>Đại diện bởi Ông/Bà:</strong> Nguyễn Văn An &nbsp;&nbsp;&nbsp;&nbsp; <strong>Chức vụ:</strong> Giám đốc điều hành</li>
-  <li><strong>Địa chỉ:</strong> Tầng 12, Tòa nhà Innovation, Quận Cầu Giấy, TP. Hà Nội</li>
-  <li><strong>Mã số thuế:</strong> 0109988776</li>
-</ul>
+<h1 style="text-align: center; font-size: 18pt; font-weight: bold; margin-bottom: 6px; text-transform: uppercase;">HỢP ĐỒNG LAO ĐỘNG</h1>
+<p style="text-align: center; font-style: italic; margin-bottom: 24px;">(Số: ....../2026/HĐLĐ-CTY)</p>
 
-<p style="font-weight: bold;">BÊN LAO ĐỘNG (BÊN B):</p>
-<ul>
-  <li><strong>Ông/Bà:</strong> Nguyễn Văn A</li>
-  <li><strong>Sinh ngày:</strong> ...../...../199x &nbsp;&nbsp;&nbsp;&nbsp; <strong>Quốc tịch:</strong> Việt Nam</li>
-  <li><strong>Số CCCD:</strong> 00109xxxxxxxx &nbsp;&nbsp;&nbsp;&nbsp; <strong>Cấp ngày:</strong> ...../...../202x tại Cục CS QLHC về TTXH</li>
-  <li><strong>Địa chỉ thường trú:</strong> ............................................................................................</li>
-</ul>
+<p style="text-align: justify; margin-bottom: 12px;">Hôm nay, ngày ..... tháng ..... năm 2026, tại Trụ sở Công ty Cổ phần Công Nghệ Mới, chúng tôi gồm có:</p>
 
-<p>Hai bên cùng thỏa thuận ký kết Hợp đồng lao động với các điều khoản sau:</p>
+<p style="font-weight: bold; margin-top: 16px; margin-bottom: 6px;">BÊN SỬ DỤNG LAO ĐỘNG (BÊN A):</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Tên doanh nghiệp:</strong> CÔNG TY CỔ PHẦN CÔNG NGHỆ VĂN PHÒNG SỐ</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Đại diện bởi:</strong> Ông/Bà Nguyễn Văn An &nbsp;&nbsp;&nbsp;&nbsp; <strong>Chức vụ:</strong> Giám đốc điều hành</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Địa chỉ:</strong> Tầng 12, Tòa nhà Innovation, Phố Cầu Giấy, TP. Hà Nội</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Mã số thuế:</strong> 0109988776</p>
+
+<p style="font-weight: bold; margin-top: 16px; margin-bottom: 6px;">BÊN LAO ĐỘNG (BÊN B):</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Họ và tên:</strong> Nguyễn Văn A</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Sinh ngày:</strong> ...../...../199x &nbsp;&nbsp;&nbsp;&nbsp; <strong>Quốc tịch:</strong> Việt Nam</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Số CCCD:</strong> 00109xxxxxxxx &nbsp;&nbsp;&nbsp;&nbsp; <strong>Cấp ngày:</strong> ...../...../202x tại Cục CS QLHC về TTXH</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Địa chỉ thường trú:</strong> ............................................................................................</p>
+
+<p style="text-align: justify; margin-top: 16px; margin-bottom: 12px;">Hai bên cùng thỏa thuận ký kết Hợp đồng lao động với các điều khoản sau đây:</p>
 
 <h3>ĐIỀU 1: THỜI HẠN VÀ CÔNG VIỆC HỢP ĐỒNG</h3>
-<p>1.1. Loại hợp đồng: Hợp đồng lao động xác định thời hạn <strong>12 tháng</strong> kể từ ngày 01/11/2026 đến ngày 31/10/2027.</p>
-<p>1.2. Vị trí chuyên môn: <strong>Kỹ sư Lập trình Fullstack (Fullstack Developer)</strong>.</p>
-<p>1.3. Địa điểm làm việc: Trụ sở công ty hoặc làm việc linh hoạt theo quy chế nội bộ.</p>
+<p style="text-align: justify; margin-bottom: 6px;">1.1. Loại hợp đồng: Hợp đồng lao động xác định thời hạn <strong>12 tháng</strong> kể từ ngày 01/11/2026 đến ngày 31/10/2027.</p>
+<p style="text-align: justify; margin-bottom: 6px;">1.2. Vị trí chuyên môn: <strong>Kỹ sư Lập trình Fullstack (Fullstack Developer)</strong>.</p>
+<p style="text-align: justify; margin-bottom: 6px;">1.3. Địa điểm làm việc: Trụ sở công ty hoặc làm việc linh hoạt theo quy chế nội bộ ban hành.</p>
 
 <h3>ĐIỀU 2: CHẾ ĐỘ LÀM VIỆC VÀ NGHỈ NGƠI</h3>
-<p>2.1. Thời gian làm việc: Từ thứ Hai đến thứ Sáu, 08 giờ/ngày (08:30 - 17:30).</p>
-<p>2.2. Chế độ nghỉ ngơi: Nghỉ thứ Bảy, Chủ nhật và các ngày Lễ, Tết theo quy định của pháp luật Việt Nam. Hưởng 12 ngày phép năm nguyên lương.</p>
+<p style="text-align: justify; margin-bottom: 6px;">2.1. Thời gian làm việc: Từ thứ Hai đến thứ Sáu, 08 giờ/ngày (từ 08:30 đến 17:30).</p>
+<p style="text-align: justify; margin-bottom: 6px;">2.2. Chế độ nghỉ ngơi: Nghỉ thứ Bảy, Chủ nhật và các ngày Lễ, Tết theo quy định của Bộ luật Lao động. Hưởng nguyên lương 12 ngày phép năm.</p>
 
 <h3>ĐIỀU 3: NGHĨA VỤ VÀ QUYỀN LỢI TIỀN LƯƠNG</h3>
-<p>3.1. Mức lương cơ bản: <strong>25.000.000 VNĐ / tháng</strong> (Hai mươi lăm triệu đồng chẵn).</p>
-<p>3.2. Hình thức trả lương: Chuyển khoản ngân hàng vào ngày 05 hàng tháng.</p>
-<p>3.3. Bảo hiểm: Đóng BHXH, BHYT, BHTN theo đúng quy định pháp luật và gói bảo hiểm sức khỏe cao cấp của Công ty.</p>
+<p style="text-align: justify; margin-bottom: 6px;">3.1. Mức lương cơ bản: <strong>25.000.000 VNĐ / tháng</strong> (Hai mươi lăm triệu đồng chẵn).</p>
+<p style="text-align: justify; margin-bottom: 6px;">3.2. Hình thức chi trả: Chuyển khoản ngân hàng định kỳ vào ngày 05 hàng tháng.</p>
+<p style="text-align: justify; margin-bottom: 6px;">3.3. Bảo hiểm: Đóng BHXH, BHYT, BHTN theo đúng quy định pháp luật và gói bảo hiểm sức khỏe nâng cao của Công ty.</p>
 
-<table style="width: 100%; margin-top: 40px; border-collapse: collapse;">
-  <tr>
-    <td style="width: 50%; text-align: center; vertical-align: top;">
-      <p style="font-weight: bold; margin: 0;">ĐẠI DIỆN BÊN LAO ĐỘNG</p>
-      <p style="font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
-      <br/><br/><br/><br/>
-      <p style="font-weight: bold;">Nguyễn Văn A</p>
-    </td>
-    <td style="width: 50%; text-align: center; vertical-align: top;">
-      <p style="font-weight: bold; margin: 0;">ĐẠI DIỆN BÊN SỬ DỤNG LAO ĐỘNG</p>
-      <p style="font-style: italic; margin-top: 4px;">(Ký tên và đóng dấu)</p>
-      <br/><br/><br/><br/>
-      <p style="font-weight: bold;">Nguyễn Văn An</p>
-    </td>
-  </tr>
+<table style="width: 100%; margin-top: 40px; border-collapse: collapse; border: none;">
+  <tbody>
+    <tr>
+      <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 12px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">ĐẠI DIỆN BÊN LAO ĐỘNG</p>
+        <p style="text-align: center; font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
+        <br/><br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn A</p>
+      </td>
+      <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 12px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">ĐẠI DIỆN BÊN SỬ DỤNG LAO ĐỘNG</p>
+        <p style="text-align: center; font-style: italic; margin-top: 4px;">(Ký tên và đóng dấu)</p>
+        <br/><br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn An</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 `,
   },
@@ -120,25 +118,21 @@ export const INITIAL_TEMPLATES: Template[] = [
     createdAt: '2026-09-20T09:00:00Z',
     updatedAt: '2026-10-18T14:20:00Z',
     contentHtml: `
-<div style="text-align: center; margin-bottom: 20px;">
-  <p style="font-weight: bold; margin: 0; font-size: 13pt;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
-  <p style="font-weight: bold; text-decoration: underline; margin: 0; font-size: 11pt;">Độc lập - Tự do - Hạnh phúc</p>
-  <h1 style="font-size: 16pt; font-weight: bold; margin-top: 24px; text-transform: uppercase;">ĐƠN XIN NGHỈ PHÉP</h1>
-</div>
+<p style="text-align: center; font-weight: bold; font-size: 13pt; margin: 0; line-height: 1.4;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+<p style="text-align: center; font-weight: bold; text-decoration: underline; font-size: 11pt; margin: 0 0 16px 0; line-height: 1.4;">Độc lập - Tự do - Hạnh phúc</p>
 
-<p style="font-style: italic; text-align: center;"><strong>Kính gửi:</strong> - Ban Giám Đốc Công ty<br/>- Trưởng Bộ phận Kỹ thuật & Công nghệ (Tech Lead)<br/>- Phòng Nhân sự & Hành chính</p>
+<h1 style="text-align: center; font-size: 16pt; font-weight: bold; margin: 16px 0 8px 0; text-transform: uppercase;">ĐƠN XIN NGHỈ PHÉP</h1>
+<p style="text-align: center; font-style: italic; margin-bottom: 20px;"><strong>Kính gửi:</strong> - Ban Giám Đốc Công ty &nbsp; • &nbsp; Trưởng Bộ phận Kỹ thuật &nbsp; • &nbsp; Phòng Nhân sự</p>
 
-<p>Tôi tên là: <strong>Nguyễn Văn A</strong> &nbsp;&nbsp;&nbsp;&nbsp; Mã nhân viên: <strong>EMP-2026-088</strong></p>
-<p>Chức danh hiện tại: <strong>Fullstack Developer</strong> &nbsp;&nbsp;&nbsp;&nbsp; Bộ phận: <strong>Phát triển Sản phẩm (Product Engineering)</strong></p>
-<p>Số điện thoại liên hệ khẩn cấp: <strong>0901234567</strong></p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Tôi tên là:</strong> Nguyễn Văn A &nbsp;&nbsp;&nbsp;&nbsp; <strong>Mã nhân viên:</strong> EMP-2026-088</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Chức danh:</strong> Fullstack Developer &nbsp;&nbsp;&nbsp;&nbsp; <strong>Bộ phận:</strong> Phát triển Sản phẩm</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Điện thoại liên hệ khẩn cấp:</strong> 0901234567</p>
 
-<p>Nay tôi làm đơn này kính xin phép được nghỉ phép trong khoảng thời gian:</p>
-<ul>
-  <li><strong>Số ngày xin nghỉ:</strong> 02 ngày làm việc.</li>
-  <li><strong>Thời gian:</strong> Từ ngày ...../...../2026 đến hết ngày ...../...../2026.</li>
-  <li><strong>Loại nghỉ phép:</strong> Nghỉ phép năm (Annual Leave) [X] &nbsp;&nbsp; Nghỉ việc riêng [ ] &nbsp;&nbsp; Nghỉ không hưởng lương [ ]</li>
-  <li><strong>Lý do xin nghỉ:</strong> Giải quyết công việc gia đình đột xuất và tái tạo năng lượng làm việc.</li>
-</ul>
+<p style="margin-top: 16px; margin-bottom: 8px;">Nay tôi làm đơn này kính xin phép được nghỉ phép trong khoảng thời gian:</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Số ngày xin nghỉ:</strong> 02 ngày làm việc.</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Thời gian:</strong> Từ ngày ...../...../2026 đến hết ngày ...../...../2026.</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Loại nghỉ phép:</strong> Nghỉ phép năm (Annual Leave) [X] &nbsp;&nbsp; Nghỉ việc riêng [ ]</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Lý do xin nghỉ:</strong> Giải quyết công việc gia đình đột xuất và tái tạo năng lượng làm việc.</p>
 
 <h3>KẾ HOẠCH BÀN GIAO CÔNG VIỆC</h3>
 <p>Trong thời gian nghỉ phép, tôi đã sắp xếp hoàn thành các task cấp bách và bàn giao công việc như sau:</p>
@@ -166,27 +160,29 @@ export const INITIAL_TEMPLATES: Template[] = [
 
 <p style="margin-top: 20px;">Kính mong Ban Giám Đốc và Trưởng bộ phận xem xét phê duyệt.</p>
 
-<table style="width: 100%; margin-top: 30px; border-collapse: collapse;">
-  <tr>
-    <td style="width: 33%; text-align: center; vertical-align: top;">
-      <p style="font-weight: bold; margin: 0;">NGƯỜI LÀM ĐƠN</p>
-      <p style="font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Nguyễn Văn A</p>
-    </td>
-    <td style="width: 33%; text-align: center; vertical-align: top;">
-      <p style="font-weight: bold; margin: 0;">TRƯỞNG BỘ PHẬN</p>
-      <p style="font-style: italic; margin-top: 4px;">(Ý kiến và ký tên)</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Đã phê duyệt</p>
-    </td>
-    <td style="width: 34%; text-align: center; vertical-align: top;">
-      <p style="font-weight: bold; margin: 0;">PHÒNG NHÂN SỰ</p>
-      <p style="font-style: italic; margin-top: 4px;">(Xác nhận ngày phép)</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Còn 10 ngày phép</p>
-    </td>
-  </tr>
+<table style="width: 100%; margin-top: 30px; border-collapse: collapse; border: none;">
+  <tbody>
+    <tr>
+      <td style="width: 33%; text-align: center; vertical-align: top; border: none; padding: 8px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">NGƯỜI LÀM ĐƠN</p>
+        <p style="text-align: center; font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn A</p>
+      </td>
+      <td style="width: 33%; text-align: center; vertical-align: top; border: none; padding: 8px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">TRƯỞNG BỘ PHẬN</p>
+        <p style="text-align: center; font-style: italic; margin-top: 4px;">(Ý kiến và ký tên)</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Đã phê duyệt</p>
+      </td>
+      <td style="width: 34%; text-align: center; vertical-align: top; border: none; padding: 8px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">PHÒNG NHÂN SỰ</p>
+        <p style="text-align: center; font-style: italic; margin-top: 4px;">(Xác nhận ngày phép)</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Còn 10 ngày phép</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 `,
   },
@@ -203,36 +199,32 @@ export const INITIAL_TEMPLATES: Template[] = [
     createdAt: '2026-10-01T08:30:00Z',
     updatedAt: '2026-10-25T11:00:00Z',
     contentHtml: `
-<div style="text-align: center; margin-bottom: 20px;">
-  <h1 style="font-size: 18pt; font-weight: bold; margin: 0; text-transform: uppercase;">BIÊN BẢN CUỘC HỌP NỘI BỘ</h1>
-  <p style="font-style: italic; margin-top: 6px;">V/v: Rà soát tiến độ phát sinh và thống nhất kiến trúc Sprint Q4/2026</p>
-</div>
+<h1 style="text-align: center; font-size: 18pt; font-weight: bold; margin: 0 0 6px 0; text-transform: uppercase;">BIÊN BẢN CUỘC HỌP NỘI BỘ</h1>
+<p style="text-align: center; font-style: italic; margin-bottom: 24px;">V/v: Rà soát tiến độ phát sinh và thống nhất kế hoạch Sprint Q4/2026</p>
 
 <h3>I. THÔNG TIN CHUNG</h3>
-<ul>
-  <li><strong>Thời gian:</strong> 09:00 - 11:30, Ngày 30 tháng 10 năm 2026</li>
-  <li><strong>Địa điểm:</strong> Phòng họp A2 & Trực tuyến qua Google Meet</li>
-  <li><strong>Chủ trì cuộc họp:</strong> Ông Nguyễn Văn An (Product Owner)</li>
-  <li><strong>Thư ký cuộc họp:</strong> Bà Phạm Mai Chi (Project Coordinator)</li>
-  <li><strong>Thành phần tham dự:</strong> Nhóm Phát triển (Fullstack, FE, BE, QA), Đại diện Vận hành. (Tổng cộng: 08 người).</li>
-</ul>
+<p style="margin: 4px 0 4px 16px;">- <strong>Thời gian:</strong> 09:00 - 11:30, Ngày 30 tháng 10 năm 2026</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Địa điểm:</strong> Phòng họp A2 & Trực tuyến qua Google Meet</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Chủ trì cuộc họp:</strong> Ông Nguyễn Văn An (Product Owner)</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Thư ký cuộc họp:</strong> Bà Phạm Mai Chi (Project Coordinator)</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Thành phần tham dự:</strong> Nhóm Phát triển (Fullstack, FE, BE, QA), Đại diện Vận hành (08 người).</p>
 
 <h3>II. NỘI DUNG CUỘC HỌP</h3>
 <p><strong>1. Đánh giá tính năng Thư viện mẫu tài liệu:</strong></p>
-<p>- Nhóm kỹ thuật báo cáo đã hoàn thành việc chuẩn hóa cấu trúc dữ liệu cho template văn bản và slide trình chiếu.</p>
-<p>- Đảm bảo nguyên tắc bảo toàn file gốc (Template Immutability): File gốc nằm trong vùng Read-Only, khi người dùng click "Sử dụng mẫu", hệ thống tự động sinh bản sao độc lập.</p>
+<p style="text-align: justify;">- Nhóm kỹ thuật báo cáo đã hoàn thành việc chuẩn hóa cấu trúc dữ liệu cho template văn bản và slide trình chiếu.</p>
+<p style="text-align: justify;">- Đảm bảo nguyên tắc bảo toàn file gốc: File gốc nằm trong vùng Read-Only, khi người dùng click "Sử dụng mẫu", hệ thống tự động sinh bản sao độc lập.</p>
 <p><strong>2. Thảo luận về trải nghiệm người dùng (UX):</strong></p>
-<p>- Cần bổ sung trạng thái Loading Skeleton mượt mà và Empty state khi người dùng tìm kiếm không ra kết quả.</p>
-<p>- Tối ưu hóa phím tắt và thanh công cụ soạn thảo trực quan.</p>
+<p style="text-align: justify;">- Bổ sung trạng thái Loading Skeleton mượt mà và Empty state khi tìm kiếm.</p>
+<p style="text-align: justify;">- Tối ưu hóa thanh công cụ soạn thảo trực quan như Google Docs.</p>
 
 <h3>III. KẾT LUẬN & PHÂN CÔNG HÀNH ĐỘNG (ACTION ITEMS)</h3>
 <table style="width: 100%; border-collapse: collapse; margin-top: 12px; border: 1px solid #cbd5e1;">
   <thead>
     <tr style="background-color: #f8fafc;">
-      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 5%;">STT</th>
-      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 45%;">Hạng mục công việc cụ thể</th>
-      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 25%;">Người chịu trách nhiệm</th>
-      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 25%;">Hạn hoàn thành (Deadline)</th>
+      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 8%; text-align: center;">STT</th>
+      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 44%;">Hạng mục công việc cụ thể</th>
+      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 24%;">Người phụ trách</th>
+      <th style="border: 1px solid #cbd5e1; padding: 8px; width: 24%; text-align: center;">Hạn hoàn thành</th>
     </tr>
   </thead>
   <tbody>
@@ -240,34 +232,38 @@ export const INITIAL_TEMPLATES: Template[] = [
       <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">1</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Xây dựng API clone và export DOCX không đè file gốc</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Nguyễn Văn A (Fullstack)</td>
-      <td style="border: 1px solid #cbd5e1; padding: 8px;">31/10/2026</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">31/10/2026</td>
     </tr>
     <tr>
+      <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">2</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Thiết kế bộ Slide Deck Preview chuẩn 16:9 cho Sản phẩm 2</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Nguyễn Thùy Linh (UI/UX)</td>
-      <td style="border: 1px solid #cbd5e1; padding: 8px;">31/10/2026</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">31/10/2026</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #cbd5e1; padding: 8px;">Viết tài liệu kiến trúc hệ thống và quay video demo</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">3</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px;">Viết tài liệu kiến trúc hệ thống và quy trình nghiệp vụ</td>
       <td style="border: 1px solid #cbd5e1; padding: 8px;">Nguyễn Văn A & PMO</td>
-      <td style="border: 1px solid #cbd5e1; padding: 8px;">01/11/2026</td>
+      <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">01/11/2026</td>
     </tr>
   </tbody>
 </table>
 
-<table style="width: 100%; margin-top: 35px; border-collapse: collapse;">
-  <tr>
-    <td style="width: 50%; text-align: center;">
-      <p style="font-weight: bold; margin: 0;">CHỦ TRÌ CUỘC HỌP</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Nguyễn Văn An</p>
-    </td>
-    <td style="width: 50%; text-align: center;">
-      <p style="font-weight: bold; margin: 0;">THƯ KÝ LẬP BIÊN BẢN</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Phạm Mai Chi</p>
-    </td>
-  </tr>
+<table style="width: 100%; margin-top: 35px; border-collapse: collapse; border: none;">
+  <tbody>
+    <tr>
+      <td style="width: 50%; text-align: center; border: none; padding: 10px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">CHỦ TRÌ CUỘC HỌP</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn An</p>
+      </td>
+      <td style="width: 50%; text-align: center; border: none; padding: 10px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">THƯ KÝ LẬP BIÊN BẢN</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Phạm Mai Chi</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 `,
   },
@@ -284,19 +280,15 @@ export const INITIAL_TEMPLATES: Template[] = [
     createdAt: '2026-10-10T07:45:00Z',
     updatedAt: '2026-10-28T16:15:00Z',
     contentHtml: `
-<div style="text-align: center; margin-bottom: 24px;">
-  <p style="font-weight: bold; color: #2563eb; font-size: 11pt; letter-spacing: 1px; text-transform: uppercase;">BỘ PHẬN PHÁT TRIỂN CÔNG NGHỆ VÀ SẢN PHẨM</p>
-  <h1 style="font-size: 18pt; font-weight: bold; margin: 6px 0; text-transform: uppercase;">BÁO CÁO TIẾN ĐỘ DỰ ÁN</h1>
-  <p style="font-style: italic;">(Kỳ báo cáo: Tháng 10/2026 - Dự án: Thư Viện Mẫu Văn Phòng Trực Tuyến)</p>
-</div>
+<p style="text-align: center; font-weight: bold; color: #2563eb; font-size: 11pt; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 4px 0;">BỘ PHẬN PHÁT TRIỂN CÔNG NGHỆ VÀ SẢN PHẨM</p>
+<h1 style="text-align: center; font-size: 18pt; font-weight: bold; margin: 6px 0; text-transform: uppercase;">BÁO CÁO TIẾN ĐỘ DỰ ÁN</h1>
+<p style="text-align: center; font-style: italic; margin-bottom: 24px;">(Kỳ báo cáo: Tháng 10/2026 - Dự án: Thư Viện Mẫu Văn Phòng Trực Tuyến)</p>
 
 <h3>1. TỔNG QUAN TÌNH TRẠNG DỰ ÁN (PROJECT HEALTH)</h3>
-<ul>
-  <li><strong>Tên dự án:</strong> Office Template Library Suite (NextGen Office)</li>
-  <li><strong>Giám đốc dự án:</strong> Nguyễn Văn A</li>
-  <li><strong>Trạng thái chung:</strong> <span style="background-color: #dcfce7; color: #166534; font-weight: bold; padding: 2px 8px; border-radius: 4px;">ĐÚNG TIẾN ĐỘ (ON-TRACK)</span></li>
-  <li><strong>Mức độ hoàn thành tổng thể:</strong> 92% kế hoạch đề ra.</li>
-</ul>
+<p style="margin: 4px 0 4px 16px;">- <strong>Tên dự án:</strong> Office Template Library Suite (NextGen Office)</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Giám đốc dự án:</strong> Nguyễn Văn A</p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Trạng thái chung:</strong> <span style="background-color: #dcfce7; color: #166534; font-weight: bold; padding: 2px 8px; border-radius: 4px;">ĐÚNG TIẾN ĐỘ (ON-TRACK)</span></p>
+<p style="margin: 4px 0 4px 16px;">- <strong>Mức độ hoàn thành tổng thể:</strong> 92% kế hoạch đề ra.</p>
 
 <h3>2. KẾT QUẢ ĐẠT ĐƯỢC TRONG KỲ</h3>
 <p>Trong giai đoạn vừa qua, đội ngũ kỹ thuật đã hoàn thành các mục tiêu cốt lõi:</p>
@@ -332,21 +324,26 @@ export const INITIAL_TEMPLATES: Template[] = [
 </table>
 
 <h3>3. PHÂN TÍCH RỦI RO & PHƯƠNG ÁN XỬ LÝ (RISK MANAGEMENT)</h3>
-<p>- <strong>Rủi ro về định dạng DOCX:</strong> Việc xuất các bảng biểu phức tạp có thể bị lệch style nếu không dùng chuẩn OpenXML chuẩn. <br/>
-<em>$\rightarrow$ Giải pháp đã thực hiện:</em> Áp dụng thư viện <code>docx</code> chuyên dụng trên Node.js backend để kiểm soát tuyệt đối từng bảng, đoạn văn và tiêu đề.</p>
+<p style="text-align: justify;">- <strong>Rủi ro về định dạng DOCX:</strong> Việc xuất các bảng biểu phức tạp có thể bị lệch style nếu không dùng chuẩn OpenXML chuẩn.</p>
+<p style="text-align: justify;"><em>- Giải pháp đã thực hiện:</em> Áp dụng thư viện <code>docx</code> chuyên dụng trên Node.js backend để kiểm soát tuyệt đối từng bảng, đoạn văn và tiêu đề.</p>
 
 <h3>4. KẾ HOẠCH CHO GIAI ĐOẠN TIẾP THEO</h3>
-<ul>
-  <li>Mở rộng API hỗ trợ upload template tùy biến từ phía người dùng quản trị.</li>
-  <li>Nâng cấp cơ chế auto-save với debounce để tối ưu trải nghiệm khi gõ văn bản dài.</li>
-</ul>
+<p style="margin: 4px 0 4px 16px;">- Mở rộng API hỗ trợ upload template tùy biến từ phía người dùng quản trị.</p>
+<p style="margin: 4px 0 4px 16px;">- Nâng cấp cơ chế auto-save với debounce để tối ưu trải nghiệm khi gõ văn bản dài.</p>
 
-<div style="margin-top: 40px; text-align: right;">
-  <p style="font-weight: bold; margin: 0;">NGƯỜI LẬP BÁO CÁO</p>
-  <p style="font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
-  <br/><br/><br/>
-  <p style="font-weight: bold;">Nguyễn Văn A</p>
-</div>
+<table style="width: 100%; margin-top: 40px; border-collapse: collapse; border: none;">
+  <tbody>
+    <tr>
+      <td style="width: 50%; border: none;"></td>
+      <td style="width: 50%; text-align: center; border: none; padding: 10px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">NGƯỜI LẬP BÁO CÁO</p>
+        <p style="text-align: center; font-style: italic; margin-top: 4px;">(Ký và ghi rõ họ tên)</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn A</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `,
   },
   {
@@ -362,25 +359,21 @@ export const INITIAL_TEMPLATES: Template[] = [
     createdAt: '2026-10-15T09:15:00Z',
     updatedAt: '2026-10-29T10:00:00Z',
     contentHtml: `
-<div style="text-align: center; margin-bottom: 24px;">
-  <p style="font-weight: bold; font-size: 11pt; color: #475569; text-transform: uppercase;">CÔNG TY CỔ PHẦN CÔNG NGHỆ VĂN PHÒNG SỐ</p>
-  <h1 style="font-size: 20pt; font-weight: bold; margin: 10px 0; text-transform: uppercase; color: #1e3a8a;">BẢN ĐỀ XUẤT DỰ ÁN</h1>
-  <p style="font-size: 13pt; font-weight: 600;">(Project Proposal & Business Case)</p>
-  <p style="font-style: italic;">Dự án: Xây dựng Hệ sinh thái Thư viện Mẫu Tài liệu Đa nền tảng</p>
-</div>
+<p style="text-align: center; font-weight: bold; font-size: 11pt; color: #475569; text-transform: uppercase; margin: 0 0 4px 0;">CÔNG TY CỔ PHẦN CÔNG NGHỆ VĂN PHÒNG SỐ</p>
+<h1 style="text-align: center; font-size: 20pt; font-weight: bold; margin: 8px 0; text-transform: uppercase; color: #1e3a8a;">BẢN ĐỀ XUẤT DỰ ÁN</h1>
+<p style="text-align: center; font-size: 12pt; font-weight: 600; margin: 0 0 4px 0;">(Project Proposal & Business Case)</p>
+<p style="text-align: center; font-style: italic; margin-bottom: 24px;">Dự án: Xây dựng Hệ sinh thái Thư viện Mẫu Tài liệu Đa nền tảng</p>
 
 <h3>I. BỐI CẢNH VÀ SỰ CẦN THIẾT CỦA DỰ ÁN</h3>
-<p>Hiện nay, nhân sự tại các doanh nghiệp tiêu tốn từ 20% đến 35% thời gian làm việc để định dạng, tìm kiếm các mẫu văn bản và bài thuyết trình. Việc thiếu hụt một hệ thống quản lý mẫu tài liệu tập trung dẫn đến tình trạng:</p>
-<ul>
-  <li>Sai sót về thể thức văn bản hành chính và pháp lý.</li>
-  <li>Không đồng bộ bộ nhận diện thương hiệu công ty trên các slide thuyết trình.</li>
-  <li>Nguy cơ sửa nhầm vào file mẫu gốc của tổ chức do thiếu cơ chế phân quyền và nhân bản độc lập.</li>
-</ul>
+<p style="text-align: justify;">Hiện nay, nhân sự tại các doanh nghiệp tiêu tốn từ 20% đến 35% thời gian làm việc để định dạng, tìm kiếm các mẫu văn bản và bài thuyết trình. Việc thiếu hụt một hệ thống quản lý mẫu tài liệu tập trung dẫn đến tình trạng:</p>
+<p style="margin: 4px 0 4px 16px;">- Sai sót về thể thức văn bản hành chính và pháp lý.</p>
+<p style="margin: 4px 0 4px 16px;">- Không đồng bộ bộ nhận diện thương hiệu công ty trên các slide thuyết trình.</p>
+<p style="margin: 4px 0 4px 16px;">- Nguy cơ sửa nhầm vào file mẫu gốc của tổ chức do thiếu cơ chế phân quyền và nhân bản độc lập.</p>
 
 <h3>II. MỤC TIÊU DỰ ÁN (PROJECT OBJECTIVES)</h3>
-<p>1. Cung cấp một thư viện hơn 100+ mẫu văn bản và bộ slide chuẩn hóa, phân loại theo từng phòng ban chức năng.</p>
-<p>2. Cho phép nhân viên tạo tài liệu mới chỉ với 01 cú click chuột (cơ chế Copy-on-Create an toàn tuyệt đối).</p>
-<p>3. Tích hợp công cụ chỉnh sửa trực quan ngay trên nền web, hỗ trợ xuất khẩu file định dạng DOCX và PPTX nguyên bản.</p>
+<p style="text-align: justify; margin: 6px 0;">1. Cung cấp một thư viện hơn 100+ mẫu văn bản và bộ slide chuẩn hóa, phân loại theo từng phòng ban chức năng.</p>
+<p style="text-align: justify; margin: 6px 0;">2. Cho phép nhân viên tạo tài liệu mới chỉ với 01 cú click chuột (cơ chế Copy-on-Create an toàn tuyệt đối).</p>
+<p style="text-align: justify; margin: 6px 0;">3. Tích hợp công cụ chỉnh sửa trực quan ngay trên nền web, hỗ trợ xuất khẩu file định dạng DOCX và PPTX nguyên bản.</p>
 
 <h3>III. DỰ TOÁN NGÂN SÁCH ĐẦU TƯ (BUDGET ESTIMATE)</h3>
 <table style="width: 100%; border-collapse: collapse; margin-top: 10px; border: 1px solid #cbd5e1;">
@@ -418,21 +411,22 @@ export const INITIAL_TEMPLATES: Template[] = [
   </tbody>
 </table>
 
-<table style="width: 100%; margin-top: 40px; border-collapse: collapse;">
-  <tr>
-    <td style="width: 50%; text-align: center;">
-      <p style="font-weight: bold; margin: 0;">NGƯỜI ĐỀ XUẤT DỰ ÁN</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Nguyễn Văn A</p>
-    </td>
-    <td style="width: 50%; text-align: center;">
-      <p style="font-weight: bold; margin: 0;">PHÊ DUYỆT CỦA BAN GIÁM ĐỐC</p>
-      <br/><br/><br/>
-      <p style="font-weight: bold;">Nguyễn Văn An</p>
-    </td>
-  </tr>
+<table style="width: 100%; margin-top: 40px; border-collapse: collapse; border: none;">
+  <tbody>
+    <tr>
+      <td style="width: 50%; text-align: center; border: none; padding: 10px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">NGƯỜI ĐỀ XUẤT DỰ ÁN</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn A</p>
+      </td>
+      <td style="width: 50%; text-align: center; border: none; padding: 10px;">
+        <p style="text-align: center; font-weight: bold; margin: 0;">PHÊ DUYỆT CỦA BAN GIÁM ĐỐC</p>
+        <br/><br/><br/>
+        <p style="text-align: center; font-weight: bold;">Nguyễn Văn An</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 `,
   },
 ];
-

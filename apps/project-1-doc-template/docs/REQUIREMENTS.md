@@ -47,6 +47,6 @@ Xây dựng chức năng thư viện mẫu văn bản độc lập, cho phép ng
 | **Tìm kiếm & Lọc danh mục** | `src/features/templates/components/category-filter.tsx`<br>Tích hợp `usehooks-ts` (`useDebounceValue`) | [SRS.md](SRS.md#fr-2) |
 | **Xem trước mẫu A4** | `src/features/templates/components/template-preview-modal.tsx` | [SRS.md](SRS.md#fr-3) |
 | **Bảo vệ mẫu gốc (Copy-on-Create)** | `src/server/services/document.service.ts`<br>`src/server/services/storage.service.ts` | [ARCHITECTURE.md](ARCHITECTURE.md#2) |
-| **Trình soạn thảo văn bản** | `src/features/editor/screens/document-editor-screen.tsx`<br>`src/features/editor/components/editor-toolbar.tsx` | [SRS.md](SRS.md#fr-5) |
+| **Trình soạn thảo văn bản Google Docs A4** | `src/features/editor/screens/document-editor-screen.tsx`<br>`src/features/editor/components/rich-text-editor.tsx`<br>`src/features/editor/components/editor-toolbar.tsx` | [SRS.md](SRS.md#fr-5) |
 | **Xuất file Word DOCX** | `src/server/services/docx-export.service.ts`<br>`src/app/api/documents/[id]/export/route.ts` | [API_SPEC.md](API_SPEC.md#export) |
 | **Bộ biểu mẫu tiêu chuẩn** | `src/data/templates.ts` | [PLAN.md](PLAN.md) |

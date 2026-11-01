@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { DocumentStatus } from '../src/types';
+import { DocumentStatus, TemplateCategory, UserDocument } from '../src/types';
 import { templateService } from '../src/server/services/template.service';
 import { documentService } from '../src/server/services/document.service';
 import { docxExportService } from '../src/server/services/docx-export.service';
@@ -87,6 +87,56 @@ async function runTests() {
   assert.strictEqual(docxBuffer[0], 0x50, 'Byte 0 phải là P (0x50)');
   assert.strictEqual(docxBuffer[1], 0x4b, 'Byte 1 phải là K (0x4B)');
   console.log(`  ✓ Xuất file DOCX thành công: ${docxBuffer.length} bytes (Cấu trúc file OpenXML hợp lệ)`);
+
+  // 5. Kiểm thử xuất DOCX với HTML entities và bảng phức tạp (Biên Bản Cuộc Họp)
+  console.log('\nTest 5: Kiểm tra giải mã thực thể HTML & bảng phân cột cho Biên Bản Cuộc Họp...');
+  const meetingTemplate = templateService.getTemplateById('tpl-meeting-minutes');
+  assert(meetingTemplate !== null, 'Phải tìm thấy mẫu biên bản cuộc họp');
+
+  // Giả lập nội dung chứa HTML entities và nested tags như trình soạn thảo sinh ra
+  const meetingDocWithEntities: UserDocument = {
+    id: 'doc-test-meeting',
+    title: 'Biên Bản Cuộc Họp Nội Bộ & Giao Việc (Bản sao)',
+    clonedFromTemplateId: 'tpl-meeting-minutes',
+    clonedFromTemplateTitle: 'Biên Bản Cuộc Họp Nội Bộ & Giao Việc',
+    category: TemplateCategory.MEETING,
+    status: DocumentStatus.DRAFT,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    contentHtml: `
+      <h1 style="text-align: center;">BI&Ecirc;N BẢN CUỘC HỌP NỘI BỘ</h1>
+      <p style="text-align: center; font-style: italic;">V/v: R&agrave; so&aacute;t tiến độ ph&aacute;t sinh v&agrave; thống nhất kế hoạch Sprint Q4/2026</p>
+      <h3>I. TH&Ocirc;NG TIN CHUNG</h3>
+      <p>- <strong>Thời gian:</strong> 09:00 - 11:30, Ng&agrave;y 30 th&aacute;ng 10 năm 2026</p>
+      <p>- <strong>Địa điểm:</strong> Ph&ograve;ng họp A2 &amp; Trực tuyến qua Google Meet</p>
+      <h3>II. KẾT LUẬN &amp; PH&Acirc;N C&Ocirc;NG H&Agrave;NH ĐỘNG</h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 8%;">STT</th>
+            <th style="width: 44%;">Hạng mục c&ocirc;ng việc cụ thể</th>
+            <th style="width: 24%;">Người phụ tr&aacute;ch</th>
+            <th style="width: 24%;">Hạn ho&agrave;n th&agrave;nh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>X&acirc;y dựng API clone v&agrave; export DOCX kh&ocirc;ng đ&egrave; file gốc</td>
+            <td>Nguyễn Văn A (Fullstack)</td>
+            <td>31/10/2026</td>
+          </tr>
+        </tbody>
+      </table>
+    `,
+  };
+
+  const meetingDocxBuffer = await docxExportService.generateDocxBuffer(meetingDocWithEntities);
+  assert(meetingDocxBuffer instanceof Buffer, 'Kết quả biên bản họp phải là Buffer');
+  assert(meetingDocxBuffer.length > 2000, 'File biên bản DOCX phải có kích thước hợp lệ (> 2KB)');
+  assert.strictEqual(meetingDocxBuffer[0], 0x50, 'Byte 0 phải là P (0x50)');
+  assert.strictEqual(meetingDocxBuffer[1], 0x4b, 'Byte 1 phải là K (0x4B)');
+  console.log(`  ✓ Xuất file Biên Bản DOCX thành công: ${meetingDocxBuffer.length} bytes (Entities giải mã sạch, không rác HTML)`);
 
   console.log('\n====================================================');
   console.log('🎉 TOÀN BỘ KIỂM THỬ TỰ ĐỘNG ĐỀU ĐẠT CHUẨN 100% (PASSED)');

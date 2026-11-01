@@ -32,33 +32,33 @@ export const PresentationGalleryScreen: React.FC = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Hero Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-border">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/25 bg-accent text-accent-foreground text-xs font-semibold mb-3 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
             Sản phẩm 2: Thư viện mẫu trình chiếu PowerPoint
           </div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
             Thư Viện Mẫu Bài Thuyết Trình
           </h1>
-          <p className="text-sm text-slate-500 mt-2 max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-2 max-w-2xl leading-relaxed">
             Khám phá các bộ slide PowerPoint chuyên nghiệp tỉ lệ 16:9 Cinema. Xem trước toàn bộ slide trong deck, nhân bản độc lập và tải tệp .pptx tương thích Microsoft PowerPoint.
           </p>
         </div>
 
         {/* Global Stats & API Docs Action */}
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2 bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200 text-xs text-slate-700">
-            <Presentation className="w-4 h-4 text-indigo-600" />
+        <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-xl border border-border text-xs text-foreground/80 shadow-xs">
+            <Presentation className="w-4 h-4 text-primary" />
             <span>Tổng số bộ slide:</span>
-            <strong className="text-sm font-bold text-slate-900 font-mono">
+            <strong className="text-xs font-bold text-foreground font-mono">
               {templates.length}
             </strong>
           </div>
 
           <Link href="/api-docs">
             <Button variant={ButtonVariant.OUTLINE} size={ButtonSize.SM}>
-              <BookOpen className="w-4 h-4 mr-1.5 text-indigo-600" />
+              <BookOpen className="w-3.5 h-3.5 mr-1.5 text-foreground/70" />
               Swagger API Docs
             </Button>
           </Link>
@@ -91,7 +91,7 @@ export const PresentationGalleryScreen: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
                 aria-label="Xóa tìm kiếm"
               >
                 <X className="w-4 h-4" />
@@ -101,77 +101,80 @@ export const PresentationGalleryScreen: React.FC = () => {
         </div>
       </div>
 
-      {/* Grid List of Presentation Templates */}
+      {/* Presentation Deck Grid or Skeleton Loading */}
       {isLoading ? (
-        /* Loading Skeletons */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...Array(3)].map((_, idx) => (
+          {Array.from({ length: 6 }).map((_, index) => (
             <div
-              key={idx}
-              className="flex flex-col bg-white rounded-2xl border border-slate-200 p-5 space-y-4"
+              key={index}
+              className="bg-card rounded-2xl border border-border p-4 space-y-4"
             >
               <Skeleton className="w-full aspect-16/9 rounded-xl" />
-              <Skeleton className="h-5 w-3/4 rounded-md" />
-              <Skeleton className="h-4 w-full rounded-md" />
-              <Skeleton className="h-4 w-2/3 rounded-md" />
-              <div className="flex justify-between items-center pt-2">
+              <div className="space-y-2">
+                <Skeleton className="h-4 w-3/4 rounded" />
+                <Skeleton className="h-3 w-full rounded" />
+                <Skeleton className="h-3 w-2/3 rounded" />
+              </div>
+              <div className="flex justify-between pt-2">
                 <Skeleton className="h-8 w-20 rounded-lg" />
-                <Skeleton className="h-8 w-24 rounded-lg" />
+                <Skeleton className="h-8 w-28 rounded-lg" />
               </div>
             </div>
           ))}
         </div>
       ) : templates.length > 0 ? (
-        /* Actual Presentation Grid */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {templates.map((tpl) => (
+          {templates.map((template) => (
             <PresentationCard
-              key={tpl.id}
-              template={tpl}
-              onPreview={(item) => setPreviewTemplate(item)}
+              key={template.id}
+              template={template}
+              onPreview={setPreviewTemplate}
               onUseTemplate={handleUseTemplate}
-              isCreating={creatingTemplateId === tpl.id}
+              isCreating={creatingTemplateId === template.id}
             />
           ))}
         </div>
       ) : (
         /* Empty State */
-        <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-2xl border border-dashed border-slate-300">
-          <div className="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mb-4">
-            <FolderX className="w-7 h-7" />
+        <div className="flex flex-col items-center justify-center p-12 text-center bg-card rounded-2xl border border-dashed border-border my-8">
+          <div className="w-14 h-14 rounded-full bg-accent text-accent-foreground flex items-center justify-center mb-4">
+            <FolderX className="w-7 h-7 text-primary" />
           </div>
-          <h3 className="text-base font-semibold text-slate-900">
-            Không tìm thấy bộ slide nào
+          <h3 className="text-base font-semibold text-foreground">
+            Không tìm thấy bộ slide phù hợp
           </h3>
-          <p className="text-xs text-slate-500 max-w-sm mt-1 mb-6">
-            Không có kết quả nào khớp với từ khóa &quot;{searchQuery}&quot; hoặc danh mục đã chọn. Vui lòng thử tìm với từ khóa khác.
+          <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-sm">
+            Không có bộ bài thuyết trình nào khớp với bộ lọc hoặc từ khóa tìm kiếm của bạn. Thử tìm từ khóa khác hoặc xóa bộ lọc.
           </p>
-          <Button
-            variant={ButtonVariant.OUTLINE}
-            size={ButtonSize.SM}
-            onClick={handleResetFilters}
-          >
-            Xóa bộ lọc tìm kiếm
-          </Button>
+          <div className="mt-4">
+            <Button
+              variant={ButtonVariant.OUTLINE}
+              size={ButtonSize.SM}
+              onClick={handleResetFilters}
+            >
+              Đặt lại bộ lọc
+            </Button>
+          </div>
         </div>
       )}
 
       {/* Slide Deck Preview Modal */}
       <SlideDeckModal
         template={previewTemplate}
-        isOpen={!!previewTemplate}
+        isOpen={Boolean(previewTemplate)}
         onClose={() => setPreviewTemplate(null)}
         onUseTemplate={handleUseTemplate}
-        isCreating={previewTemplate ? creatingTemplateId === previewTemplate.id : false}
+        isCreating={Boolean(
+          creatingTemplateId && previewTemplate?.id === creatingTemplateId
+        )}
       />
 
-      {/* Presentation Created & Download Modal */}
+      {/* Cloned Presentation Created Success Modal */}
       <PresentationCreatedModal
         presentation={createdPresentation}
-        isOpen={!!createdPresentation}
+        isOpen={Boolean(createdPresentation)}
         onClose={() => setCreatedPresentation(null)}
       />
     </div>
   );
 };
-

@@ -100,7 +100,43 @@ export interface UserDocument {
 
 ---
 
-## 5. Chiến lược Kiến trúc Backend & Lộ trình Bóc tách (Backend Migration Roadmap)
+## 5. Kiến Trúc Bộ Xuất File Word & Trình Soạn Thảo Văn Bản (DOCX Engine & Google Docs Editor)
+
+### A. Google Docs Toolbar & Rich Text Canvas (TipTap Engine)
+- **Cấu trúc Toolbar gắn liền (Pinned Under Header)**: Thanh công cụ bám sát ngay dưới thanh điều hướng với khoảng cách 0px, loại bỏ hoàn toàn khoảng trống thừa.
+- **Tính năng định dạng nâng cao**:
+  - **Font Family Selector**: Hỗ trợ xem trước và chọn các font hành chính phổ biến: Be Vietnam Pro, Times New Roman, Arial, Roboto, Inter, JetBrains Mono.
+  - **Headings & Hierarchy**: Tiêu đề chính (H1 - 18pt), Tiêu đề phụ (H2 - 14pt), Đề mục (H3 - 13pt), Văn bản thường (Normal - 13pt).
+  - **Font Size Controls**: Tăng/giảm kích thước font từng điểm (pt).
+  - **Formatting Controls**: In đậm (B), In nghiêng (I), Gạch chân (U), Gạch ngang (S), Khối code (<>).
+  - **Color & Highlight Pickers**: Bộ chọn màu chữ và màu nền đánh dấu (Highlighter) với bảng màu tiêu chuẩn văn phòng.
+  - **Alignment & Spacing**: Căn trái, Căn giữa, Căn phải, Căn đều hai bên (Justify).
+  - **Lists & Tables**: Danh sách dấu chấm (Bullet list), Danh sách số (Ordered list), Trích dẫn (Blockquote), Chèn và căn chỉnh bảng biểu.
+  - **View Mode Switcher**: Cho phép linh hoạt chuyển đổi giữa 3 chế độ xem: Khổ giấy in ấn A4 chuẩn (Standard - 816px), Bản rộng (Wide - 1100px) và Toàn màn hình (Full - 1500px).
+- **Hệ thống Dropdown chuẩn mực**: Tích hợp `@radix-ui/react-dropdown-menu` thông qua component dùng chung `DropdownMenu` trong `packages/ui`, thay thế hoàn toàn thẻ select mặc định của trình duyệt.
+- **Cơ chế Phân trang đa trang tự động (Google Docs-style A4 Multi-page Engine)**:
+  - Tích hợp thư viện chuyên biệt `tiptap-a4-pagination` dựa trên cơ chế ProseMirror Decorations (non-destructive).
+  - Tự động đo đạc chiều cao khối văn bản trong thời gian thực: khi văn bản vượt quá chiều cao một trang A4 chuẩn (1123px ở 96 DPI, lề 25.4mm), hệ thống tự động sinh dải ngăn cách trang `.page-break-gap` (màu nền canvas kèm viền bóng đổ 3D sắc nét).
+  - **Tự động tách hàng bảng biểu (Smart Table Row Splitting)**: Đối với các bảng biểu dài (như danh sách Action Items trong Biên bản cuộc họp), hệ thống tự động tách rời giữa các dòng `<tr>`, lặp lại hàng tiêu đề `<thead>` ở đầu trang tiếp theo và đẩy các dòng dữ liệu cùng phần chữ ký sang **Trang 2**, loại bỏ hoàn toàn hiện tượng tràn văn bản ra ngoài tờ giấy trắng.
+  - Toàn bộ nội dung phân trang hiển thị trực quan 1:1, đồng thời giữ sạch 100% cấu trúc HTML lưu trữ và file DOCX tải về.
+
+
+### B. Kiến Trúc Xử Lý Xuất DOCX (DocxExportService)
+Nhằm khắc phục triệt để các lỗi rò rỉ mã HTML và sai lệch tỷ lệ hiển thị trên Microsoft Word:
+1. **Giải mã thực thể HTML toàn diện (`html-entities`)**: Toàn bộ chuỗi văn bản được đưa qua hàm `decode(text)` và chuẩn hóa Unicode NFC (`normalize('NFC')`), giải mã sạch sẽ 100% các ký tự tiếng Việt dạng thực thể (`&Ecirc;` -> `Ê`, `&agrave;` -> `à`, `&amp;` -> `&`,...).
+2. **Bộ phân tách thẻ tuần tự (Token-based Parser)**: Chuyển đổi mã HTML thành các token tuần tự (`tokens = html.split(/(<[^>]+>)/g)`). Parser theo dõi trạng thái thẻ đóng/mở (`<strong>`, `<b>`, `<em>`, `<i>`, `<u>`, `<s>`, `<span style="color:...">`), triệt tiêu hoàn toàn lỗi lọt chuỗi `strong>` hoặc thẻ HTML thô vào trang Word.
+3. **Phân bổ tỷ lệ cột bảng biểu theo đơn vị OpenXML DXA**:
+   - Trích xuất chính xác thuộc tính `width: X%` từ style của từng ô `<th>`/`<td>` (ví dụ: 8%, 44%, 24%, 24% của Biên bản họp; 50% - 50% của phần ký tên).
+   - Dựa trên độ rộng vùng in chuẩn của trang A4 (`PRINTABLE_WIDTH_DXA = 8500 DXA`), hệ thống tính toán chính xác kích thước DXA cho từng cột trong `columnWidths` và từng `TableCell`. Cột văn bản dài hiển thị rộng thoáng, không còn hiện tượng bị bóp nghẹt chữ.
+4. **Chuẩn hóa thể thức văn bản hành chính Việt Nam (Nghị định 30/2020/NĐ-CP)**:
+   - Font mặc định: Times New Roman.
+   - Cỡ chữ chuẩn: Tiêu đề 17-18pt, Đề mục 13-14pt, Nội dung 13pt, Bảng biểu 10-11pt.
+   - Khoảng cách dòng: 1.25 - 1.5 lines (`spacing: { line: 360, before: 60, after: 60 }`).
+   - Căn lề trang A4 chuẩn: Lề trên 2.54cm (1440 dxa), lề dưới 2.54cm, lề trái 3cm (1700 dxa), lề phải 2cm (1134 dxa).
+
+---
+
+## 6. Chiến lược Kiến trúc Backend & Lộ trình Bóc tách (Backend Migration Roadmap)
 - **Thiết kế hiện tại (All-in-one Monorepo)**: Sử dụng Next.js Route Handlers (`src/app/api/`) kết hợp Domain Services (`src/server/services/`) và File-based Storage. Mô hình này giúp toàn bộ hệ thống đóng gói khép kín, khởi chạy tức thì và kiểm thử tự động đạt độ tin cậy 100% mà không đòi hỏi bất kỳ Database hay service phụ trợ nào.
 - **Lộ trình bóc tách (Decoupling Ready)**: Khi mở rộng quy mô, toàn bộ domain services (`document.service.ts`, `docx-export.service.ts`, `storage.service.ts`) được thiết kế theo nguyên tắc phân lớp rõ ràng, sẵn sàng trích xuất thành một Dedicated Backend Microservice độc lập (NestJS / Go) và kết nối Cloud Storage (S3) / Cloud Database (PostgreSQL). Tầng Client sử dụng `DocumentApiService` kế thừa `BaseApiService` từ package `core`, do đó chỉ cần cấu hình lại `NEXT_PUBLIC_BASE_API` là hoàn tất kết nối mà hoàn toàn không cần refactor giao diện người dùng.
 

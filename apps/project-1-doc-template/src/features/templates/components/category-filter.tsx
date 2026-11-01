@@ -1,14 +1,14 @@
-import React from 'react';
 import { CategoryInfo, TemplateCategory } from '@/types';
-import { cn } from 'ui';
 import {
-  FileText,
-  Briefcase,
-  Users,
-  CheckSquare,
   BarChart3,
+  Briefcase,
+  CheckSquare,
+  FileText,
   Lightbulb,
+  Users,
 } from 'lucide-react';
+import React from 'react';
+import { cn } from 'ui';
 
 export interface CategoryFilterProps {
   categories: CategoryInfo[];
@@ -53,10 +53,10 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             type="button"
             onClick={() => onSelectCategory(cat.id)}
             className={cn(
-              'inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer select-none',
+              'inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all cursor-pointer select-none',
               isSelected
-                ? 'bg-blue-600 text-white shadow-sm ring-2 ring-blue-600/20'
-                : 'bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-slate-200'
+                ? 'bg-primary text-primary-foreground shadow-sm shadow-primary/30 font-semibold ring-2 ring-primary/20'
+                : 'bg-card text-foreground/80 hover:bg-accent hover:text-accent-foreground border border-border shadow-2xs'
             )}
           >
             {getCategoryIcon(cat.id)}
@@ -64,10 +64,10 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             {count !== undefined && (
               <span
                 className={cn(
-                  'px-1.5 py-0.5 rounded-full text-[10px] font-bold',
+                  'px-2 py-0.5 rounded-full text-[10px] font-semibold',
                   isSelected
-                    ? 'bg-white/20 text-white'
-                    : 'bg-slate-100 text-slate-500'
+                    ? 'bg-primary-foreground/20 text-primary-foreground'
+                    : 'bg-muted text-foreground/70'
                 )}
               >
                 {count}
@@ -79,4 +79,3 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     </div>
   );
 };
-

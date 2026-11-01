@@ -3,15 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "tsx tests/verify-all.ts"
   },
   "dependencies": {
-    "core": "workspace:*",
-    "ui": "workspace:*",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.5.0",
@@ -20,12 +18,16 @@
     "axios": "^1.21.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "core": "workspace:*",
+    "fabric": "^7.4.0",
     "lucide-react": "1.64.0",
     "next": "16.4.3",
     "pptxgenjs": "^4.0.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "reveal.js": "^6.0.2",
     "tailwind-merge": "^3.7.0",
+    "ui": "workspace:*",
     "usehooks-ts": "^3.1.1",
     "zustand": "^5.0.16"
   },

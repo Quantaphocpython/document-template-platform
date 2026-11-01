@@ -63,9 +63,10 @@ project-2-slide-template/
 │   │   └── presentations/                 # Phân hệ thư viện & duyệt bộ slide
 │   │       ├── components/                # Component con dùng riêng (kebab-case)
 │   │       │   ├── category-filter.tsx    # Thanh lọc danh mục với badge số lượng
+│   │       │   ├── fabric-slide-canvas.tsx# Canvas Slide Engine 2D tương tác trực tiếp (Fabric.js v7)
 │   │       │   ├── presentation-card.tsx  # Thẻ card hiển thị bộ slide (16:9 Cover)
 │   │       │   ├── presentation-created-modal.tsx # Modal xác nhận khởi tạo & Tải file PPTX
-│   │       │   └── slide-deck-modal.tsx   # Màn chiếu Cinema 16:9 + Filmstrip Carousel
+│   │       │   └── slide-deck-modal.tsx   # Màn chiếu Cinema 16:9 + Filmstrip Carousel + Canvas Mode
 │   │       ├── hooks/
 │   │       │   └── use-presentation-gallery.ts # Hook quản lý search debounce, modal, API calls
 │   │       └── screens/

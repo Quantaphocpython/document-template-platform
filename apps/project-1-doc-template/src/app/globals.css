@@ -1,26 +1,65 @@
 @import "tailwindcss";
+@source "../../../../packages/ui/src";
+@import "../../../../packages/ui/src/styles/theme.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   Google Docs A4 Authentic Multi-Page Pagination & Editor Styles
+   ========================================================================== */
+
+/* The gray separating gap between A4 pages */
+.page-break-gap {
+  background: #f8f9fa !important;
+  box-shadow: inset 0 3px 6px -3px rgba(0, 0, 0, 0.18), inset 0 -3px 6px -3px rgba(0, 0, 0, 0.18), 0 1px 0 #dadce0, 0 -1px 0 #dadce0 !important;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark .page-break-gap {
+  background: #0e0e0e !important;
+  box-shadow: inset 0 3px 6px -3px rgba(0, 0, 0, 0.4), inset 0 -3px 6px -3px rgba(0, 0, 0, 0.4), 0 1px 0 #262626, 0 -1px 0 #262626 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Headings in TipTap editor */
+.tiptap h1 {
+  font-size: 20pt;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.tiptap h2 {
+  font-size: 15pt;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.tiptap h3 {
+  font-size: 13pt;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* TipTap Table Polish */
+.tiptap table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tiptap th,
+.tiptap td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  vertical-align: top;
+  position: relative;
+}
+
+.tiptap th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  text-align: left;
 }

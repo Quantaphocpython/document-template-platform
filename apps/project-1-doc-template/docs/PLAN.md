@@ -29,35 +29,35 @@ Xây dựng một ứng dụng thư viện mẫu văn bản hoàn chỉnh, cho p
 ## 3. Lộ trình triển khai (Implementation Phases)
 
 ### Giai đoạn 1: Chuẩn bị Cấu trúc & Dữ liệu Mẫu (Seed Data)
-- [ ] Thiết kế TypeScript Interfaces cho `Template`, `Category`, `UserDocument`, `DocumentMeta`.
-- [ ] Tạo 5 bộ dữ liệu mẫu chuẩn văn phòng:
+- [x] Thiết kế TypeScript Interfaces cho `Template`, `Category`, `UserDocument`, `DocumentMeta`.
+- [x] Tạo 5 bộ dữ liệu mẫu chuẩn văn phòng:
   1. Hợp đồng lao động chuẩn (Employment Contract).
   2. Đơn xin nghỉ phép (Leave Request Form).
   3. Biên bản cuộc họp nội bộ (Meeting Minutes).
   4. Báo cáo tiến độ dự án tuần/tháng (Project Progress Report).
   5. Đề xuất dự án & kế hoạch kinh doanh (Project Proposal).
-- [ ] Tạo thư mục `storage/templates/` và `storage/documents/` để quản lý nội dung và file mẫu.
+- [x] Tạo thư mục `storage/templates/` và `storage/documents/` để quản lý nội dung và file mẫu.
 
 ### Giai đoạn 2: Xây dựng Backend API Service
-- [ ] `GET /api/templates`: Lấy danh sách mẫu (hỗ trợ search keyword, category, pagination).
-- [ ] `GET /api/templates/:id`: Lấy chi tiết mẫu để preview.
-- [ ] `POST /api/documents`: Khởi tạo tài liệu mới từ một template (Copy-on-Create pattern).
-- [ ] `GET /api/documents/:id`: Lấy thông tin & nội dung tài liệu đang soạn thảo.
-- [ ] `PUT /api/documents/:id`: Lưu tài liệu đã chỉnh sửa.
-- [ ] `POST /api/documents/:id/export-docx`: Xuất tài liệu ra file DOCX chuẩn.
+- [x] `GET /api/templates`: Lấy danh sách mẫu (hỗ trợ search keyword, category, pagination).
+- [x] `GET /api/templates/:id`: Lấy chi tiết mẫu để preview.
+- [x] `POST /api/documents`: Khởi tạo tài liệu mới từ một template (Copy-on-Create pattern).
+- [x] `GET /api/documents/:id`: Lấy thông tin & nội dung tài liệu đang soạn thảo.
+- [x] `PUT /api/documents/:id`: Lưu tài liệu đã chỉnh sửa.
+- [x] `GET /api/documents/:id/export`: Xuất tài liệu ra file DOCX chuẩn.
 
 ### Giai đoạn 3: Xây dựng Giao diện Người dùng (UI/UX)
-- [ ] Layout chính: Header chuyên nghiệp, thanh điều hướng, badge đếm mẫu.
-- [ ] Bộ lọc danh mục (Tabs / Pills) & Ô tìm kiếm từ khóa với debounce.
-- [ ] Template Grid: Các thẻ card mẫu hiển thị thumbnail trực quan, tên, mô tả, tag danh mục.
-- [ ] Preview Modal: Xem trước toàn bộ nội dung mẫu, metadata, ngày cập nhật, nút hành động "Sử dụng mẫu này".
-- [ ] Document Editor View:
+- [x] Layout chính: Header chuyên nghiệp, thanh điều hướng, badge đếm mẫu.
+- [x] Bộ lọc danh mục (Tabs / Pills) & Ô tìm kiếm từ khóa với debounce.
+- [x] Template Grid: Các thẻ card mẫu hiển thị thumbnail trực quan, tên, mô tả, tag danh mục.
+- [x] Preview Modal: Xem trước toàn bộ nội dung mẫu, metadata, ngày cập nhật, nút hành động "Sử dụng mẫu này".
+- [x] Document Editor View:
   - Header editor: Tên tài liệu có thể đổi, nút Lưu, nút Tải xuống DOCX, trạng thái Lưu (Auto-save / Manual save).
-  - Rich Text Toolbar: Định dạng văn bản, căn lề, danh sách, bảng.
-  - Khung soạn thảo văn bản mô phỏng trang A4 trực quan.
+  - Rich Text Toolbar: Thanh công cụ Google Docs chuyên nghiệp (Font, Cỡ chữ, Căn lề, Màu chữ, Danh sách, Bảng).
+  - Khung soạn thảo văn bản mô phỏng trang A4 trực quan với công nghệ phân trang tự động `tiptap-a4-pagination` và 3 chế độ xem (Standard / Wide / Full).
 
 ### Giai đoạn 4: Kiểm thử, Tối ưu & Hoàn thiện Tài liệu
-- [ ] Kiểm tra tính toàn vẹn: Đảm bảo sau khi chỉnh sửa tài liệu, template gốc hoàn toàn không bị ảnh hưởng.
-- [ ] Kiểm tra các trạng thái biên: Không có kết quả tìm kiếm, template ID không tồn tại, lỗi lưu.
-- [ ] Viết tài liệu README, Architecture, API spec chuẩn bị cho việc chuyển giao, tích hợp và triển khai hệ thống.
+- [x] Kiểm tra tính toàn vẹn: Đảm bảo sau khi chỉnh sửa tài liệu, template gốc hoàn toàn không bị ảnh hưởng (Unit test kiểm chứng 100%).
+- [x] Kiểm tra các trạng thái biên: Không có kết quả tìm kiếm, template ID không tồn tại, lỗi lưu.
+- [x] Viết tài liệu README, Architecture, SRS, API spec chuẩn bị cho việc chuyển giao, tích hợp và triển khai hệ thống.
 

@@ -48,7 +48,8 @@ project-1-doc-template/
 │   ├── features/                          # [Feature-Driven Modules] Phân hệ nghiệp vụ độc lập
 │   │   ├── editor/                        # Phân hệ trình soạn thảo văn bản
 │   │   │   ├── components/
-│   │   │   │   └── editor-toolbar.tsx     # Thanh công cụ định dạng Rich Text & Bảng
+│   │   │   │   ├── editor-toolbar.tsx     # Thanh công cụ Google Docs Toolbar (Font, Cỡ, Màu, Căn lề, View mode)
+│   │   │   │   └── rich-text-editor.tsx   # Trình soạn thảo TipTap tự động phân trang A4 (tiptap-a4-pagination)
 │   │   │   ├── hooks/
 │   │   │   │   └── use-document-editor.ts # Hook quản lý nội dung, auto-save, export DOCX
 │   │   │   └── screens/

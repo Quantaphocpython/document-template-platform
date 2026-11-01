@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-background text-foreground">
       <PresentationGalleryScreen />
     </main>
   );

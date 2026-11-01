@@ -29,23 +29,30 @@
    - Khi chọn "Sử dụng mẫu này", hệ thống thực hiện sao chép sâu (Deep Clone) nội dung sang một tài liệu người dùng mới với định danh riêng.
    - **Bảo đảm 100% mẫu gốc không bị thay đổi hoặc ghi đè**.
 
-5. **Trình soạn thảo văn bản tích hợp (Document Editor)**:
-   - Trình soạn thảo văn bản mô phỏng khổ giấy in ấn (A4 Paper layout).
-   - Thanh công cụ đầy đủ: Căn lề, Tiêu đề (H1, H2, H3), In đậm, In nghiêng, Gạch chân, Danh sách có thứ tự / không thứ tự, Chèn bảng.
-   - Hỗ trợ đổi tên tài liệu và lưu trạng thái (Save / Draft).
+5. **Trình soạn thảo văn bản Google Docs A4 (Document Editor)**:
+   - Trình soạn thảo văn bản mô phỏng trang A4 trực quan (`794px × 1123px`, lề `25.4mm`).
+   - Tích hợp công nghệ phân trang thời gian thực **`tiptap-a4-pagination`**:
+     - Tự động tách trang A4 khi nội dung dài tràn trang.
+     - Tự động ngắt hàng bảng biểu thông minh giữa các trang, lặp lại tiêu đề bảng (`repeat header row`).
+     - Đường phân cách `.page-break-gap` bóng đổ chuẩn Google Docs.
+   - Thanh công cụ Google Docs Toolbar: Font family, Cỡ chữ, Căn lề, Tiêu đề (H1, H2, H3), In đậm, In nghiêng, Gạch chân, Màu chữ, Highlight, Bảng biểu, In ấn.
+   - Hỗ trợ đổi 3 chế độ xem: Khổ chuẩn Standard A4, Khổ rộng Wide, và Khổ tối đa Full screen.
+   - Tự động lưu bản nháp và hiển thị số lượng trang tài liệu thời gian thực.
 
 6. **Tải xuống & Xuất bản (Export DOCX)**:
-   - Cho phép tải về tài liệu dưới định dạng **DOCX** giữ nguyên cấu trúc văn bản và định dạng cơ bản.
+   - Cho phép tải về tài liệu dưới định dạng **DOCX** giữ nguyên cấu trúc văn bản, bảng biểu phân cột chuẩn xác (DXA).
+   - Tự động giải mã 100% HTML entities tiếng Việt (`html-entities`), đảm bảo tệp Word tải về hiển thị dấu tiếng Việt sạch sẽ, chuẩn mực thể thức hành chính (Nghị định 30/2020/NĐ-CP).
 
 ---
 
 ## Công Nghệ Sử Dụng (Tech Stack)
 
 - **Frontend & Backend**: Next.js 15 (App Router), React 19, TypeScript
+- **Rich Text & Pagination**: TipTap Core (`@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-table`...) & `tiptap-a4-pagination`
 - **Styling**: Tailwind CSS
 - **Iconography**: Lucide React
-- **Document Generation**: `docx` library (xử lý OpenXML Word document)
-- **Kiến trúc**: Layered Architecture (UI $\rightarrow$ API Routes $\rightarrow$ Service Layer $\rightarrow$ File/Memory Storage)
+- **Document Generation**: `docx` library & `html-entities` (xử lý OpenXML Word document)
+- **Kiến trúc**: Layered Feature-Driven Architecture (UI $\rightarrow$ API Routes $\rightarrow$ Service Layer $\rightarrow$ File/Memory Storage)
 
 ---
 

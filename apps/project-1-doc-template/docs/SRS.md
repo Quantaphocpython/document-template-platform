@@ -98,15 +98,22 @@ Hệ thống là một phân hệ web application hoàn chỉnh cho phép ngư�
 
 ### FR-5: Trình Soạn Thảo Văn Bản Tích Hợp (Document Editor)
 - **FR-5.1**: Trình soạn thảo hiển thị trên layout giấy in A4 có đổ bóng và căn lề tiêu chuẩn.
-- **FR-5.2**: Thanh công cụ Toolbar cung cấp đầy đủ các thao tác định dạng văn phòng:
-  - Cấp độ tiêu đề: H1, H2, H3, Văn bản thường (Paragraph).
-  - Định dạng ký tự: In đậm (Bold), In nghiêng (Italic), Gạch chân (Underline).
+- **FR-5.2**: Thanh công cụ Toolbar mô phỏng Google Docs cung cấp đầy đủ các thao tác định dạng văn phòng:
+  - Chọn phông chữ (Font Family Selector): Be Vietnam Pro, Times New Roman, Arial, Roboto, Inter, JetBrains Mono với dropdown Radix UI xem trước.
+  - Cấp độ tiêu đề: H1 (18pt), H2 (14pt), H3 (13pt), Văn bản thường (Paragraph - 13pt).
+  - Tăng giảm cỡ chữ từng point (pt) trực tiếp trên thanh công cụ.
+  - Định dạng ký tự: In đậm (Bold), In nghiêng (Italic), Gạch chân (Underline), Gạch ngang (Strike), Khối code (<>).
+  - Bộ chọn màu chữ & màu nền đánh dấu (Color / Highlight Pickers).
   - Căn lề: Căn trái (Left), Căn giữa (Center), Căn phải (Right), Căn đều hai bên (Justify).
-  - Danh sách: Danh sách dấu chấm (Bullet list), Danh sách đánh số thứ tự (Numbered list).
-  - Chèn bảng biểu: Tạo bảng 3 cột x 3 hàng có định dạng header xám chuyên nghiệp.
-  - Hoàn tác / Làm lại (Undo / Redo), Xóa định dạng (Clear formatting).
+  - Danh sách: Danh sách dấu chấm (Bullet list), Danh sách đánh số thứ tự (Numbered list), Trích dẫn (Blockquote).
+  - Chèn bảng biểu: Tạo bảng có định dạng header xám chuyên nghiệp.
+  - Chế độ xem trang: Chuyển đổi linh hoạt giữa Khổ giấy A4 (Standard - 816px), Bản rộng (Wide - 1100px) và Toàn màn hình (Full - 1500px).
+  - Hoàn tác / Làm lại (Undo / Redo), In tài liệu (Print preview).
 - **FR-5.3**: Tiêu đề tài liệu cho phép người dùng nhấp để chỉnh sửa trực tiếp.
 - **FR-5.4**: Hiển thị nhãn trạng thái lưu trực quan ("Đã lưu" màu xanh / "Chưa lưu" màu hổ phách).
+- **FR-5.5**: Thanh điều hướng tối giản với nút quay lại biểu tượng mũi tên gọn gàng, loại bỏ các biểu ngữ thông báo gây xao nhãng.
+- **FR-5.6**: Cơ chế phân trang đa trang tự động (Google Docs-style Multi-page A4 Layout): Tích hợp thư viện phân trang `tiptap-a4-pagination`, tự động đo đạc và chia nội dung thành các trang A4 riêng biệt (Trang 1, Trang 2...), tự động tách dòng bảng biểu và lặp lại header bảng ở trang tiếp theo, hiển thị dải ngăn cách trang (.page-break-gap) trực quan, đảm bảo văn bản luôn nằm gọn gàng trên nền giấy trắng in ấn.
+
 
 ### FR-6: Lưu Trữ & Cập Nhật Tài Liệu (Document Persistence)
 - **FR-6.1**: Khi người dùng nhấn "Lưu tài liệu", hệ thống gửi yêu cầu `PUT /api/documents/:id` để ghi dữ liệu xuống `storage/documents/:id.json`.
@@ -115,7 +122,12 @@ Hệ thống là một phân hệ web application hoàn chỉnh cho phép ngư�
 ### FR-7: Xuất Bản File Microsoft Word (Export DOCX)
 - **FR-7.1**: Cho phép người dùng nhấn "Tải DOCX" để tải về file `.docx` tiêu chuẩn.
 - **FR-7.2**: Quá trình xuất file phải tự động lưu các chỉnh sửa mới nhất trước khi tải.
-- **FR-7.3**: File `.docx` sinh ra phải có cấu trúc OpenXML hợp lệ, mở chuẩn xác trên Microsoft Word, Google Docs, LibreOffice với đầy đủ căn lề 1 inch, cỡ chữ, kiểu in đậm/nghiêng và bảng biểu.
+- **FR-7.3**: File `.docx` sinh ra phải có cấu trúc OpenXML hợp lệ, mở chuẩn xác trên Microsoft Word, Google Docs, LibreOffice:
+  - Tự động giải mã 100% các thực thể HTML entities tiếng Việt (`decode(text)`).
+  - Phân tích cú pháp inline tags bằng Tokenizer tuần tự, triệt tiêu lỗi lọt thẻ `strong>` hoặc mã HTML rác.
+  - Tự động tính toán bề rộng cột bảng biểu theo đơn vị DXA tỷ lệ chính xác (8500 DXA printable width), đảm bảo các cột văn bản không bị co rúm chữ.
+  - Tự động nhận diện và ánh xạ căn lề (Trái, Giữa, Phải, Căn đều).
+  - Tuân thủ thể thức văn bản hành chính Việt Nam (Nghị định 30/2020/NĐ-CP): Font Times New Roman, lề trang A4 (trái 3cm, phải 2cm, trên/dưới 2.54cm).
 
 ---
 
@@ -152,4 +164,5 @@ Hệ thống là một phân hệ web application hoàn chỉnh cho phép ngư�
 | **FR-5** | Rich Text Editor & Toolbar chuẩn | Component Code & Static Linting | **PASSED** (H1-H3, Table, Styles) |
 | **FR-6** | Lưu tài liệu xuống storage/documents/ | Automated Integration Test | **PASSED** (UUID độc lập) |
 | **FR-7** | Xuất file binary Word DOCX chuẩn | Automated Test (`tests/verify-all.ts`) | **PASSED** (PK zip magic bytes OK) |
+| **FR-7.4** | Giải mã Entities & Bảng phân cột DOCX | Automated Test (`tests/verify-all.ts`) | **PASSED** (Clean entities & DXA widths) |
 
