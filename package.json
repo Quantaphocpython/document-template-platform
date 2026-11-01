@@ -15,7 +15,8 @@
     "turbo": "^2.11.10"
   },
   "overrides": {
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "canvas": "-"
   },
   "packageManager": "pnpm@11.5.0"
 }

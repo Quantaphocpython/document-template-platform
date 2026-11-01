@@ -2,6 +2,9 @@ packages:
   - 'apps/*'
   - 'packages/*'
 
+ignoredOptionalDependencies:
+  - canvas
+
 allowBuilds:
   esbuild: true
   unrs-resolver: true
