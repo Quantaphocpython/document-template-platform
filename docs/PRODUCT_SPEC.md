@@ -10,7 +10,9 @@ Tài liệu này đóng vai trò là đặc tả yêu cầu sản phẩm (Produc
 Nền tảng được xây dựng nhằm giải quyết bài toán quản trị tập trung, chuẩn hóa văn bản biểu mẫu và tăng tốc độ soạn thảo tài liệu trong môi trường doanh nghiệp. Hệ thống được tổ chức theo mô hình **Turborepo Monorepo** bao gồm hai phân hệ sản phẩm chuyên biệt và hai gói thư viện dùng chung:
 
 1. **Sản phẩm 1 - Document Template Library (`apps/project-1-doc-template`)**: Phân hệ thư viện mẫu văn bản hành chính/hợp đồng, tích hợp trình soạn thảo trực tiếp định dạng A4 và xuất file Word (`.docx`).
+   - Live URL: `https://document-template-platform.vercel.app` (API Docs: `/api-docs`)
 2. **Sản phẩm 2 - Slide Presentation Library (`apps/project-2-slide-template`)**: Phân hệ thư viện mẫu trình chiếu thuyết trình tỉ lệ chuẩn 16:9, tích hợp rạp chiếu Cinema Preview đa slide và tạo bản sao PowerPoint (`.pptx`) độc lập.
+   - Live URL: `https://slide-template-platform.vercel.app` (API Docs: `/api-docs`)
 3. **Thư viện dùng chung (`packages/core` & `packages/ui`)**:
    - `core`: Centralized HTTP Client, Lớp cơ sở trừu tượng Data Access Layer, Route constants, File/URL utilities.
    - `ui`: UIKit hoàn chỉnh độc lập, Tailwind-merge, Design System Tokens, Custom Portal System (Zustand-based).

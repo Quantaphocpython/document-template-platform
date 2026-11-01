@@ -7,6 +7,18 @@ Hệ thống thư viện mẫu tài liệu văn phòng (Văn bản DOCX & Bài t
 
 ---
 
+## THÔNG TIN TRIỂN KHAI THỰC TẾ (LIVE DEPLOYMENTS)
+
+| Phân hệ sản phẩm | Mô tả tính năng | Live URL (Vercel) | Tài liệu API (Swagger UI) |
+| :--- | :--- | :--- | :--- |
+| **Sản phẩm 1: Thư viện Mẫu Văn Bản** | Trình soạn thảo văn bản Google Docs A4 đa trang, bảng biểu, xuất file Word (.docx) | [document-template-platform.vercel.app](https://document-template-platform.vercel.app) | [Swagger API Docs](https://document-template-platform.vercel.app/api-docs) |
+| **Sản phẩm 2: Thư viện Mẫu Thuyết Trình** | Trình chiếu slide Cinema 16:9, Canvas 2D tương tác Fabric.js v7, xuất PowerPoint (.pptx) | [slide-template-platform.vercel.app](https://slide-template-platform.vercel.app) | [Swagger API Docs](https://slide-template-platform.vercel.app/api-docs) |
+
+* **Trải nghiệm trực tiếp trình soạn thảo A4**: [Hợp Đồng Lao Động Mẫu (Live Editor Demo)](https://document-template-platform.vercel.app/documents/doc-tpl-employment-contract-db93ac36-04ff-4a4d-92fe-0d70d9007010)
+* **Kiến trúc Cloud**: Zero-DB Serverless Resilience (Phục hồi tài liệu phi trạng thái trên ephemeral AWS Lambda / Vercel nodes kết hợp Local-First Persistence).
+
+---
+
 ## CẤU TRÚC TỔNG THỂ WORKSPACE
 
 Hệ thống được tổ chức thành 2 sản phẩm hoàn chỉnh, độc lập và có khả năng chạy thực tế theo mô hình kiến trúc chuẩn hóa cấp doanh nghiệp:

@@ -2,6 +2,10 @@
 
 Ứng dụng thư viện mẫu văn bản thông minh tích hợp trong bộ ứng dụng văn phòng, phát triển bằng Next.js 15, TypeScript và Tailwind CSS.
 
+* **Live Production URL**: [https://document-template-platform.vercel.app](https://document-template-platform.vercel.app)
+* **Swagger API Docs**: [https://document-template-platform.vercel.app/api-docs](https://document-template-platform.vercel.app/api-docs)
+* **Live Editor Demo**: [Hợp Đồng Lao Động Mẫu](https://document-template-platform.vercel.app/documents/doc-tpl-employment-contract-db93ac36-04ff-4a4d-92fe-0d70d9007010)
+
 ---
 
 ## Tính Năng Chính

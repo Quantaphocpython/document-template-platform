@@ -2,6 +2,9 @@
 
 Module thư viện mẫu trình chiếu PowerPoint (PPTX) hiện đại, tích hợp trong bộ ứng dụng văn phòng, phát triển bằng Next.js 15, TypeScript và Tailwind CSS.
 
+* **Live Production URL**: [https://slide-template-platform.vercel.app](https://slide-template-platform.vercel.app)
+* **Swagger API Docs**: [https://slide-template-platform.vercel.app/api-docs](https://slide-template-platform.vercel.app/api-docs)
+
 ---
 
 ## Tính Năng Chính
