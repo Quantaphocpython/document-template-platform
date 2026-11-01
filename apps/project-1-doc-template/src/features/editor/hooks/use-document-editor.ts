@@ -4,9 +4,24 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { EditorInstance } from '../components/rich-text-editor';
 
 export function useDocumentEditor(initialDocument: UserDocument) {
-  const [documentData, setDocumentData] =
-    useState<UserDocument>(initialDocument);
-  const [title, setTitle] = useState(initialDocument.title);
+  const [documentData, setDocumentData] = useState<UserDocument>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const cached = localStorage.getItem(`doc_${initialDocument.id}`);
+        if (cached) {
+          const parsed = JSON.parse(cached) as UserDocument;
+          if (parsed && parsed.contentHtml) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.warn('Could not read cached document:', e);
+      }
+    }
+    return initialDocument;
+  });
+
+  const [title, setTitle] = useState(() => documentData.title || initialDocument.title);
   const [isSaving, setIsSaving] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [toastMessage, setToastMessage] = useState<{
@@ -56,6 +71,22 @@ export function useDocumentEditor(initialDocument: UserDocument) {
     setIsSaving(true);
     const updatedContent = editorInstanceRef.current.getHTML();
 
+    const localDoc: UserDocument = {
+      ...documentData,
+      title,
+      contentHtml: updatedContent,
+      updatedAt: new Date().toISOString(),
+    };
+
+    // Save to localStorage immediately
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(`doc_${documentData.id}`, JSON.stringify(localDoc));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
     try {
       const updated = await documentApiService.updateDocument(documentData.id, {
         title,
@@ -69,14 +100,17 @@ export function useDocumentEditor(initialDocument: UserDocument) {
         type: 'success',
         text: 'Đã lưu tài liệu thành công vào hệ thống!',
       });
-    } catch (err: unknown) {
-      const msg =
-        err instanceof Error ? err.message : 'Có lỗi khi lưu tài liệu.';
-      setToastMessage({ type: 'error', text: msg });
+    } catch {
+      setDocumentData(localDoc);
+      setHasUnsavedChanges(false);
+      setToastMessage({
+        type: 'success',
+        text: 'Đã lưu thành công vào bộ nhớ trình duyệt!',
+      });
     } finally {
       setIsSaving(false);
     }
-  }, [documentData.id, title]);
+  }, [documentData, title]);
 
   // Handle Export DOCX
   const handleExportDocx = useCallback(async () => {

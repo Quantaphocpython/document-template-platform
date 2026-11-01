@@ -6,11 +6,13 @@ export const dynamic = 'force-dynamic';
 
 interface DocumentPageProps {
   params: Promise<{ id: string }>;
+  searchParams?: Promise<{ template?: string }>;
 }
 
-export async function generateMetadata({ params }: DocumentPageProps) {
+export async function generateMetadata({ params, searchParams }: DocumentPageProps) {
   const { id } = await params;
-  const document = documentService.getDocumentById(id);
+  const sParams = searchParams ? await searchParams : {};
+  const document = documentService.getDocumentById(id, sParams.template);
   return {
     title: document
       ? `${document.title} | Trình Soạn Thảo Văn Bản`
@@ -18,9 +20,10 @@ export async function generateMetadata({ params }: DocumentPageProps) {
   };
 }
 
-export default async function DocumentPage({ params }: DocumentPageProps) {
+export default async function DocumentPage({ params, searchParams }: DocumentPageProps) {
   const { id } = await params;
-  const document = documentService.getDocumentById(id);
+  const sParams = searchParams ? await searchParams : {};
+  const document = documentService.getDocumentById(id, sParams.template);
 
   if (!document) {
     notFound();

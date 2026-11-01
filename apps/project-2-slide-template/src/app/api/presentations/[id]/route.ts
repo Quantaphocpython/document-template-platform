@@ -9,7 +9,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const presentation = presentationService.getPresentationById(id);
+    const presentation = await presentationService.getPresentationById(id);
 
     if (!presentation) {
       return NextResponse.json(

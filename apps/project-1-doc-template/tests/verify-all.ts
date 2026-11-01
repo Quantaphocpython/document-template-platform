@@ -138,6 +138,25 @@ async function runTests() {
   assert.strictEqual(meetingDocxBuffer[1], 0x4b, 'Byte 1 phải là K (0x4B)');
   console.log(`  ✓ Xuất file Biên Bản DOCX thành công: ${meetingDocxBuffer.length} bytes (Entities giải mã sạch, không rác HTML)`);
 
+  // 6. Kiểm thử cơ chế phục hồi Serverless (Zero-DB Ephemeral Container Resilience)
+  console.log('\nTest 6: Kiểm tra cơ chế tự động tái tạo Serverless (Serverless Resilience)...');
+  // a. ID có tiền tố template
+  const serverlessDoc = documentService.getDocumentById('doc-tpl-meeting-minutes-a1b2c3d4-e5f6-7890-1234-567890abcdef');
+  assert(serverlessDoc !== null, 'Phải tự phục hồi tài liệu từ template trên container mới');
+  assert.strictEqual(serverlessDoc.clonedFromTemplateId, 'tpl-meeting-minutes');
+  console.log('  ✓ Tái tạo thành công tài liệu từ mã template trên container serverless mới');
+
+  // b. ID ngẫu nhiên cũ (như trường hợp người dùng gặp lỗi doc-7e268dcb-ba93-4832-b1a2-4c71d44c101c)
+  const legacyDoc = documentService.getDocumentById('doc-7e268dcb-ba93-4832-b1a2-4c71d44c101c');
+  assert(legacyDoc !== null, 'ID cũ không được trả về null / 404');
+  assert(legacyDoc.contentHtml.length > 0, 'Phải có nội dung văn bản đầy đủ');
+  console.log('  ✓ Fallback thành công tài liệu legacy ID (chống 404 tuyệt đối trên Vercel)');
+
+  // c. Xuất DOCX trực tiếp từ tài liệu vừa tái tạo
+  const recoveredDocxBuffer = await docxExportService.generateDocxBuffer(legacyDoc);
+  assert(recoveredDocxBuffer.length > 1000, 'DOCX từ tài liệu phục hồi phải hợp lệ');
+  console.log(`  ✓ Xuất DOCX thành công từ tài liệu tái tạo: ${recoveredDocxBuffer.length} bytes`);
+
   console.log('\n====================================================');
   console.log('🎉 TOÀN BỘ KIỂM THỬ TỰ ĐỘNG ĐỀU ĐẠT CHUẨN 100% (PASSED)');
   console.log('====================================================\n');

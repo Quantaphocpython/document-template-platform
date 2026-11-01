@@ -11,7 +11,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const fileResult = presentationService.getPresentationFilePath(id);
+    const fileResult = await presentationService.getPresentationFilePath(id);
 
     if (!fileResult) {
       return NextResponse.json(

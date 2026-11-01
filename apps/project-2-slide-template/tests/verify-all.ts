@@ -88,6 +88,13 @@ async function runTests() {
   assert.strictEqual(clonedBuffer[3], 0x04, 'Byte 3 phải là 0x04');
   console.log(`  ✓ File PPTX có cấu trúc OpenXML hợp lệ: ${clonedBuffer.length} bytes`);
 
+  // 5. Kiểm thử khả năng tái tạo Serverless (Serverless PPTX Recovery)
+  console.log('\nTest 5: Kiểm tra cơ chế tự động tái tạo file PPTX trên Serverless mới...');
+  const serverlessPres = await presentationService.getPresentationFilePath('pres-tpl-pitch-deck-investor-test-serverless-uuid');
+  assert(serverlessPres !== null, 'Phải tự động tạo file và metadata PPTX khi container mới nhận request tải');
+  assert(fs.existsSync(serverlessPres.filePath), 'File PPTX vật lý phải tồn tại trong container');
+  console.log(`  ✓ Tự phục hồi thành công file PPTX trên serverless container: ${serverlessPres.filePath}`);
+
   console.log('\n====================================================');
   console.log('🎉 TOÀN BỘ KIỂM THỬ TỰ ĐỘNG ĐỀU ĐẠT CHUẨN 100% (PASSED)');
   console.log('====================================================\n');

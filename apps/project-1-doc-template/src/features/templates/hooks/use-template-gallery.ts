@@ -64,9 +64,18 @@ export function useTemplateGallery() {
         templateId: template.id,
       });
 
+      // Local storage resilience for client-side persistence
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem(`doc_${createdDoc.id}`, JSON.stringify(createdDoc));
+        } catch (e) {
+          console.warn('Could not cache document to localStorage:', e);
+        }
+      }
+
       setToastMessage(`Đã tạo tài liệu mới từ mẫu "${template.title}" thành công!`);
       setTimeout(() => {
-        router.push(APP_ROUTES.DOCUMENTS.DETAIL(createdDoc.id));
+        router.push(`${APP_ROUTES.DOCUMENTS.DETAIL(createdDoc.id)}?template=${template.id}`);
       }, 600);
     } catch (error) {
       console.error('Lỗi tạo tài liệu:', error);

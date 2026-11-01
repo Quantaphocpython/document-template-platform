@@ -101,6 +101,12 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   }, [editor]);
 
   useEffect(() => {
+    if (editor && initialContent && editor.getHTML() !== initialContent) {
+      editor.commands.setContent(initialContent);
+    }
+  }, [editor, initialContent]);
+
+  useEffect(() => {
     if (!editor) return;
     const updatePageCount = () => {
       const storage = editor.storage as unknown as { pagination?: { pageCount?: number } };

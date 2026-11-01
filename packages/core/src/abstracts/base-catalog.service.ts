@@ -21,6 +21,10 @@ export abstract class BaseCatalogService<
     return this.categories;
   }
 
+  public getAll(): TItem[] {
+    return [...this.items];
+  }
+
   /**
    * Filter templates by category and search keyword across title, description, tags, and categoryName.
    */
